@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cold-Start Recommendations &#8212; coldstart-recsys</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Attribute to Feature Mappings for Cold-Start Recommendations" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">coldstart-recsys</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html">
+   Attribute to Feature Mappings for Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/L281872_Cold_Start_Recommendations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/coldstart-recsys/main?urlpath=tree/docs/L281872_Cold_Start_Recommendations.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/coldstart-recsys/blob/main/docs/L281872_Cold_Start_Recommendations.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#item-cold-start">
+     Item cold-start
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#user-cold-start">
+     User cold-start
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approaches">
+   Approaches
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#representative-approaches-for-cold-start-recommendations">
+     Representative approaches for cold-start recommendations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auxiliary-information-transformation">
+     Auxiliary information transformation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bandits">
+     Bandits
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-domain-transfer">
+     Cross-domain transfer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meta-learning">
+     Meta Learning
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cold-start-sequential-models">
+     Cold-start Sequential Models
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-dialogue">
+     Interactive Dialogue
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hybrid">
+     Hybrid
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#models">
+   Models
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metatl">
+     MetaTL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tanp">
+     TaNP
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#agnn">
+     AGNN
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dare">
+     DaRE
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tutorials">
+   Tutorials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attribute-to-feature-mappings-for-cold-start-recommendations">
+     Attribute to Feature Mappings for Cold-Start Recommendations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lightfm-cold-start-on-movielens-10m-dataset">
+     LightFM Cold-start on MovieLens 10m dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#emcdr-on-movielens-netflix-dataset">
+     EMCDR on MovieLens-Netflix dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hers-cold-start-recommendations-on-lastfm-dataset">
+     HERS Cold-start Recommendations on LastFM dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#collective-matrix-factorization-on-movielens-1m-dataset">
+     Collective Matrix Factorization on MovieLens 1m dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#double-domain-recommendations-on-movielens-1m-dataset">
+     Double-Domain Recommendations on MovieLens 1m dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dropoutnet-cold-start-recommendation-on-citeulike-dataset">
+     DropoutNet Cold-start Recommendation on CiteULike dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#metatl-for-cold-start-recommendations-on-amazon-electronics-dataset">
+     MetaTL for Cold-start Recommendations on Amazon Electronics dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tanp-cold-start-recommender-on-lastfm-dataset">
+     TaNP Cold-start Recommender on LastFM dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aggn-cold-start-recommendation-on-movielens-100k">
+     AGGN Cold-start Recommendation on MovieLens 100k
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dare-cross-domain-recommender-on-amazon-reviews-dataset">
+     DaRE Cross-domain Recommender on Amazon Reviews dataset
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cold-start-recommendations">
+<h1>Cold-Start Recommendations<a class="headerlink" href="#cold-start-recommendations" title="Permalink to this headline">¶</a></h1>
+<p><center><img src='_images/L281872_1.png'></center></p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>One long-standing challenge for Collaborative Filtering (CF) based recommendation methods is the cold start problem, i.e., to provide recommendations for new users or items who have no historical interaction record. The cold start problem is common in real world applications. For example, 500 hours of new videos are uploaded to YouTube every minute, 500,000 new users register in Facebook every day, and web/mobile apps face the daily challenge of onboarding new users and subscribers. To provide recommendations for these new users and items, many content-based methods and heuristic methods have been deployed, e.g., recommending popular items or geographically near items. However, recent research efforts that tackle the cold start problem from the perspective of machine learning have made promising strides.</p>
+<p>Cold start happens when new users or new items arrive in e-commerce platforms. Classic recommender systems like collaborative filtering assumes that each user or item has some ratings so that we can infer ratings of similar users/items even if those ratings are unavailable. However, for new users/items, this becomes hard because we have no browse, click or purchase data for them. As a result, we cannot “fill in the blank” using typical matrix factorization techniques.</p>
+<p>Recommender systems can be generally classified as collaborative filter-based, content-based, or hybrid systems. Collaborative filter-based systems estimate user responses by collecting preference information from numerous users. The predictions are built upon the existing ratings of other users who have similar ratings as the target user. However, such systems cannot handle new users (user cold-start) and new items (item cold-start) because of the lack of user-item interactions. Content-based systems are introduced to solve the cold-start problem. Such systems use user profile information (e.g., gender, nationality, religion, and political stance) and the contents of the items to make recommendations. The systems might have a limitation suggesting the same items to the users who have similar contents regardless of items that user already rated. Hybrid systems, which are based on a collaborative filter and utilize content information, are widely used in various applications. However, these systems are unfit for a recommendation when the user-item interaction data are sparse. Moreover, due to privacy issues, collecting personal information is challenging, which might result in the user cold-start problem. To avoid the user cold-start problem due to privacy issues, many web-based systems, such as Netflix, recommend items based on only minimal user information. Netflix initially presents popular movies and television programs to new users: we call these videos the evidence candidates. Then, the user chooses the videos that he/she likes among the candidates. Afterward, the system recommends some programs based on the videos selected by the user. Recently, to improve performance, the recommendations have been made using deep learning methods; however, the cold-start problem remains for new users who rate only a few items.</p>
+<p>Matrix completion is a classic problem underlying recommender systems. It is traditionally tackled with matrix factorization. Recently, deep learning based methods, especially graph neural networks, have made impressive progress on this problem. Despite their effectiveness, existing methods focus on modeling the user-item interaction graph. The inherent drawback of such methods is that their performance is bound to the density of the interactions, which is however usually of high sparsity. More importantly, for a cold start user/item that does not have any interactions, such methods are unable to learn the preference embedding of the user/item since there is no link to this user/item in the graph.</p>
+<div class="section" id="item-cold-start">
+<h3>Item cold-start<a class="headerlink" href="#item-cold-start" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Find similar items using item features</p></li>
+<li><p>Another approach is to randomly recommend these items to users until enough interaction data is available</p></li>
+<li><p><a class="reference external" href="https://www.amazon.science/publications/treating-cold-start-in-product-search-by-priors">Treating cold start in product search by priors</a> - New products in e-commerce platforms suffer from cold start, both in recommendation and search. In this study, we present experiments to deal with cold start in search by predicting priors for behavioral features in learning to rank set up. The offline results show that our technique generates priors for behavioral features that closely track posterior values. The online A/B test on 140MM queries shows that treatment with priors improves new products impressions and increased customers engagement pointing to their relevance and quality.</p></li>
+</ul>
+</div>
+<div class="section" id="user-cold-start">
+<h3>User cold-start<a class="headerlink" href="#user-cold-start" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Find similar users, but it requires user information. So if we do not have this information, e.g. in case of session-based recommenders, we will not be able to use this technique.</p></li>
+<li><p>Another approach is to ask about interests using surveys. It works pretty well.</p></li>
+<li><p>One more approach is to recommend popular items until enough interaction data is available for that user and then gradually switch to personalized recommendations.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="approaches">
+<h2>Approaches<a class="headerlink" href="#approaches" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="representative-approaches-for-cold-start-recommendations">
+<h3>Representative approaches for cold-start recommendations<a class="headerlink" href="#representative-approaches-for-cold-start-recommendations" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> use subset of items and users that represents the population</p>
+<p>If we do not have enough information about users and items, we can rely more on those who “represent” the set of items and users. That’s the philosophy behind representative based methods. Representatives can be users whose linear combinations of preferences accurately approximate other users’.</p>
+<p><strong>Random Strategy</strong></p>
+<p>A naive method to choose the representatives is simply to randomly select a subset of users or items. This strategy corresponds to the assumption that users or items are indifferent in terms of their predictive power on other users’ and items’ ratings and therefore there would be no gain in strategically choosing which users and items to elicit ratings from.</p>
+<p><strong>Most Ratings Strategy</strong></p>
+<p>Another simple method to select the representative is to choose the k users or k items which had the most observed ratings. This strategy is also easy to calculate. However, popularity in many cases are not equivalent to informativeness. For example, the most popular movies tend to be widely liked by almost any user and a rating on such movies would provide little information regarding the new user’s unique preferences. Similarly, a very active user may be someone who frequently watches randomly selected movies and may not serve as a good user prototype.</p>
+<p><strong>K-Medoids Strategy</strong></p>
+<p>The previous two methods do not consider the correlation between the selected representatives and could potentially choose multiple highly similar users or items. To avoid such redundancy problem, we also consider another more complicated strategy based on k-medoids clustering. k-medoids tries to group data objects into k clusters. Each cluster is represented by an actual data object, i.e. the representative. The other instances are clustered with the representative to which it is most similar to.</p>
+<p>A famous representative based method, <em><a class="reference external" href="https://dl.acm.org/doi/10.1145/2043932.2043943">Representative Based Matrix Factorization (RBMF)</a></em> is an extension of MF methods with an additional constraint that <strong>m</strong> items should be represented by a linear combination of <strong>k</strong> items, as can be seen from the objective function below:</p>
+<div class="math notranslate nohighlight">
+\[\min_{U,V} ||R-UV||_F^2 + \alpha||V||_F^2\ s.t.\ U \in \mathbb{R}^{n \times k}\ and\ U \sub_{n,k}\mathbb{R}, V \sub \mathbb{R}^{k \times m}\]</div>
+<p>Here, we have the reconstruction error similar to standard MF methods, with this additional constraint. When a new user joins the platform, we can ask the new users to rate these <span class="math notranslate nohighlight">\(k\)</span> items, and use that to infer the ratings of other <span class="math notranslate nohighlight">\(m − k\)</span> items. This way, with a small additional cost on users of rating some items, we can improve the recommendations for new users.</p>
+<p>In most real world systems, new items and new users would be added to the system constantly. A recommender system should be able to adjust its model rapidly in order to be able to make recommendations regarding new users and new items as soon as possible. This require techniques for learning the parameters associated with new users and new items based on an increment of new data without the need to retrain the whole model entirely. This type of techniques have also been known as <em><strong>folding in</strong></em>. Using the RBMF model, folding in is effortless. In particular, we only need to obtain ratings from the <span class="math notranslate nohighlight">\(k\)</span> representative users for a new item in order to recommend it to other users. Similarly, we only need to ask a new user to rate <span class="math notranslate nohighlight">\(k\)</span> representative items to recommend other items to him.</p>
+<p>There have been improvements on RBMF proposed in <a class="reference external" href="https://dl.acm.org/doi/10.1145/3108148">this</a> paper, where we can interview only a subset of users instead of all the new users to decrease the burden on the new users. The advantage of this approach is that there is more interpretability, because new users can be expressed in terms of few representative items. Also, If you’re using MF methods already, this can be a simple extension to handle cold start. Possible disadvantage is that might be a need to change UI and front end logic to ask the users to rate the representative items.</p>
+</div>
+<div class="section" id="auxiliary-information-transformation">
+<h3>Auxiliary information transformation<a class="headerlink" href="#auxiliary-information-transformation" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> utilizes auxiliary information.</p>
+<p>ML-based models combine user-item interactions from existing warm start users and items (as in CF-based methods) with auxiliary information from both warm and cold users and items (as in content-based methods). This auxiliary information – be it from user profiles, item descriptions, reviews, and other sources – is often readily available even in the absence of user-item interactions.</p>
+<p>There are various kinds of auxiliary information could be exploited to improve cold-start recommendation performance, e.g., user attributes, item attributes, knowledge graphs, samples in an auxiliary domain, etc.</p>
+<p><center><img src='_images/L281872_2.png'></center></p>
+<p>(a) setup of cold start recommendation problem, where both warm and cold users and items have auxiliary representations (such as user profiles and item content); and (b) the main idea of existing cold start recommendation algorithms: learn transformation functions to transform auxiliary representations to CF representations.</p>
+<p>The key insight is to learn two transformation functions – one for users and one for items – to transform the auxiliary representations of these new users and items into the CF space. The learned transformation functions are then applied on auxiliary representations of cold start users and items to predict preference scores at inference time. Hence, the fundamental challenge is how to generate effective transformation functions based on the given auxiliary information and user-item interactions.</p>
+<p>Recent ML-based approaches have made promising strides versus traditional methods. These ML approaches typically combine both user-item interaction data of existing warm start users and items (as in CF-based methods) with auxiliary information of users and items such as user profiles and item content information (as in content-based methods). However, such approaches face key drawbacks including the error superimposition issue that the auxiliary-to-CF transformation error increases the final recommendation error; the ineffective learning issue that long distance from transformation functions to model output layer leads to ineffective model learning; and the unified transformation issue that applying the same transformation function for different users and items results in poor transformation.</p>
+<p>Recommender systems have been widely deployed in various online services, such as E-commerce platforms and news portals, to address the issue of information overload for users. At their core, they typically adopt collaborative filtering, aiming to estimate the likelihood of a user adopting an item based on the interaction history like past purchases and clicks. However, the interaction data of new users or new items are often very sparse, leading to the so-called cold-start scenarios in which it becomes challenging to learn effective user or item representations.</p>
+<p><center><img src='_images/L281872_3.png'></center></p>
+</div>
+<div class="section" id="bandits">
+<h3>Bandits<a class="headerlink" href="#bandits" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> designing a decision making strategy. consider the exploration vs exploitation tradeoffs in new items.</p>
+<p>When a new user joins the system it initially has no knowledge of the preferences of the user and so would like to quickly learn these. The recommender system therefore initially starts in an “exploration” phase where the first few items that it asks the new user to rate are chosen with the aim of discovering the user’s preferences. Cold-start problem can also be naturally modeled as a CMAB problem. Multi-armed bandit problem (MAB) which derives from the gamble game is a simplified setting of reinforcement learning. In order to earn the maximal sum of rewards, the gambler has two choices, one is trying to play some new arms of the multi-armed bandit which may have higher reward (exploration), while the other is sticking on playing the arm (exploitation) given the high reward so far.</p>
+<p>In particular, upper confidence bound (UCB) is an effective method to solve CMAB, which suggests an arm with maximal confidence upper bound. LinUCB extends UCB by considering contextual information about the arm. To recommend diversified items, suggests a batch of items (called super arm) to each user with an entropy regularization.</p>
+</div>
+<div class="section" id="cross-domain-transfer">
+<h3>Cross-domain transfer<a class="headerlink" href="#cross-domain-transfer" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">TL;DR</span></code> few-shot meta-learners.</p>
+<p>A common challenge for most current recommender systems is the cold-start problem. Due to the lack of user-item interactions, the fine-tuned recommender systems are unable to handle situations with new users or new items. Recently, some works introduce the meta-optimization idea into the recommendation scenarios, i.e. predicting the user preference by only a few of past interacted items. The core idea is learning a global sharing initialization parameter for all users and then learning the local parameters for each user separately. However, most meta-learning based recommendation approaches adopt model-agnostic meta-learning for parameter initialization, where the global sharing parameter may lead the model into local optima for some users.</p>
+<p>Although recommendation systems have been proved to play a significant role in a variety of applications, there are two long-standing obstacles that greatly limit the performance of recommendation systems. On the one hand, the number of user-item interaction records often tends to be small and is insufficient to mine user interests well, which is called the data sparsity problem. On the other hand, for any service, there are constantly new users joining, for whom there are no historical interaction records. Traditional recommendation systems cannot make recommendations to these users, which is called the cold-start problem.</p>
+<p>As more and more users begin to interact with more than one domains (e.g., music and book), it increases opportunities of leveraging information collected from other domains to alleviate the two problems (i.e., data sparsity and cold-start problems) in one domain. This idea leads to Cross-Domain Recommendation (CDR) which has attracted increasing attention in recent years.</p>
+<p>There are two core issues for cross-domain recommendation, namely, what to transfer and how to transfer. What to transfer is how to mine useful knowledge in each domain, and how to transfer focuses on how to establish linkages between domains and realize the transfer of knowledge.</p>
+<p>Cold-start problems are enormous challenges in practical recommender systems. One promising solution for this problem is cross-domain recommendation (CDR) which leverages rich information from an auxiliary (source) domain to improve the performance of recommender system in the target domain. In these CDR approaches, the family of Embedding and Mapping methods for CDR (EMCDR) is very effective, which explicitly learn a mapping function from source embeddings to target embeddings with overlapping users.</p>
+<p>With the help of the auxiliary (source) domain, cross-domain recommendation (CDR) is a promising solution to alleviate data sparsity and the cold-start problem in the target domain. The core task of  CDR is preference transfer. For instance, If I like <em>Song A</em> and <em>Song B</em> (music domain), how much I like <em>Movie X</em> (movie domain)?</p>
+<p><center><img src='_images/L281872_4.png'></center></p>
+<p>Existing workflow in cross-domain recommendation for cold-start users.</p>
+<p><strong>Domain overlapping</strong></p>
+<p><center><img src='_images/L281872_5.png'></center></p>
+<p><a class="reference external" href="https://arxiv.org/pdf/2108.03357.pdf">source</a></p>
+<p><strong>Recommendation scenarios</strong></p>
+<p><center><img src='_images/L281872_6.png'></center></p>
+<p><a class="reference external" href="https://arxiv.org/pdf/2108.03357.pdf">source</a></p>
+<p>At the very beginning, CMF assumes a shared global user embedding matrix for all domains, and it factorizes matrices from multiple domains simultaneously. CST utilizes the user embedding in the source domain to initialize the embedding in the target domain and restricts them from being closed. In recent years, researchers proposed many deep learning-based models to enhance knowledge transfer. CoNet transfers and combines the knowledge by using cross-connections between feedforward neural networks. MINDTL combines the CF information of the target-domain with the rating patterns extracted from a cluster-level rating matrix in the source-domain. DDTCDR develops a novel latent orthogonal mapping to extract user preferences over multiple domains while preserving relations between users across different latent spaces. Similar to multi-task methods, these methods focus on proposing a well-designed deep structure that can effectively train the source and target domains together.</p>
+<p>Another group of CDR methods focus on bridging user preferences in different domains, which is the most related work. CST utilizes the user embedding learned in the source domain to initialize the user embedding in the target domain and restricts them to being closed. Some methods explicitly model the preference bridge.</p>
+<p><strong>CMF</strong> is a simple and well-known method for cross-domain recommendation by sharing the user factors and factorizing joint rating matrix across domains.</p>
+<p><strong>EMCDR</strong> is the first to propose the three-step optimization paradigm by training matrix factorization in both domains successively then utilizing multi-layer perceptrons to map the user latent factors.</p>
+<p><strong>CDLFM</strong> modifies matrix factorization by fusing three kinds of user similarities as a regularization term based on their rating behaviors. A neighborhood-based mapping approach is used to replace the previous multi-layer perceptrons, by considering similar users and the gradient boosting trees (GBT) based ensemble learning method.</p>
+<p><center><img src='_images/L281872_7.png'></center></p>
+<p>The workflow diagram for our proposed model CDLFM.</p>
+</div>
+<div class="section" id="meta-learning">
+<h3>Meta Learning<a class="headerlink" href="#meta-learning" title="Permalink to this headline">¶</a></h3>
+<p>Meta learning covers a wide range of topics and has contributed to a booming study trend. Few-shot learning is one of successful branches of meta learning. We retrospect some representative meta-learning models with strong connections to our work.</p>
+<p>They can be divided into the following common types.</p>
+<ol class="simple">
+<li><p>Memory-based approaches: combining deep neural networks (DNNs) with the memory mechanism to enhance the capability of storing and querying meta-knowledge.</p></li>
+<li><p>Optimization-based approaches: a meta-learner, e.g. recurrent neural networks (RNNs) is trained to optimize target models.</p></li>
+<li><p>Metric-based approaches: learning an effective similarity metric between new examples and other examples in the training set.</p></li>
+<li><p>Gradient-based approaches: learning an shared initialization where the model parameters can be trained via a few gradient updates on new tasks. Most meta-learning models follow an episodic learning manner. Among them, MAML is one of the most popular frameworks, which falls into the fourth type. Some MAML-based works consider that the sequence of tasks may originate from different task distributions, and try various task-specific adaptations to improve model capability.</p></li>
+</ol>
+<p>It is also named learning to learn, aiming to improve novel tasks’ performance by training on similar tasks. There are various meta learning methods, e.g., metric-based methods, gradient-based methods, and parameter-generating based methods.</p>
+<p>This line of research aims to learn a model which can adapt and generalize to new tasks and new environments with a few training samples. To achieve the goal of “learning-to-learn”, there are three types of different approaches. Metric-based methods are based on a similar idea to the nearest neighbors algorithm with a well-designed metric or distance function, prototypical networks or Siamese Neural Network. Model-based methods usually perform a rapid parameter update with an internal architecture or are controlled by another meta-learner model. As for the optimization-based approaches, by adjusting the optimization algorithm, the models can be efficiently updated with a few examples.</p>
+<p>Inspired by the huge progress on few-shot learning and meta learning, there emerge some promising works on solving cold-start problems from the perspective of meta learning, where making recommendations for one user is regarded as a single task.</p>
+<p>In the training phase, they try to derive the global knowledge across different tasks as a strong generalization prior. When a cold-start user comes in the test phase, the personalized recommendation for her/him can be predicted with only a few interacted items are available, but does so by using the global knowledge already learned.</p>
+<p>Most meta-learning recommenders are built upon the well-known framework of model-agnostic meta learning (MAML), aiming to learn a parameter initialization where a few steps of gradient updates will lead to good performances on the new tasks. A typical assumption here is the recommendations of different users are highly relevant. However, this assumption does not necessarily hold in actual scenarios. When the users exhibit different purchase intentions, the task relevance among them is actually very weak, which makes it problematic to find a shared parameter initialization optimal for all users. As shown in the image below:</p>
+<p><center><img src='_images/L281872_8.png'></center></p>
+<p>An illustration of the relevance of different tasks. The purchase intentions of user 𝑎, 𝑏 and 𝑐 are manifested by the corresponding user-item interactions. It shows that tasks 𝑎, 𝑐 are closely relevant but task 𝑏 is largely different from them. Each task owns the user-specific support set and query set.</p>
+<p>Inspired by the significant improvements of meta learning, the pioneering work of <a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/46346.pdf">Vartak et. al.</a> provides a meta-learning strategy to solve cold-start problems. It uses a task-dependent way to generate the varying biases of decision layers for different tasks, but it is prone to underfitting and is not flexible enough to handle various recommendation scenarios. <a class="reference external" href="https://arxiv.org/abs/1908.00413">MeLU</a> adopts the framework of MAML. Specifically, it divides the model parameters into two groups, i.e., the personalized parameter and the embedding parameter. The personalized parameter is characterized as a fully-connected DNN to estimate user preferences. The embedding parameter is referred as the embeddings of users and items learned from side-information. An inner-outer loop is used to update these two groups of parameters. In the inner loop, the personalized parameter is locally updated via the prediction loss of support set in current task. In the outer loop, these parameters are globally updated according to the prediction loss of query sets in multiple tasks. Through the fashion of local-global update, MeLU can provide a shared initialization for different tasks. The later work <a class="reference external" href="https://www.semanticscholar.org/paper/Meta-Learning-for-User-Cold-Start-Recommendation-Bharadhwaj/f3135b553f592dc42d4202c90739c99486103fc3">MetaCS</a> is much similar to MeLU, and the main difference is that the local-global update involves all parameters from input embedding to model prediction. To generalize well for different tasks, <a class="reference external" href="https://www.kdd.org/kdd2020/accepted-papers/view/meta-learning-on-heterogeneous-information-networks-for-cold-start-recommen">MetaHIN</a> and <a class="reference external" href="https://arxiv.org/abs/2007.03183">MAMO</a> propose different task-specific adaptation strategies. In particular, MetaHIN incorporates heterogeneous information networks (HINs) into MAML to capture rich semantics of meta-paths. MAMO introduces two memory matrices based on user profiles: a feature-specific memory that provides a specific bias term for the shared parameter initialization; a task-specific memory that guides the model for predictions. However, these two gradient-based meta-learning models may still suffer from potential training issues in MAML, and the model-level innovations of them are closely related with side-information, which limits their application scenarios.</p>
+</div>
+<div class="section" id="cold-start-sequential-models">
+<h3>Cold-start Sequential Models<a class="headerlink" href="#cold-start-sequential-models" title="Permalink to this headline">¶</a></h3>
+<p>Though quite a few cold-start recommendation methods have been proposed, most require side information or knowledge from other domains during training, and commonly treat the user-item interactions in a static way. In contrast, cold-start sequential recommendation targets a setting where no additional auxiliary knowledge can be accessed due to privacy issues, and more importantly, the user-item interactions are sequentially dependent. A user’s preferences and tastes may change over time and such dynamics are of great significance in sequential recommendation. Hence, it is necessary to develop a new sequential recommendation framework that can distill short-range item transitional dynamics, and make fast adaptation to those cold-start users with limited user-item interactions.</p>
+</div>
+<div class="section" id="interactive-dialogue">
+<h3>Interactive Dialogue<a class="headerlink" href="#interactive-dialogue" title="Permalink to this headline">¶</a></h3>
+<p>Traditional recommendation systems produce static rather than interactive recommendations invariant to a user’s specific requests, clarifications, or current mood, and can suffer from the cold-start problem if their tastes are unknown. These issues can be alleviated by treating recommendation as an interactive dialogue task instead, where an expert recommender can sequentially ask about someone’s preferences, react to their requests, and recommend more appropriate items.</p>
+</div>
+<div class="section" id="hybrid">
+<h3>Hybrid<a class="headerlink" href="#hybrid" title="Permalink to this headline">¶</a></h3>
+<p>It is indeed the most common approach because of the flexibility and performance. In this approach, we simply combine different cold-start approaches. E.g. Using bandit exploration-exploitation approach but use meta-learning model to select exploration recommendation (instead of random choice).</p>
+</div>
+</div>
+<div class="section" id="models">
+<h2>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="metatl">
+<h3>MetaTL<a class="headerlink" href="#metatl" title="Permalink to this headline">¶</a></h3>
+<p>A fundamental challenge for sequential recommenders is to capture the sequential patterns of users toward modeling how users transit among items. In many practical scenarios, however, there are a great number of cold-start users with only minimal logged interactions. As a result, existing sequential recommendation models will lose their predictive power due to the difficulties in learning sequential patterns over users with only limited interactions. In this work, we aim to improve sequential recommendation for cold-start users with a novel framework named MetaTL, which learns to model the transition patterns of users through meta-learning.</p>
+<p>Specifically, the proposed MetaTL:</p>
+<ol class="simple">
+<li><p>formulates sequential recommendation for cold-start users as a few-shot learning problem;</p></li>
+<li><p>extracts the dynamic transition patterns among users with a translation-based architecture; and</p></li>
+<li><p>adopts meta transitional learning to enable fast learning for cold-start users with only limited interactions, leading to accurate inference of sequential interactions.</p></li>
+</ol>
+<p><strong>Background</strong></p>
+<p>One of the first approaches for sequential recommendation is the use of Markov Chains to model the transitions of users among items. More recently, TransRec embeds items in a “transition space” and learns a translation vector for each user. With the advance in neural networks, many different neural structures including Recurrent Neural Networks, Convolutional Neural Networks, Transformers and Graph Neural Networks, have been adopted to model the dynamic preferences of users over their behavior sequences. While these methods aim to improve the overall performance via representation learning for sequences, they suffer from weak prediction power for cold-start users with short behavior sequences.</p>
+<p>This line of research aims to learn a model which can adapt and generalize to new tasks and new environments with a few training samples. To achieve the goal of “learning-to-learn”, there are three types of different approaches. Metric-based methods are based on a similar idea to the nearest neighbors algorithm with a well-designed metric or distance function, prototypical networks or Siamese Neural Network. Model-based methods usually perform a rapid parameter update with an internal architecture or are controlled by another meta-learner model. As for the optimization-based approaches, by adjusting the optimization algorithm, the models can be efficiently updated with a few examples.</p>
+<p>MetaRec proposes a meta-learning strategy to learn user-specific logistic regression. There are also methods including MetaCF, Warm-up and MeLU, adopting Model-Agnostic Meta-Learning (MAML) methods to learn a model to achieve fast adaptation for cold-start users.</p>
+<p>cold-start sequential recommendation targets a setting where no additional auxiliary knowledge can be accessed due to privacy issues, and more importantly, the user-item interactions are sequentially dependent. A user’s preferences and tastes may change over time and such dynamics are of great significance in sequential recommendation. Hence, it is necessary to develop a new sequential recommendation framework that can distill short-range item transitional dynamics, and make fast adaptation to those cold-start users with limited user-item interactions.</p>
+<p><strong>Model</strong></p>
+<p>Let <span class="math notranslate nohighlight">\(I = \{𝑖_1,𝑖_2, \dots,𝑖_𝑃\}\)</span> and <span class="math notranslate nohighlight">\(U = \{u_1,u_2, \dots,u_G\}\)</span> represent the item set and user set in the platform respectively. Each item is mapped to a trainable embedding associated with its ID. There is no auxiliary information for users or items. In sequential recommendation, given the sequence of items <span class="math notranslate nohighlight">\({𝑆𝑒𝑞}_𝑢 = (𝑖_{𝑢,1},𝑖_{𝑢,2}, \dots,𝑖_{𝑢,𝑛})\)</span> that user 𝑢 has interacted with in chronological order, the model aims to infer the next interesting item <span class="math notranslate nohighlight">\(𝑖_{𝑢,𝑛+1}\)</span>. That is to say, we need to predict the preference score for each candidate item based on <span class="math notranslate nohighlight">\({𝑆𝑒𝑞}_𝑢\)</span> and thus recommend the top-N items with the highest scores.</p>
+<p>In our task, we train the model on <span class="math notranslate nohighlight">\(U_{𝑡𝑟𝑎𝑖𝑛}\)</span>, which contains users with various numbers of logged interactions. Then given 𝑢 in a separate test set <span class="math notranslate nohighlight">\(U_{𝑡𝑒𝑠𝑡},\ U_{𝑡𝑟𝑎𝑖𝑛} ∩ U_{𝑡𝑒𝑠𝑡} = \phi\)</span>, the model can quickly learn user transition patterns according to the 𝐾 initial interactions and thus infer the sequential interactions. Note that the size of a user’s initial interactions (i.e., 𝐾) is assumed to be a small number (e.g., 2, 3 or 4) considering the cold-start scenario.</p>
+<p><center><img src='_images/L281872_9.png'></center></p>
+<p>Meta-learning aims to learn a model which can adapt to new tasks (i.e., new users) with a few training samples. To enable meta-learning in sequential recommendation for cold-start users, we formulate training a sequential recommender as solving a new few-shot learning problem (i.e., meta-testing task) by training on many sampled similar tasks (i.e., the meta-training tasks). Each task includes a 𝑠𝑢𝑝𝑝𝑜𝑟𝑡 set S and a 𝑞𝑢𝑒𝑟𝑦 set Q, which can be regarded as the “training” set and “testing” set of the task. For example, while constructing a task <span class="math notranslate nohighlight">\(T_𝑛\)</span>, given user <span class="math notranslate nohighlight">\(𝑢_𝑗\)</span> with initial interactions in sequence (e.g., <span class="math notranslate nohighlight">\(𝑖_𝐴 \rightarrow_{u_j} i_B \rightarrow_{u_j} i_C\)</span>), we will have the a set of transition pairs <span class="math notranslate nohighlight">\(\{ 𝑖_𝐴 \rightarrow_{u_j} i_B, i_B \rightarrow_{u_j} i_C \}\)</span> as support and predict for the query <span class="math notranslate nohighlight">\(i_C \rightarrow_{u_j} ?\)</span>.</p>
+<p>When testing on a new user <span class="math notranslate nohighlight">\(𝑢_{𝑡𝑒𝑠𝑡}\)</span>, we will firstly construct the support set <span class="math notranslate nohighlight">\(S_{𝑡𝑒𝑠𝑡}\)</span> based on the user’s initial interactions. The model <span class="math notranslate nohighlight">\(𝑓_\theta\)</span> is fine-tuned with all the transition pairs in <span class="math notranslate nohighlight">\(S_{𝑡𝑒𝑠𝑡}\)</span> and updated to <span class="math notranslate nohighlight">\(𝑓_{\theta_{𝑡𝑒𝑠𝑡}'}\)</span> , which can be used to generate the updated <span class="math notranslate nohighlight">\(tr_{𝑡𝑒𝑠𝑡}\)</span>. Given the test query <span class="math notranslate nohighlight">\(𝑖_𝑜 \rightarrow_{u_{test}}?\)</span>, the preference score for item <span class="math notranslate nohighlight">\(𝑖_𝑝\)</span> (as the next interaction) is calculated as −<span class="math notranslate nohighlight">\(∥i_𝑜 + tr_{𝑡𝑒𝑠𝑡} − i_𝑝 ∥^2\)</span>.</p>
+</div>
+<div class="section" id="tanp">
+<h3>TaNP<a class="headerlink" href="#tanp" title="Permalink to this headline">¶</a></h3>
+<p>Recent studies seek to address this challenge from the perspective of meta learning, and most of them follow a manner of parameter initialization, where the model parameters can be learned by a few steps of gradient updates. While these gradient-based meta-learning models achieve promising performances to some extent, a fundamental problem of them is how to adapt the global knowledge learned from previous tasks for the recommendations of cold-start users more effectively.</p>
+<p>TaNP directly maps the observed interactions of each user to a predictive distribution, sidestepping some training issues in gradient-based meta-learning models. More importantly, to balance the trade-off between model capacity and adaptation reliability, TaNP uses a novel task-adaptive mechanism. It enables this model to learn the relevance of different tasks and customize the global knowledge to the task-related decoder parameters for estimating user preferences.</p>
+<p><strong>Background</strong></p>
+<p>Inspired by the huge progress on few-shot learning and meta learning, there emerge some promising works on solving cold-start problems from the perspective of meta learning, where making recommendations for one user is regarded as a single task.</p>
+<p>In the training phase, they try to derive the global knowledge across different tasks as a strong generalization prior. When a cold-start user comes in the test phase, the personalized recommendation for her/him can be predicted with only a few interacted items are available, but does so by using the global knowledge already learned.</p>
+<p><strong>Model</strong></p>
+<p>As shown in the above figure, tasks 𝑎 and 𝑐 share the transferable knowledge of recommendations, since user 𝑎 and user 𝑐 express similar purchase intentions, while task 𝑏 is largely different from them. Therefore, learning the relevance of different tasks is an important step in adapting the global knowledge for the recommendations of cold-start users more effectively.</p>
+<p>TaNP includes the encoder <span class="math notranslate nohighlight">\(ℎ_\theta\)</span>, the customization module (task identity network <span class="math notranslate nohighlight">\(𝑚_\phi\)</span> and global pool 𝑨) and the adaptive decoder <span class="math notranslate nohighlight">\(𝑔_{\omega𝑖}\)</span>. Both of <span class="math notranslate nohighlight">\(𝑆_𝑖\)</span> and <span class="math notranslate nohighlight">\(\tau_𝑖\)</span> are encoded by <span class="math notranslate nohighlight">\(ℎ_\theta\)</span> to generate the variational prior and posterior, respectively. The final task embedding <span class="math notranslate nohighlight">\(𝒐_𝑖\)</span> learned from the customized module is used to modulate the model parameters of <span class="math notranslate nohighlight">\(𝑔_{\omega𝑖} \cdot 𝒛_𝑖\)</span> sampled from <span class="math notranslate nohighlight">\(𝑞(𝒛_𝑖|\tau_𝑖)\)</span> is concatenated with <span class="math notranslate nohighlight">\(𝒙_{𝑖,𝑗}\)</span> to predict <span class="math notranslate nohighlight">\(\hat{𝑦}_{𝑖,𝑗}\)</span> via <span class="math notranslate nohighlight">\(𝑔_{\omega𝑖}\)</span>.</p>
+<p><center><img src='_images/L281872_10.png'></center></p>
+<p>The framework of TaNP in the training phase.</p>
+<p>A meta-learning recommender is first learned on each support set (learning procedure) and is then updated according to the prediction loss over multiple query sets (learning-to-learn procedure). Through the guide of the second procedure in many iterations, this meta-learning model can derive the global knowledge across different tasks and adapts such knowledge well for a new task <span class="math notranslate nohighlight">\(\tau_𝑖\)</span> with only <span class="math notranslate nohighlight">\(𝑆_𝑖\)</span> available.</p>
+<p><center><img src='_images/L281872_11.png'></center></p>
+</div>
+<div class="section" id="agnn">
+<h3>AGNN<a class="headerlink" href="#agnn" title="Permalink to this headline">¶</a></h3>
+<p><center><img src='_images/L281872_12.png'></center></p>
+<p>We first design an input layer to build the user (item) attribute graph <span class="math notranslate nohighlight">\(\mathcal{A}_u\)</span> (<span class="math notranslate nohighlight">\(\mathcal{A}_i\)</span>). We calculate two kinds of proximity scores between the nodes - preference proximity and attribute proximity (can be calculated with cosine similarity).</p>
+<ul class="simple">
+<li><p>The preference proximity measures the historical preference similarity between two nodes. If two users have similar rating record list (or two items have similar rated record list), they will have a high preference proximity. Note we cannot calculate preference proximity for the cold start nodes as they do not have the historical ratings.</p></li>
+<li><p>The attribute proximity measures the similarity between the attributes of two nodes. If two users have similar user profiles, e.g., gender, occupation (or two items have similar properties, e.g., category), they will have a high attribute proximity.</p></li>
+</ul>
+<p>After calculating the overall proximity between two nodes, it becomes a natural choice to build a k-NN graph as adopted in (Monti, Bronstein, and Bresson 2017). Such a method will keep a fixed number of neighbors once the graph is constructed.</p>
+<p>In the constructed attribute graph <span class="math notranslate nohighlight">\(\mathcal{A}_u\)</span> and <span class="math notranslate nohighlight">\(\mathcal{A}_i\)</span>, each nodes has an attached multi-hot attribute encoding and a unique one-hot representation denoting its identity. Due to the huge number of users and items in the web-scale recommender systems, the dimensionality of nodes’ one-hot representation is extremely high. Moreover, the multi-hot attribute representation simply combines multiple types of attributes into one long vector without considering their interactive relations. The goal of interaction layer is to reduce the dimensionality for one-hot identity representation and learn the high-order attribute interactions for multi-hot attribute representation. To this end, we first set up a lookup table to transform a node’s one-hot representation into the low-dimensional dense vector. The lookup layers correspond to two parameter matrices <span class="math notranslate nohighlight">\(M \in \mathbb{R}^{M×D}\)</span> and <span class="math notranslate nohighlight">\(N \in \mathbb{R}^{ N×D}\)</span>. Each entry <span class="math notranslate nohighlight">\(m_u \in \mathbb{R}^D\)</span> and <span class="math notranslate nohighlight">\(n_i \in \mathbb{R}^D\)</span> encodes the user <span class="math notranslate nohighlight">\(u\)</span>’s preference and the item <span class="math notranslate nohighlight">\(i\)</span>’s property, respectively. Note that <span class="math notranslate nohighlight">\(m_u\)</span> and <span class="math notranslate nohighlight">\(n_i\)</span> for cold start nodes are meaningless, since no interaction is observed to train their preference embedding. Inspired by (He and Chua 2017), we capture the high-order attribute interactions with a <em><strong>Bi-Interactive pooling operation</strong></em>, in addition to the linear combination operation.</p>
+<p>Intuitively, different neighbors have different relations to a node. Furthermore, one neighbor usually has multiple attributes. For example, in a social network, a user’s neighborhood may consist of classmates, family members, colleagues, and so on, and each neighbor may have several attributes such as age, gender, and occupation. Since all these attributes (along with the preferences) are now encoded in the node’s embedding, it is necessary to pay different attentions to different dimensions of the neighbor node’s embedding. However, existing GCN (Kipf and Welling 2017) or GAT (Veliˇckovi´c et al. 2018) structures cannot do this because they are at the coarse granularity. GCN treats all neighbors equally and GAT differentiates the importance of neighbors at the node level. To solve this problem, we design a gated-GNN structure to aggregate the fine-grained neighbor information.</p>
+<p>Given a user <span class="math notranslate nohighlight">\(u\)</span>’s final representation <span class="math notranslate nohighlight">\(\tilde{p}_u\)</span> and an item <span class="math notranslate nohighlight">\(i\)</span>’s final representation <span class="math notranslate nohighlight">\(\tilde{q}_i\)</span> after the gated-GNN layer, we model the predicted rating of the user <span class="math notranslate nohighlight">\(u\)</span> to the item <span class="math notranslate nohighlight">\(i\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{R}_{u,i} = MLP([\tilde{p}_u; \tilde{q}_i]) + \tilde{p}_u\tilde{q}_i^T + b_u + b_i + \mu,\]</div>
+<p>where the MLP function is the multilayer perceptron implemented with one hidden layer, and <span class="math notranslate nohighlight">\(b_u\)</span>, <span class="math notranslate nohighlight">\(b_i\)</span> , and <span class="math notranslate nohighlight">\(\mu\)</span> denotes user bias, item bias, and global bias, respectively. The second term is inner product interaction function (Koren, Bell, and Volinsky 2009), and we add the first term to capture the complicated nonlinear interaction between the user and the item.</p>
+<p>The cold start problem is caused by the lack of historical interactions for cold start nodes. We view this as a missing preference problem, and solve it by employing the variational autoencoder structure to reconstruct the preference from the attribute distribution.</p>
+<p><center><img src='_images/L281872_13.png'></center></p>
+<p>The eVAE structure to generate preference embedding from attribute distribution.</p>
+<p>For the rating prediction loss, we employ the square loss as the objective function:</p>
+<div class="math notranslate nohighlight">
+\[L_{pred} = \sum_{u,i \in \mathcal{T}} (\hat{R}_{u,i} - R_{u,i})^2,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> denotes the set of instances for training, i.e., <span class="math notranslate nohighlight">\(\mathcal{T} = {(u, i, r_{u,i}, a_u, a_i)}\)</span>, <span class="math notranslate nohighlight">\(R_{u,i}\)</span> is ground truth rating in the training set <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> , and <span class="math notranslate nohighlight">\(\hat{R}_{u,i}\)</span> is the predicted rating.</p>
+<p>The reconstruction loss function in eVAE is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[L_{recon} = − KL(q_\phi(z_u|x_u)||p(z_u)) + \mathbb{E}_{q_\phi}(z_u|x_u)[\log p_θ(x'_u|z_u)] + ||x'_u − m_u||_2,\]</div>
+<p>where the first two terms are same as those in standard VAE, and the last one is our extension for the approximation part.</p>
+<p>The overall loss function then becomes:</p>
+<div class="math notranslate nohighlight">
+\[L = L_{pred} + L_{recon},\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_{pred}\)</span> is the task-specific rating prediction loss, and <span class="math notranslate nohighlight">\(L_{recon}\)</span> is the reconstruction loss.</p>
+</div>
+<div class="section" id="dare">
+<h3>DaRE<a class="headerlink" href="#dare" title="Permalink to this headline">¶</a></h3>
+<p>Assume two datasets, <span class="math notranslate nohighlight">\(𝐷^𝑠\)</span> and <span class="math notranslate nohighlight">\(𝐷^𝑡\)</span>, be the information from the source and target domains, respectively. Each dataset consists of tuples, <span class="math notranslate nohighlight">\((𝑢,𝑖,𝑦_{𝑢,𝑖}, 𝑟_{𝑢,𝑖})\)</span> which represents an individual review <span class="math notranslate nohighlight">\(𝑟_{𝑢,𝑖}\)</span> written by a user 𝑢 for item 𝑖 with a rating <span class="math notranslate nohighlight">\(𝑦_{𝑢,𝑖}\)</span>. The two datasets take the form of <span class="math notranslate nohighlight">\(D^s = (𝑢^s,𝑖^s,𝑦^s_{𝑢,𝑖}, 𝑟^s_{𝑢,𝑖})\)</span> and <span class="math notranslate nohighlight">\(D^t = (𝑢^t,𝑖^t,𝑦^t_{𝑢,𝑖}, 𝑟^t_{𝑢,𝑖})\)</span>, respectively. The goal of our task is to predict an accurate rating score <span class="math notranslate nohighlight">\(y^t_{u,i}\)</span> using <span class="math notranslate nohighlight">\(𝐷^𝑠\)</span> and a partial set of <span class="math notranslate nohighlight">\(𝐷^t\)</span>.</p>
+<p><center><img src='_images/L281872_14.png'></center></p>
+<p>The training phase starts with review embedding layers followed by three types of feature extractors, <span class="math notranslate nohighlight">\({𝐹𝐸}^𝑠\)</span>, <span class="math notranslate nohighlight">\({𝐹𝐸}^c\)</span>, and <span class="math notranslate nohighlight">\({𝐹𝐸}^t\)</span>, named source, common, and target, for the separation of domain-specific, domain-common knowledge. Integrated with domain discriminator, three FEs are trained independently for the parallel extraction of domain-specific <span class="math notranslate nohighlight">\(𝑂^𝑠\)</span>, <span class="math notranslate nohighlight">\(𝑂^𝑡\)</span> and domain-common knowledge <span class="math notranslate nohighlight">\(𝑂^{𝑐,𝑠}\)</span>, <span class="math notranslate nohighlight">\(𝑂^{𝑐,𝑡}\)</span>.</p>
+<p><center><img src='_images/L281872_15.png'></center></p>
+<p>The architecture of a single review feature extractor. DaRE has three parallel review feature extractors of the same architecture with different inputs and parameters.</p>
+<p><center><img src='_images/L281872_16.png'></center></p>
+<p>Then, for each domain, the review encoder generates a single vector <span class="math notranslate nohighlight">\(𝐸^𝑠\)</span>, <span class="math notranslate nohighlight">\(𝐸^𝑡\)</span> with extracted features 𝑂 by aligning them with individual review <span class="math notranslate nohighlight">\(𝐼^𝑠\)</span>, <span class="math notranslate nohighlight">\(𝐼^𝑡\)</span>. Finally, the regressor predicts an accurate rating that the user will give on an item. Here, shared parameters across two domains are common FE and a domain discriminator.</p>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="attribute-to-feature-mappings-for-cold-start-recommendations">
+<h3>Attribute to Feature Mappings for Cold-Start Recommendations<a class="headerlink" href="#attribute-to-feature-mappings-for-cold-start-recommendations" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/36460a4db478066b45c61250b5b4deb3">Jupyter notebook</a>. In this tutorial, we are learning the attribute to latent feature mapping with three different mapping functions - KNN, linear, and BPT-OPT. Also comparing with 2 baselines - CBF-KNN, and Random. We are using sample dataset but it can be extended to movielens dataset also.</p>
+</div>
+<div class="section" id="lightfm-cold-start-on-movielens-10m-dataset">
+<h3>LightFM Cold-start on MovieLens 10m dataset<a class="headerlink" href="#lightfm-cold-start-on-movielens-10m-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/44345fac02a3f5b4bf3f57d161c6208c">Jupyter notebook</a>. In this tutorial, we are training a hybrid recommender model on movielens 10m dataset. We are using Movie tags from tags-genome dataset as movie attributes. We are using LightFM library to implement the hybrid model.</p>
+</div>
+<div class="section" id="emcdr-on-movielens-netflix-dataset">
+<h3>EMCDR on MovieLens-Netflix dataset<a class="headerlink" href="#emcdr-on-movielens-netflix-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/7ffd0110dc674aab0a0e354e1a7ba417">Jupyter notebook</a>. In this tutorial, we are training the EMCDR cross-domain recommender model on movielens-netflix dataset.</p>
+</div>
+<div class="section" id="hers-cold-start-recommendations-on-lastfm-dataset">
+<h3>HERS Cold-start Recommendations on LastFM dataset<a class="headerlink" href="#hers-cold-start-recommendations-on-lastfm-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/8b5004cfb3c791b41b8a7973638430f0">Jupyter notebook</a>. In this tutorial, we are training the HERS (Heterogeneous Relations for Sparse and Cold-start Recommendation) model to recommend music items to cold-start  users. The implementation is in Tensorflow 1x.</p>
+</div>
+<div class="section" id="collective-matrix-factorization-on-movielens-1m-dataset">
+<h3>Collective Matrix Factorization on MovieLens 1m dataset<a class="headerlink" href="#collective-matrix-factorization-on-movielens-1m-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/3a83fd0e7f2e8ea7e7ffcdfa47a99a9e">Jupyter notebook</a>. In this tutorial, we are training CMF model on MovieLens 1m. Our experiments focus on two tasks: (i) predicting whether a user rated a particular movie: <em>israted</em>; and (ii) predicting the value of a rating for a particular movie: <em>rating</em>. There is a significant difference in the amount of data for the two tasks. In the israted problem we know whether or not a user rated a movie for all combinations of users and movies, so the ratings matrix has no missing values. In the rating problem we observe the relation only when a user rated a movie—unobserved combinations of users and movies have their data weight set to zero.</p>
+</div>
+<div class="section" id="double-domain-recommendations-on-movielens-1m-dataset">
+<h3>Double-Domain Recommendations on MovieLens 1m dataset<a class="headerlink" href="#double-domain-recommendations-on-movielens-1m-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/014eb81100b97cbaef512b7b4fb20097">Jupyter notebook</a>. In this tutorial, we are training DCDCSR model on MovieLens 1m dataset. Data has been divided into four parts D1,D2,D3 and D4. D1 and D2 have users common. D1 and D3 have items common. D1 and D4 have no user and no item in common. We test the model on the testing part of the dataset i.e., testing set from 10% dataset of D1 and calculated the MAE, RMSD, Precision and Recall values. Same is repeated with every dataset. Case 1 :- cross domain recommendation D1 is Target Domain and D4 is Source Domain. Case 2 :- cross domain recommendation D2 is Target Domain and D3 is Source Domain. Case 3 :- cross domain recommendation D3 is Target Domain and D2 is Source Domain. Case 4 :- cross domain recommendation D4 is Target Domain and D1 is Source Domain.</p>
+</div>
+<div class="section" id="dropoutnet-cold-start-recommendation-on-citeulike-dataset">
+<h3>DropoutNet Cold-start Recommendation on CiteULike dataset<a class="headerlink" href="#dropoutnet-cold-start-recommendation-on-citeulike-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/f50a60ef75bde14e89fd4759772dc641">Jupyter notebook</a>. In this tutorial, we are training DropoutNet model on CiteuLike dataset to recommend citation items to cold-start users.</p>
+</div>
+<div class="section" id="metatl-for-cold-start-recommendations-on-amazon-electronics-dataset">
+<h3>MetaTL for Cold-start Recommendations on Amazon Electronics dataset<a class="headerlink" href="#metatl-for-cold-start-recommendations-on-amazon-electronics-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/c3fdad23f56c698903fd153d14e2fa1c">Jupyter notebook</a>. In this tutorial, we are training MetaTL model on amazon electronics dataset to predict the next best item for a new cold-start user with 3 interactions (K=3).</p>
+</div>
+<div class="section" id="tanp-cold-start-recommender-on-lastfm-dataset">
+<h3>TaNP Cold-start Recommender on LastFM dataset<a class="headerlink" href="#tanp-cold-start-recommender-on-lastfm-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/5a6cdd6efc4caf59526f18d4d860e354">Jupyter notebook</a>. In this tutorial, we are training TaNP model to recommend music items to cold-start users. LastFM dataset division ratio of training, validation and test sets is 7:1:2. We only keep the users whose item-consumption history length is between 40 and 200. To generalize well with only a few samples, we set the number of interactions in support set as a small value (20/15/10), and remaining interactions are set as the query set. We only predict the score of each item in the query set for each user.</p>
+</div>
+<div class="section" id="aggn-cold-start-recommendation-on-movielens-100k">
+<h3>AGGN Cold-start Recommendation on MovieLens 100k<a class="headerlink" href="#aggn-cold-start-recommendation-on-movielens-100k" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/abd505f5d300d785457ed9f0f378a00e">Jupyter notebook</a>. In this tutorial, we are using attributed GNN model (AGNN) to predict the ratings a new user would give to a movie.</p>
+</div>
+<div class="section" id="dare-cross-domain-recommender-on-amazon-reviews-dataset">
+<h3>DaRE Cross-domain Recommender on Amazon Reviews dataset<a class="headerlink" href="#dare-cross-domain-recommender-on-amazon-reviews-dataset" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nbviewer.org/gist/sparsh-ai/cb1aeb25f5fae730e886522f59e08c87">Jupyter notebook</a>. In this tutorial, we are training DaRE model on Amazon reviews dataset. We are using Amazon reviews’ <em>Musical_Instruments</em> dataset as the source domain and <em>Patio_Lawn_and_Garden</em> as the target domain. We are also using GloVe word-embeddings to convert reviews’ text into vectors.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Wisdom of the better few: cold start recommendation via representative based rating elicitation. Nathan N. Liu, Xiangrui Meng, Chao Liu, Qiang Yang. 2011. RecSys. <a class="reference external" href="https://dl.acm.org/doi/10.1145/2043932.2043943">https://dl.acm.org/doi/10.1145/2043932.2043943</a></p></li>
+<li><p>Local Representative-Based Matrix Factorization for Cold-Start Recommendation. Lei Shi, Wayne Xin Zhao, Yi-Dong Shen. 2017. arXiv. <a class="reference external" href="https://dl.acm.org/doi/10.1145/3108148">https://dl.acm.org/doi/10.1145/3108148</a></p></li>
+<li><p>Fairness among New Items in Cold Start Recommender Systems. Ziwei Zhu , Jingu Kim , Trung Nguyen , Aish Fenton , James Caverlee. 2021. SIGIR. <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3404835.3462948">https://dl.acm.org/doi/abs/10.1145/3404835.3462948</a></p></li>
+<li><p>Personalized Transfer of User Preferences for Cross-domain Recommendation. Yongchun Zhu, Zhenwei Tang, Yudan Liu, Fuzhen Zhuang, Ruobing Xie, Xu Zhang, Leyu Lin, Qing He. 2021. arXiv. <a class="reference external" href="https://arxiv.org/abs/2110.11154v2">https://arxiv.org/abs/2110.11154v2</a></p></li>
+<li><p>Recommendation for New Users and New Items via Randomized Training and Mixture-of-Experts Transformation. Zhu et. al.. 2020. SIGIR. <a class="reference external" href="https://people.engr.tamu.edu/caverlee/pubs/zhu20cold.pdf">https://people.engr.tamu.edu/caverlee/pubs/zhu20cold.pdf</a></p></li>
+<li><p>Learning Attribute to Feature Mappings for Cold-Start Recommendations. Lucas Drumond, Christoph Freudenthaler, Steffen Rendle, Lars Schmidt-Thieme. 2010. ICDM. <a class="reference external" href="https://bit.ly/3Eh4NEK">https://bit.ly/3Eh4NEK</a></p></li>
+<li><p>Meta-learning on Heterogeneous Information Networks for Cold-start Recommendation. Lu et. al.. 2020. KDD. <a class="reference external" href="https://yuanfulu.github.io/publication/KDD-MetaHIN.pdf">https://yuanfulu.github.io/publication/KDD-MetaHIN.pdf</a></p></li>
+<li><p>MAMO: Memory-Augmented Meta-Optimization for Cold-start Recommendation. Manqing Dong, Feng Yuan, Lina Yao, Xiwei Xu, Liming Zhu. 2020. arXiv. <a class="reference external" href="https://arxiv.org/abs/2007.03183">https://arxiv.org/abs/2007.03183</a></p></li>
+<li><p>Methods and Metrics for Cold-Start Recommendations. Schein et al.. 2002. SIGIR. <a class="reference external" href="https://repository.upenn.edu/cgi/viewcontent.cgi?article=1141&amp;context=cis_papers">https://repository.upenn.edu/cgi/viewcontent.cgi?article=1141&amp;context=cis_papers</a></p></li>
+<li><p>Pairwise Preference Regression for Cold-start Recommendation. Seung-Taek et al.. 2009. RecSys. <a class="reference external" href="http://www.gatsby.ucl.ac.uk/~chuwei/paper/p21-park.pdf">http://www.gatsby.ucl.ac.uk/~chuwei/paper/p21-park.pdf</a></p></li>
+<li><p>LARA: Attribute-to-feature Adversarial Learning for New-item Recommendation. Changfeng Sun , Han Liu , Meng Liu , Zhaochun Ren , Tian Gan , Liqiang Nie. 2020. WSDM. <a class="reference external" href="https://dl.acm.org/doi/abs/10.1145/3336191.3371805">https://dl.acm.org/doi/abs/10.1145/3336191.3371805</a></p></li>
+<li><p>Internal and Contextual Attention Network for Cold-start Multi-channel Matching in Recommendation.  2020. IJCAI. <a class="reference external" href="https://www.ijcai.org/proceedings/2020/0379.pdf">https://www.ijcai.org/proceedings/2020/0379.pdf</a></p></li>
+<li><p>Task-adaptive Neural Process for User Cold-Start Recommendation. Xixun Lin, Jia Wu, Chuan Zhou, Shirui Pan, Yanan Cao, Bin Wang. 2021. arXiv. <a class="reference external" href="https://arxiv.org/abs/2103.06137">https://arxiv.org/abs/2103.06137</a></p></li>
+<li><p>Content-aware Neural Hashing for Cold-start Recommendation. Casper Hansen, Christian Hansen, Jakob Grue Simonsen, Stephen Alstrup, Christina Lioma. 2020. arXiv. <a class="reference external" href="https://arxiv.org/abs/2006.00617">https://arxiv.org/abs/2006.00617</a></p></li>
+<li><p>Learning Attribute-to-Feature Mappings for Cold-Start Recommendations. Zeno Gantner, Lucas Drumond, Christoph Freudenthaler, Steffen Rendle, Lars Schmidt-Thieme. 2010. IEEE. <a class="reference external" href="https://ieeexplore.ieee.org/document/5693971">https://ieeexplore.ieee.org/document/5693971</a></p></li>
+<li><p>HERS: Modeling Influential Contexts with Heterogeneous Relations for Sparse and Cold-Start Recommendation. Hu et. al.. 2019. arXiv. <a class="reference external" href="https://ojs.aaai.org//index.php/AAAI/article/view/4270">https://ojs.aaai.org//index.php/AAAI/article/view/4270</a></p></li>
+<li><p>CATN: Cross-Domain Recommendation for Cold-Start Users via Aspect Transfer Network. Cheng Zhao, Chenliang Li, Rong Xiao, Hongbo Deng, Aixin Sun. 2020. arXiv. <a class="reference external" href="https://arxiv.org/abs/2005.10549">https://arxiv.org/abs/2005.10549</a></p></li>
+<li><p>Improved Cold-Start Recommendation via Two-Level Bandit Algorithms. Rodrigues et. al.. 2017. arXiv. <a class="reference external" href="https://bit.ly/3jLtb9H">https://bit.ly/3jLtb9H</a></p></li>
+<li><p>DropoutNet: Addressing Cold Start in Recommender Systems. Maksims Volkovs, Guangwei Yu, Tomi Poutanen. 2017. arXiv. <a class="reference external" href="https://www.cs.toronto.edu/~mvolkovs/nips2017_deepcf.pdf">https://www.cs.toronto.edu/~mvolkovs/nips2017_deepcf.pdf</a></p></li>
+<li><p>Alleviating Cold-Start Problems in Recommendation through Pseudo-Labelling over Knowledge Graph. Riku Togashi, Mayu Otani, Shin’ichi Satoh. 2020. arXiv. <a class="reference external" href="https://arxiv.org/abs/2011.05061">https://arxiv.org/abs/2011.05061</a></p></li>
+<li><p>Sequential Recommendation for Cold-start Users with Meta Transitional Learning. Jianling Wang, Kaize Ding, James Caverlee. 2021. SIGIR. <a class="reference external" href="https://arxiv.org/abs/2107.06427">https://arxiv.org/abs/2107.06427</a></p></li>
+<li><p>Social Collaborative Filtering for Cold-start Recommendations. Sedhain et. al.. 2014. RecSys. <a class="reference external" href="https://ssanner.github.io/papers/anu/recsys14.pdf">https://ssanner.github.io/papers/anu/recsys14.pdf</a></p></li>
+<li><p>Addressing cold start in recommender systems: A semi-supervised co-training algorithm. Zhang et. al.. 2014. SIGIR. <a class="reference external" href="https://keg.cs.tsinghua.edu.cn/jietang/publications/SIGIR14-Zhang-et-al-cold-start-recommendation.pdf">https://keg.cs.tsinghua.edu.cn/jietang/publications/SIGIR14-Zhang-et-al-cold-start-recommendation.pdf</a></p></li>
+<li><p>Metadata Embeddings for User and Item Cold-start Recommendations. Maciej Kula. 2015. arXiv. <a class="reference external" href="https://arxiv.org/abs/1507.08439">https://arxiv.org/abs/1507.08439</a></p></li>
+<li><p>Low-rank Linear Cold-Start Recommendation from Social Data. Sedhain et. al.. 2017. AAAI. <a class="reference external" href="https://mesuvash.github.io/assets/pdf/papers/loco-paper.pdf">https://mesuvash.github.io/assets/pdf/papers/loco-paper.pdf</a></p></li>
+<li><p>Cross-domain recommendation: an embedding and mapping approach. Man et al.. 2017. IJCAI. <a class="reference external" href="https://www.ijcai.org/proceedings/2017/0343.pdf">https://www.ijcai.org/proceedings/2017/0343.pdf</a></p></li>
+<li><p>Expediting Exploration by Attribute-to-Feature Mapping for Cold-Start Recommendations. Cohen et al.. 2017. RecSys. <a class="reference external" href="https://research.yahoo.com/mobstor/publication_attachments/Expediting%20Exploration%20by%20Atribute-to-Feature%20Mapping%20for%20Cold-Start%20Recommendations.pdf">https://research.yahoo.com/mobstor/publication_attachments/Expediting Exploration by Atribute-to-Feature Mapping for Cold-Start Recommendations.pdf</a></p></li>
+<li><p>Handling Cold-Start Collaborative Filtering with Reinforcement Learning. Hima Varsha Dureddy, Zachary Kaden. 2018. arXiv. <a class="reference external" href="https://arxiv.org/abs/1806.06192">https://arxiv.org/abs/1806.06192</a></p></li>
+<li><p>Deeply Fusing Reviews and Contents for Cold Start Users in Cross-Domain Recommendation Systems. Fu et. al.. 2019. AAAI. <a class="reference external" href="https://ojs.aaai.org//index.php/AAAI/article/view/3773">https://ojs.aaai.org//index.php/AAAI/article/view/3773</a></p></li>
+<li><p>Zero-Shot Learning to Cold-Start Recommendation. Jingjing Li, Mengmeng Jing, Ke Lu, Lei Zhu, Yang Yang, Zi Huang. 2019. AAAI. <a class="reference external" href="https://arxiv.org/abs/1906.08511">https://arxiv.org/abs/1906.08511</a></p></li>
+<li><p>MeLU: Meta-Learned User Preference Estimator for Cold-Start Recommendation. Hoyeop Lee, Jinbae Im, Seongwon Jang, Hyunsouk Cho, Sehee Chung. 2019. KDD. <a class="reference external" href="https://arxiv.org/abs/1908.00413">https://arxiv.org/abs/1908.00413</a></p></li>
+<li><p>Relational Learning via Collective Matrix Factorization. Singh et. al.. 2008. KDD. <a class="reference external" href="http://www.cs.cmu.edu/~ggordon/singh-gordon-kdd-factorization.pdf">http://www.cs.cmu.edu/~ggordon/singh-gordon-kdd-factorization.pdf</a></p></li>
+<li><p>Cross-Domain Recommendation for Cold-Start Users via Neighborhood Based Feature Mapping. Xinghua Wang, Zhaohui Peng, Senzhang Wang, Philip S. Yu, Wenjing Fu, Xiaoguang Hong. 2018. arXiv. <a class="reference external" href="https://arxiv.org/abs/1803.01617">https://arxiv.org/abs/1803.01617</a></p></li>
+<li><p>A Deep Framework for Cross-Domain and Cross-System Recommendations. Feng Zhu, Yan Wang, Chaochao Chen, Guanfeng Liu, Mehmet Orgun, Jia Wu. 2018. IJCAI. <a class="reference external" href="https://www.ijcai.org/proceedings/2018/0516.pdf">https://www.ijcai.org/proceedings/2018/0516.pdf</a></p></li>
+<li><p>Semi-Supervised Learning for Cross-Domain Recommendation to Cold-Start Users. SeongKu Kang , Junyoung Hwang , Dongha Lee , Hwanjo Yu. 2019. CIKM. <a class="reference external" href="https://dl.acm.org/doi/10.1145/3357384.3357914">https://dl.acm.org/doi/10.1145/3357384.3357914</a></p></li>
+<li><p>Transfer-Meta Framework for Cross-domain Recommendation to Cold-Start Users. Yongchun Zhu, Kaikai Ge, Fuzhen Zhuang, Ruobing Xie, Dongbo Xi, Xu Zhang, Leyu Lin, Qing He. 2021. SIGIR. <a class="reference external" href="https://arxiv.org/abs/2105.04785">https://arxiv.org/abs/2105.04785</a></p></li>
+<li><p>ANR: Aspect-based Neural Recommender. Jin Yao Chin, Kaiqi Zhao, Shafiq Joty, Gao Cong. 2018. CIKM. <a class="reference external" href="https://dl.acm.org/doi/10.1145/3269206.3271810">https://dl.acm.org/doi/10.1145/3269206.3271810</a></p></li>
+<li><p>A Survey on Cross-domain Recommendation: Taxonomies, Methods, and Future Directions. Tianzi Zang, Yanmin Zhu, Haobing Liu, Ruohan Zhang, Jiadi Yu. 2021. arXiv. <a class="reference external" href="https://arxiv.org/abs/2108.03357">https://arxiv.org/abs/2108.03357</a></p></li>
+<li><p>Cross-Domain Recommendation: Challenges, Progress, and Prospects. Feng Zhu, Yan Wang, Chaochao Chen, Jun Zhou, Longfei Li, Guanfeng Liu. 2021. arXiv. <a class="reference external" href="https://arxiv.org/abs/2103.01696">https://arxiv.org/abs/2103.01696</a></p></li>
+<li><p>CMML: Contextual Modulation Meta Learning for Cold-Start Recommendation. Xidong Feng, Chen Chen, Dong Li, Mengchen Zhao, Jianye Hao, Jun Wang. 2021. arXiv. <a class="reference external" href="https://arxiv.org/abs/2108.10511v4">https://arxiv.org/abs/2108.10511v4</a></p></li>
+<li><p><a class="reference external" href="https://kojinoshiba.com/recsys-cold-start/">Tackling the Cold Start Problem in Recommender Systems</a></p></li>
+<li><p><a class="reference external" href="https://nb.recohut.com/coldstart/session/sequential/retail/coveo/prod2vec/annoy/keras/embedding/visualization/tsne/search/queryscoping/2021/07/19/session-based-prod2vec-coveo.html#Improving-low-count-vectors">In-session Recommendation in eCommerce notebook</a></p></li>
+</ol>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/coldstart-recsys",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+     <div id="next">
+        <a class="right-next" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Attribute to Feature Mappings for Cold-Start Recommendations</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
