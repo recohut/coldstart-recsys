@@ -4,3 +4,13 @@ parts:
 - caption: Tutorials
   chapters:
   - file: T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations
+  - file: T457846_LightFM_Cold_start_on_ML_10m
+  - file: T459379_EMCDR_on_MovieLens_Netflix_dataset
+  - file: T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset
+  - file: T316836_Collective_Matrix_Factorization_on_ML_1m
+  - file: T490340_Double_domain_recommendations_on_ML_1m
+  - file: T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset
+  - file: T714933_MetaTL_for_Cold_start_users_on_Amazon_Electronics_dataset
+  - file: T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset
+  - file: T290734_AGGN_Cold_start_Recommendation_on_ML_100k
+  - file: T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset
