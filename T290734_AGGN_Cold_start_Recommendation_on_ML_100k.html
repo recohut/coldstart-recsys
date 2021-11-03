@@ -1,0 +1,1212 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGGN Cold-start Recommendation on ML-100k &#8212; coldstart-recsys</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DaRE Cross-domain recommender on Amazon Reviews dataset" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html" />
+    <link rel="prev" title="TaNP Cold-start Recommender on LastFM dataset" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">coldstart-recsys</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L281872_Cold_Start_Recommendations.html">
+   Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html">
+   Attribute to Feature Mappings for Cold-Start Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T457846_LightFM_Cold_start_on_ML_10m.html">
+   LightFM Cold-start on ML-10m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html">
+   EMCDR on MovieLens-Netflix dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html">
+   HERS Cold-start Recommendations on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T316836_Collective_Matrix_Factorization_on_ML_1m.html">
+   Collective Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T490340_Double_domain_recommendations_on_ML_1m.html">
+   Double domain recommendations on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html">
+   DropoutNet Cold-start Recommendation on CiteULike dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T714933_MetaTL_for_Cold_start_users_on_Amazon_Electronics_dataset.html">
+   MetaTL for Cold-start users on Amazon Electronics dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html">
+   TaNP Cold-start Recommender on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   AGGN Cold-start Recommendation on ML-100k
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html">
+   DaRE Cross-domain recommender on Amazon Reviews dataset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T290734_AGGN_Cold_start_Recommendation_on_ML_100k.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/coldstart-recsys/main?urlpath=tree/docs/T290734_AGGN_Cold_start_Recommendation_on_ML_100k.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/coldstart-recsys/blob/main/docs/T290734_AGGN_Cold_start_Recommendation_on_ML_100k.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#input-layer">
+     Input Layer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#attribute-interaction-layer">
+     Attribute Interaction Layer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gated-gnn-layer">
+     Gated GNN Layer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prediction-layer">
+     Prediction Layer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-to-cold-start-problem">
+     Solution to Cold Start Problem
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#loss-functions">
+     Loss Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#params">
+     Params
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dataset">
+   Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model">
+   Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics-and-evaluation">
+   Metrics and Evaluation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="aggn-cold-start-recommendation-on-ml-100k">
+<h1>AGGN Cold-start Recommendation on ML-100k<a class="headerlink" href="#aggn-cold-start-recommendation-on-ml-100k" title="Permalink to this headline">¶</a></h1>
+<p><center><img src='_images/T290734_1.png'></center></p><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-layer">
+<h3>Input Layer<a class="headerlink" href="#input-layer" title="Permalink to this headline">¶</a></h3>
+<p>We first design an input layer to build the user (item) attribute graph <span class="math notranslate nohighlight">\(\mathcal{A}_u\)</span> (<span class="math notranslate nohighlight">\(\mathcal{A}_i\)</span>). We calculate two kinds of proximity scores between the nodes - preference proximity and attribute proximity (can be calculated with cosine similarity).</p>
+<ul class="simple">
+<li><p>The preference proximity measures the historical preference similarity between two nodes. If two users have similar rating record list (or two items have similar rated record list), they will have a high preference proximity. Note we cannot calculate preference proximity for the cold start nodes as they do not have the historical ratings.</p></li>
+<li><p>The attribute proximity measures the similarity between the attributes of two nodes. If two users have similar user profiles, e.g., gender, occupation (or two items have similar properties, e.g., category), they will have a high attribute proximity.</p></li>
+</ul>
+<p>After calculating the overall proximity between two nodes, it becomes a natural choice to build a k-NN graph as adopted in (Monti, Bronstein, and Bresson 2017). Such a method will keep a fixed number of neighbors once the graph is constructed.</p>
+</div>
+<div class="section" id="attribute-interaction-layer">
+<h3>Attribute Interaction Layer<a class="headerlink" href="#attribute-interaction-layer" title="Permalink to this headline">¶</a></h3>
+<p>In the constructed attribute graph <span class="math notranslate nohighlight">\(\mathcal{A}_u\)</span> and <span class="math notranslate nohighlight">\(\mathcal{A}_i\)</span>, each nodes has an attached multi-hot attribute encoding and a unique one-hot representation denoting its identity. Due to the huge number of users and items in the web-scale recommender systems, the dimensionality of nodes’ one-hot representation is extremely high. Moreover, the multi-hot attribute representation simply combines multiple types of attributes into one long vector without considering their interactive relations. The goal of interaction layer is to reduce the dimensionality for one-hot identity representation and learn the high-order attribute interactions for multi-hot attribute representation. To this end, we first set up a lookup table to transform a node’s one-hot representation into the low-dimensional dense vector. The lookup layers correspond to two parameter matrices <span class="math notranslate nohighlight">\(M \in \mathbb{R}^{M×D}\)</span> and <span class="math notranslate nohighlight">\(N \in \mathbb{R}^{ N×D}\)</span>. Each entry <span class="math notranslate nohighlight">\(m_u \in \mathbb{R}^D\)</span> and <span class="math notranslate nohighlight">\(n_i \in \mathbb{R}^D\)</span> encodes the user <span class="math notranslate nohighlight">\(u\)</span>’s preference and the item <span class="math notranslate nohighlight">\(i\)</span>’s property, respectively. Note that <span class="math notranslate nohighlight">\(m_u\)</span> and <span class="math notranslate nohighlight">\(n_i\)</span> for cold start nodes are meaningless, since no interaction is observed to train their preference embedding. Inspired by (He and Chua 2017), we capture the high-order attribute interactions with a <em><strong>Bi-Interactive pooling operation</strong></em>, in addition to the linear combination operation.</p>
+</div>
+<div class="section" id="gated-gnn-layer">
+<h3>Gated GNN Layer<a class="headerlink" href="#gated-gnn-layer" title="Permalink to this headline">¶</a></h3>
+<p>Intuitively, different neighbors have different relations to a node. Furthermore, one neighbor usually has multiple attributes. For example, in a social network, a user’s neighborhood may consist of classmates, family members, colleagues, and so on, and each neighbor may have several attributes such as age, gender, and occupation. Since all these attributes (along with the preferences) are now encoded in the node’s embedding, it is necessary to pay different attentions to different dimensions of the neighbor node’s embedding. However, existing GCN (Kipf and Welling 2017) or GAT (Veliˇckovi´c et al. 2018) structures cannot do this because they are at the coarse granularity. GCN treats all neighbors equally and GAT differentiates the importance of neighbors at the node level. To solve this problem, we design a gated-GNN structure to aggregate the fine-grained neighbor information.</p>
+</div>
+<div class="section" id="prediction-layer">
+<h3>Prediction Layer<a class="headerlink" href="#prediction-layer" title="Permalink to this headline">¶</a></h3>
+<p>Given a user <span class="math notranslate nohighlight">\(u\)</span>’s final representation <span class="math notranslate nohighlight">\(\tilde{p}_u\)</span> and an item <span class="math notranslate nohighlight">\(i\)</span>’s final representation <span class="math notranslate nohighlight">\(\tilde{q}_i\)</span> after the gated-GNN layer, we model the predicted rating of the user <span class="math notranslate nohighlight">\(u\)</span> to the item <span class="math notranslate nohighlight">\(i\)</span> as:</p>
+<div class="math notranslate nohighlight">
+\[\hat{R}_{u,i} = MLP([\tilde{p}_u; \tilde{q}_i]) + \tilde{p}_u\tilde{q}_i^T + b_u + b_i + \mu,\]</div>
+<p>where the MLP function is the multilayer perceptron implemented with one hidden layer, and <span class="math notranslate nohighlight">\(b_u\)</span>, <span class="math notranslate nohighlight">\(b_i\)</span> , and <span class="math notranslate nohighlight">\(\mu\)</span> denotes user bias, item bias, and global bias, respectively. The second term is inner product interaction function (Koren, Bell, and Volinsky 2009), and we add the first term to capture the complicated nonlinear interaction between the user and the item.</p>
+</div>
+<div class="section" id="solution-to-cold-start-problem">
+<h3>Solution to Cold Start Problem<a class="headerlink" href="#solution-to-cold-start-problem" title="Permalink to this headline">¶</a></h3>
+<p>The cold start problem is caused by the lack of historical interactions for cold start nodes. We view this as a missing preference problem, and solve it by employing the variational autoencoder structure to reconstruct the preference from the attribute distribution.</p>
+<p><center><img src='_images/T290734_2.png'></center></p></div>
+<div class="section" id="loss-functions">
+<h3>Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h3>
+<p>For the rating prediction loss, we employ the square loss as the objective function:</p>
+<div class="math notranslate nohighlight">
+\[L_{pred} = \sum_{u,i \in \mathcal{T}} (\hat{R}_{u,i} - R_{u,i})^2,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> denotes the set of instances for training, i.e., <span class="math notranslate nohighlight">\(\mathcal{T} = {(u, i, r_{u,i}, a_u, a_i)}\)</span>, <span class="math notranslate nohighlight">\(R_{u,i}\)</span> is ground truth rating in the training set <span class="math notranslate nohighlight">\(\mathcal{T}\)</span> , and <span class="math notranslate nohighlight">\(\hat{R}_{u,i}\)</span> is the predicted rating.</p>
+<p>The reconstruction loss function in eVAE is defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[L_{recon} = − KL(q_\phi(z_u|x_u)||p(z_u)) + \mathbb{E}_{q_\phi}(z_u|x_u)[\log p_θ(x'_u|z_u)] + ||x'_u − m_u||_2,\]</div>
+<p>where the first two terms are same as those in standard VAE, and the last one is our extension for the approximation part.</p>
+<p>The overall loss function then becomes:</p>
+<div class="math notranslate nohighlight">
+\[L = L_{pred} + L_{recon},\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_{pred}\)</span> is the task-specific rating prediction loss, and <span class="math notranslate nohighlight">\(L_{recon}\)</span> is the reconstruction loss.</p>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.init</span> <span class="k">as</span> <span class="nn">init</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<span class="kn">import</span> <span class="nn">torch.optim</span> <span class="k">as</span> <span class="nn">optim</span>
+<span class="kn">from</span> <span class="nn">torch.autograd</span> <span class="kn">import</span> <span class="n">Variable</span>
+<span class="kn">from</span> <span class="nn">torch.utils.tensorboard</span> <span class="kn">import</span> <span class="n">SummaryWriter</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="params">
+<h3>Params<a class="headerlink" href="#params" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--lr&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;learning rate.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--dropout&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;dropout rate.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--batch_size&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;batch size when training.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--gpu&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;gpu card ID.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--epochs&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;training epoches.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--clip_norm&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span>
+					<span class="n">help</span><span class="o">=</span><span class="s2">&quot;clip norm for preventing gradient exploding.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--embed_size&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;embedding size for users and items.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--attention_size&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;embedding size for users and items.&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--item_layer1_nei_num&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--user_layer1_nei_num&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--vae_lambda&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_StoreAction(option_strings=[&#39;--vae_lambda&#39;], dest=&#39;vae_lambda&#39;, nargs=None, const=None, default=1, type=&lt;class &#39;int&#39;&gt;, choices=None, help=None, metavar=None)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dataset">
+<h2>Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget -q --show-progress https://github.com/sparsh-ai/coldstart-recsys/raw/main/data/AGNN/ml100k.zip
+!unzip ml100k.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ml100k.zip            0%[                    ]       0  --.-KB/s               
+ml100k.zip          100%[===================&gt;]  15.31M  96.6MB/s    in 0.2s    
+Archive:  ml100k.zip
+   creating: ml100k/
+  inflating: ml100k/neighbor_aspect_extension_2_zscore_warm_uuii.pkl  
+  inflating: ml100k/uiinfo.pkl       
+  inflating: ml100k/ics_train.dat    
+  inflating: ml100k/warm_val.dat     
+  inflating: ml100k/neighbor_aspect_extension_2_zscore_ics_uuii_0.20.pkl  
+  inflating: ml100k/ucs_train.dat    
+  inflating: ml100k/ucs_val.dat      
+  inflating: ml100k/neighbor_aspect_extension_2_zscore_ucs_uuii.pkl  
+  inflating: ml100k/ics_val.dat      
+  inflating: ml100k/warm_train.dat   
+   creating: ml100k/source_data/
+  inflating: ml100k/source_data/item_content.dat  
+ extracting: ml100k/source_data/ml-100k.zip  
+  inflating: ml100k/source_data/item_url_all.dat  
+ extracting: ml100k/source_data/__   
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data_list</span><span class="p">(</span><span class="n">ftrain</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">ftrain</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">train_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">eachline</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">eachline</span> <span class="o">=</span> <span class="n">eachline</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">eachline</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">int</span><span class="p">(</span><span class="n">eachline</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">eachline</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">train_list</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">])</span>
+    <span class="n">num_batches_per_epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">num_batches_per_epoch</span><span class="p">,</span> <span class="n">train_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_batch_instances</span><span class="p">(</span><span class="n">train_list</span><span class="p">,</span> <span class="n">user_feature_dict</span><span class="p">,</span> <span class="n">item_feature_dict</span><span class="p">,</span> <span class="n">item_director_dict</span><span class="p">,</span> <span class="n">item_writer_dict</span><span class="p">,</span> <span class="n">item_star_dict</span><span class="p">,</span> <span class="n">item_country_dict</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">user_nei_dict</span><span class="p">,</span> <span class="n">item_nei_dict</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="n">num_batches_per_epoch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">batch_size</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">def</span> <span class="nf">data_generator</span><span class="p">(</span><span class="n">train_list</span><span class="p">):</span>
+        <span class="n">data_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span>
+        <span class="n">user_feature_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">user_feature_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="n">max_user_cate_size</span> <span class="o">=</span> <span class="n">user_feature_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">item_genre_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item_feature_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="c1">#len=6 ,0</span>
+        <span class="n">item_director_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item_director_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="c1">#len=3 ,6</span>
+        <span class="n">item_writer_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item_writer_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="c1">#len=3, 9</span>
+        <span class="n">item_star_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item_star_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span> <span class="c1">#len=3, 12</span>
+        <span class="n">item_country_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">item_country_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>   <span class="c1">#len=8, 15</span>
+
+        <span class="n">item_feature_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">item_genre_arr</span><span class="p">,</span> <span class="n">item_director_arr</span><span class="p">,</span> <span class="n">item_writer_arr</span><span class="p">,</span> <span class="n">item_star_arr</span><span class="p">,</span> <span class="n">item_country_arr</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">max_item_cate_size</span> <span class="o">=</span> <span class="n">item_feature_arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">item_layer1_nei_num</span> <span class="o">=</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">item_layer1_nei_num</span>
+        <span class="n">user_layer1_nei_num</span> <span class="o">=</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">user_layer1_nei_num</span>
+
+        <span class="k">if</span> <span class="n">shuffle</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span>
+        <span class="n">train_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">batch_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_batches_per_epoch</span><span class="p">):</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">batch_num</span> <span class="o">*</span> <span class="n">batch_size</span>
+            <span class="n">end_index</span> <span class="o">=</span> <span class="nb">min</span><span class="p">((</span><span class="n">batch_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">data_size</span><span class="p">)</span>
+            <span class="n">current_batch_size</span> <span class="o">=</span> <span class="n">end_index</span> <span class="o">-</span> <span class="n">start_index</span>
+
+            <span class="n">u</span> <span class="o">=</span> <span class="n">train_list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span> <span class="n">end_index</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">train_list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span> <span class="n">end_index</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">l</span> <span class="o">=</span> <span class="n">train_list</span><span class="p">[</span><span class="n">start_index</span><span class="p">:</span> <span class="n">end_index</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">]</span>
+
+            <span class="n">i_self_cate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">max_item_cate_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">i_onehop_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">item_layer1_nei_num</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">i_onehop_cate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">item_layer1_nei_num</span><span class="p">,</span> <span class="n">max_item_cate_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+
+            <span class="n">u_self_cate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">max_user_cate_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">u_onehop_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">user_layer1_nei_num</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+            <span class="n">u_onehop_cate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">current_batch_size</span><span class="p">,</span> <span class="n">user_layer1_nei_num</span><span class="p">,</span> <span class="n">max_user_cate_size</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">each_i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">i_self_cate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_feature_arr</span><span class="p">[</span><span class="n">each_i</span><span class="p">]</span>    <span class="c1">#item_self_cate</span>
+
+                <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">item_nei_dict</span><span class="p">[</span><span class="n">each_i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tmp_prob</span> <span class="o">=</span> <span class="n">item_nei_dict</span><span class="p">[</span><span class="n">each_i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">item_layer1_nei_num</span><span class="p">:</span>  <span class="c1">#re-sampling</span>
+                    <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">,</span> <span class="n">item_layer1_nei_num</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">tmp_prob</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">item_layer1_nei_num</span><span class="p">:</span>
+                    <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">,</span> <span class="n">item_layer1_nei_num</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">tmp_prob</span><span class="p">)</span>
+                <span class="n">tmp_one_nei</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_i</span>
+
+                <span class="n">i_onehop_id</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_one_nei</span>    <span class="c1">#item_1_neigh</span>
+                <span class="n">i_onehop_cate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">item_feature_arr</span><span class="p">[</span><span class="n">tmp_one_nei</span><span class="p">]</span>  <span class="c1">#item_1_neigh_cate</span>
+
+            <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">each_u</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">u</span><span class="p">):</span>
+                <span class="n">u_self_cate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_feature_dict</span><span class="p">[</span><span class="n">each_u</span><span class="p">]</span>  <span class="c1"># item_self_cate</span>
+
+                <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">user_nei_dict</span><span class="p">[</span><span class="n">each_u</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tmp_prob</span> <span class="o">=</span> <span class="n">user_nei_dict</span><span class="p">[</span><span class="n">each_u</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">user_layer1_nei_num</span><span class="p">:</span>  <span class="c1"># re-sampling</span>
+                    <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">,</span> <span class="n">user_layer1_nei_num</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">tmp_prob</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">user_layer1_nei_num</span><span class="p">:</span>
+                    <span class="n">tmp_one_nei</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">tmp_one_nei</span><span class="p">,</span> <span class="n">user_layer1_nei_num</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">tmp_prob</span><span class="p">)</span>
+                <span class="n">tmp_one_nei</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">each_u</span>
+
+                <span class="n">u_onehop_id</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">tmp_one_nei</span>  <span class="c1"># user_1_neigh</span>
+                <span class="n">u_onehop_cate</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">user_feature_arr</span><span class="p">[</span><span class="n">tmp_one_nei</span><span class="p">]</span>  <span class="c1"># user_1_neigh_cate</span>
+
+            <span class="k">yield</span> <span class="p">([</span><span class="n">u</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">u_self_cate</span><span class="p">,</span> <span class="n">u_onehop_id</span><span class="p">,</span> <span class="n">u_onehop_cate</span><span class="p">,</span> <span class="n">i_self_cate</span><span class="p">,</span> <span class="n">i_onehop_id</span><span class="p">,</span> <span class="n">i_onehop_cate</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data_generator</span><span class="p">(</span><span class="n">train_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model">
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">VAE</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">embed_size</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">VAE</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="n">Z_dim</span> <span class="o">=</span> <span class="n">X_dim</span> <span class="o">=</span> <span class="n">h_dim</span> <span class="o">=</span> <span class="n">embed_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Z_dim</span> <span class="o">=</span> <span class="n">Z_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X_dim</span><span class="o">=</span> <span class="n">X_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">h_dim</span> <span class="o">=</span> <span class="n">h_dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="o">=</span> <span class="n">embed_size</span>
+
+        <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">):</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_uniform</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># =============================== Q(z|X) ======================================</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_xh</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">X_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_xh</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_mu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">h_dim</span><span class="p">,</span> <span class="n">Z_dim</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_mu</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_var</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">h_dim</span><span class="p">,</span> <span class="n">Z_dim</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_var</span><span class="p">)</span>
+
+        <span class="c1"># =============================== P(X|z) ======================================</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_zh</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">Z_dim</span><span class="p">,</span> <span class="n">h_dim</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_zh</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_hx</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">h_dim</span><span class="p">,</span> <span class="n">X_dim</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_hx</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">Q</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_xh</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+        <span class="n">z_mu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_mu</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">z_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_hz_var</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">z_mu</span><span class="p">,</span> <span class="n">z_var</span>
+
+    <span class="k">def</span> <span class="nf">sample_z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">log_var</span><span class="p">):</span>
+        <span class="n">mb_size</span> <span class="o">=</span> <span class="n">mu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">mb_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">Z_dim</span><span class="p">))</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_var</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">eps</span>
+
+    <span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_zh</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_hx</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AGNN</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_size</span><span class="p">,</span> <span class="n">item_size</span><span class="p">,</span> <span class="n">gender_size</span><span class="p">,</span> <span class="n">age_size</span><span class="p">,</span> <span class="n">occupation_size</span><span class="p">,</span> <span class="n">genre_size</span><span class="p">,</span> <span class="n">director_size</span><span class="p">,</span> <span class="n">writer_size</span><span class="p">,</span> <span class="n">star_size</span><span class="p">,</span> <span class="n">country_size</span><span class="p">,</span> <span class="n">embed_size</span><span class="p">,</span> <span class="n">attention_size</span><span class="p">,</span> <span class="n">dropout</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AGNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_size</span> <span class="o">=</span> <span class="n">user_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_size</span> <span class="o">=</span> <span class="n">item_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_size</span> <span class="o">=</span> <span class="n">gender_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age_size</span> <span class="o">=</span> <span class="n">age_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">occupation_size</span> <span class="o">=</span> <span class="n">occupation_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genre_size</span> <span class="o">=</span> <span class="n">genre_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director_size</span> <span class="o">=</span> <span class="n">director_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writer_size</span> <span class="o">=</span> <span class="n">writer_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">star_size</span> <span class="o">=</span> <span class="n">star_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country_size</span> <span class="o">=</span> <span class="n">country_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">=</span> <span class="n">embed_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">attention_size</span> <span class="o">=</span> <span class="n">attention_size</span>
+
+        <span class="k">def</span> <span class="nf">init_weights</span><span class="p">(</span><span class="n">m</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">):</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_uniform</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">m</span><span class="o">.</span><span class="n">bias</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">bias</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_uniform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_embed</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">xavier_uniform</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_embed</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_bias</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_bias</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_bias</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">nn</span><span class="o">.</span><span class="n">init</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_bias</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">miu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gender_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">age_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">occupation_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">occupation_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">occupation_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">genre_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">genre_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">genre_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">director_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">director_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writer_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">writer_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">writer_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">star_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">star_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">star_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">country_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">country_embed</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">normal_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+
+
+        <span class="c1">#--------------------------------------------------</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_biinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_siinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_biinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_siinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_self_biinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_self_siinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_biinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_siinter</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_biinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_siinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_biinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_siinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_self_biinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_self_siinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_biinter</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_siinter</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_self</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_hop1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_self</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_hop1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_self</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_hop1</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_self</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_hop1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_addgate</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_addgate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_erasegate</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_erasegate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_addgate</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_addgate</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_erasegate</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_size</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span> <span class="o">=</span> <span class="n">VAE</span><span class="p">(</span><span class="n">embed_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span> <span class="o">=</span> <span class="n">VAE</span><span class="p">(</span><span class="n">embed_size</span><span class="p">)</span>
+
+        <span class="c1">#----------------------------------------------------</span>
+        <span class="c1">#concat, mlp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">FC_pre</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">embed_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">init_weights</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">FC_pre</span><span class="p">)</span>
+
+        <span class="sd">&quot;&quot;&quot;# dot</span>
+<span class="sd">        self.user_bias = nn.Embedding(self.user_size, 1)</span>
+<span class="sd">        self.item_bias = nn.Embedding(self.item_size, 1)</span>
+<span class="sd">        self.user_bias.weight.data.normal_(0, 0.01)</span>
+<span class="sd">        self.item_bias.weight.data.normal_(0, 0.01)</span>
+<span class="sd">        self.bias = torch.nn.Parameter(torch.rand(1), requires_grad=True)</span>
+<span class="sd">        self.bias.data.uniform_(0, 0.1)&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tanh</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Tanh</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">relu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">leakyrelu</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dropout</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">feat_interaction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_embedding</span><span class="p">,</span> <span class="n">fun_bi</span><span class="p">,</span> <span class="n">fun_si</span><span class="p">,</span> <span class="n">dimension</span><span class="p">):</span>
+        <span class="n">summed_features_emb_square</span> <span class="o">=</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">feature_embedding</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dimension</span><span class="p">))</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">squared_sum_features_emb</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">feature_embedding</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="n">dimension</span><span class="p">)</span>
+        <span class="n">deep_fm</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">summed_features_emb_square</span> <span class="o">-</span> <span class="n">squared_sum_features_emb</span><span class="p">)</span>
+        <span class="n">deep_fm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leakyrelu</span><span class="p">(</span><span class="n">fun_bi</span><span class="p">(</span><span class="n">deep_fm</span><span class="p">))</span>
+        <span class="n">bias_fm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leakyrelu</span><span class="p">(</span><span class="n">fun_si</span><span class="p">(</span><span class="n">feature_embedding</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">dimension</span><span class="p">)))</span>
+        <span class="n">nfm</span> <span class="o">=</span> <span class="n">deep_fm</span> <span class="o">+</span> <span class="n">bias_fm</span>
+        <span class="k">return</span> <span class="n">nfm</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">user_self_cate</span><span class="p">,</span> <span class="n">user_onehop_id</span><span class="p">,</span> <span class="n">user_onehop_cate</span><span class="p">,</span> <span class="n">item_self_cate</span><span class="p">,</span> <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span><span class="p">,</span> <span class="n">item_onehop_id</span><span class="p">,</span> <span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span> <span class="n">item_onehop_country</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">):</span>
+
+        <span class="n">uids_list</span> <span class="o">=</span> <span class="n">user</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">sids_list</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;train&#39;</span> <span class="ow">or</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;warm&#39;</span><span class="p">:</span>
+            <span class="n">user_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embed</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">uids_list</span><span class="p">))</span>
+            <span class="n">item_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embed</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">sids_list</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;ics&#39;</span><span class="p">:</span>
+            <span class="n">user_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embed</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">uids_list</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;ucs&#39;</span><span class="p">:</span>
+            <span class="n">item_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embed</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">sids_list</span><span class="p">))</span>
+
+        <span class="n">batch_size</span> <span class="o">=</span> <span class="n">item_self_cate</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">cate_size</span> <span class="o">=</span> <span class="n">item_self_cate</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">director_size</span> <span class="o">=</span> <span class="n">item_self_director</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">writer_size</span> <span class="o">=</span> <span class="n">item_self_writer</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">star_size</span> <span class="o">=</span> <span class="n">item_self_star</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">country_size</span> <span class="o">=</span> <span class="n">item_self_country</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">user_onehop_size</span> <span class="o">=</span> <span class="n">user_onehop_id</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">item_onehop_size</span> <span class="o">=</span> <span class="n">item_onehop_id</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1">#------------------------------------------------------GCN-item</span>
+        <span class="c1"># K=2</span>
+        <span class="n">item_onehop_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_id</span><span class="p">))</span>
+
+        <span class="n">item_onehop_cate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genre_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_cate</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cate_size</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span><span class="n">item_onehop_size</span><span class="p">,</span><span class="n">cate_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_onehop_director</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">director_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_director</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">director_size</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">item_onehop_size</span><span class="p">,</span> <span class="n">director_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_onehop_writer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_writer</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">writer_size</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">item_onehop_size</span><span class="p">,</span> <span class="n">writer_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_onehop_star</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">star_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_star</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">star_size</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">item_onehop_size</span><span class="p">,</span> <span class="n">star_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_onehop_country</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">country_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_onehop_country</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">country_size</span><span class="p">))</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">item_onehop_size</span><span class="p">,</span> <span class="n">country_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">item_onehop_feature</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span> <span class="n">item_onehop_country</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">item_onehop_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_hop1</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">feat_interaction</span><span class="p">(</span><span class="n">item_onehop_feature</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_biinter</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_onehop_siinter</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">item_onehop_id</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># K=1</span>
+        <span class="n">item_self_cate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">genre_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_self_cate</span><span class="p">))</span>
+        <span class="n">item_self_director</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">director_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_self_director</span><span class="p">))</span>
+        <span class="n">item_self_writer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">writer_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_self_writer</span><span class="p">))</span>
+        <span class="n">item_self_star</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">star_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_self_star</span><span class="p">))</span>
+        <span class="n">item_self_country</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">country_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">item_self_country</span><span class="p">))</span>
+
+        <span class="n">item_self_feature</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">item_self_cate</span><span class="p">,</span> <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_self_feature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feat_interaction</span><span class="p">(</span><span class="n">item_self_feature</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_biinter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_self_siinter</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;ics&#39;</span><span class="p">:</span>
+            <span class="n">item_mu</span><span class="p">,</span> <span class="n">item_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="n">item_self_feature</span><span class="p">)</span>
+            <span class="n">item_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">sample_z</span><span class="p">(</span><span class="n">item_mu</span><span class="p">,</span> <span class="n">item_var</span><span class="p">)</span>
+            <span class="n">item_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">item_z</span><span class="p">)</span>
+        <span class="n">item_self_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_item_cate_self</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">item_self_feature</span><span class="p">,</span> <span class="n">item_embedding</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">item_addgate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_addgate</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">item_self_embed</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">item_onehop_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">item_onehop_embed</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)))</span>  <span class="c1"># 商品的邻居门，控制邻居信息多少作为输入</span>
+        <span class="n">item_erasegate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_item_erasegate</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">item_self_embed</span><span class="p">,</span> <span class="n">item_onehop_embed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="n">item_onehop_embed_final</span> <span class="o">=</span> <span class="p">(</span><span class="n">item_onehop_embed</span> <span class="o">*</span> <span class="n">item_addgate</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">item_self_embed</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">item_erasegate</span><span class="p">)</span> <span class="o">*</span> <span class="n">item_self_embed</span>
+
+        <span class="n">item_gcn_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leakyrelu</span><span class="p">(</span><span class="n">item_self_embed</span> <span class="o">+</span> <span class="n">item_onehop_embed_final</span><span class="p">)</span>  <span class="c1"># [batch, embed]</span>
+
+        <span class="c1">#----------------------------------------------------------GCN-user</span>
+        <span class="c1"># K=2</span>
+        <span class="n">user_onehop_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_onehop_id</span><span class="p">))</span>
+
+        <span class="n">user_onehop_gender_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gender_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_onehop_cate</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="n">user_onehop_age_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">age_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_onehop_cate</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]))</span>
+        <span class="n">user_onehop_occupation_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">occupation_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_onehop_cate</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]))</span>
+
+        <span class="n">user_onehop_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_onehop_gender_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">user_onehop_age_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">user_onehop_occupation_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">user_onehop_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_hop1</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">feat_interaction</span><span class="p">(</span><span class="n">user_onehop_feat</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_biinter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_siinter</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span> <span class="n">user_onehop_id</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># K=1</span>
+        <span class="n">user_gender_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gender_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_self_cate</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
+        <span class="n">user_age_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">age_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_self_cate</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
+        <span class="n">user_occupation_emb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">occupation_embed</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">user_self_cate</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+
+        <span class="n">user_self_feature</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_gender_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">user_age_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">user_occupation_emb</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">user_self_feature</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feat_interaction</span><span class="p">(</span><span class="n">user_self_feature</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_self_biinter</span><span class="p">,</span>  <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_onehop_siinter</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;ucs&#39;</span><span class="p">:</span>
+            <span class="n">user_mu</span><span class="p">,</span> <span class="n">user_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="n">user_self_feature</span><span class="p">)</span>
+            <span class="n">user_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">sample_z</span><span class="p">(</span><span class="n">user_mu</span><span class="p">,</span> <span class="n">user_var</span><span class="p">)</span>
+            <span class="n">user_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">user_z</span><span class="p">)</span>
+        <span class="n">user_self_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dense_user_cate_self</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_self_feature</span><span class="p">,</span> <span class="n">user_embedding</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
+
+        <span class="n">user_addgate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_addgate</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_self_embed</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">user_onehop_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">user_onehop_embed</span><span class="p">],</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="n">user_erasegate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dense_user_erasegate</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_self_embed</span><span class="p">,</span> <span class="n">user_onehop_embed</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)))</span>
+        <span class="n">user_onehop_embed_final</span> <span class="o">=</span> <span class="p">(</span><span class="n">user_onehop_embed</span> <span class="o">*</span> <span class="n">user_addgate</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">user_self_embed</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">user_erasegate</span><span class="p">)</span> <span class="o">*</span> <span class="n">user_self_embed</span>
+
+        <span class="n">user_gcn_embed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">leakyrelu</span><span class="p">(</span><span class="n">user_self_embed</span> <span class="o">+</span> <span class="n">user_onehop_embed_final</span><span class="p">)</span>
+
+        <span class="c1">#--------------------------------------------------norm</span>
+        <span class="n">item_mu</span><span class="p">,</span> <span class="n">item_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="n">item_self_feature</span><span class="p">)</span>
+        <span class="n">item_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">sample_z</span><span class="p">(</span><span class="n">item_mu</span><span class="p">,</span> <span class="n">item_var</span><span class="p">)</span>
+        <span class="n">item_preference_sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_vae</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">item_z</span><span class="p">)</span>
+
+        <span class="n">user_mu</span><span class="p">,</span> <span class="n">user_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">Q</span><span class="p">(</span><span class="n">user_self_feature</span><span class="p">)</span>
+        <span class="n">user_z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">sample_z</span><span class="p">(</span><span class="n">user_mu</span><span class="p">,</span> <span class="n">user_var</span><span class="p">)</span>
+        <span class="n">user_preference_sample</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_vae</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">user_z</span><span class="p">)</span>
+
+        <span class="n">recon_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">item_preference_sample</span> <span class="o">-</span> <span class="n">item_embedding</span><span class="p">)</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">user_preference_sample</span> <span class="o">-</span> <span class="n">user_embedding</span><span class="p">)</span>
+        <span class="n">kl_loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">item_z</span><span class="p">)</span> <span class="o">+</span> <span class="n">item_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">item_var</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> \
+                  <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">user_z</span><span class="p">)</span> <span class="o">+</span> <span class="n">user_mu</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">user_var</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1">####################################prediction#####################################################</span>
+
+        <span class="c1">#concat -&gt; mlp</span>
+        <span class="n">bu</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_bias</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">uids_list</span><span class="p">))</span>
+        <span class="n">bi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_bias</span><span class="p">(</span><span class="n">Variable</span><span class="p">(</span><span class="n">sids_list</span><span class="p">))</span>
+        <span class="c1">#pred = (user_gcn_embed * item_gcn_embed).sum(1, keepdim=True) + bu + bi + (self.miu).repeat(batch_size, 1)</span>
+        <span class="n">tmp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">user_gcn_embed</span><span class="p">,</span> <span class="n">item_gcn_embed</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">FC_pre</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">user_gcn_embed</span> <span class="o">*</span> <span class="n">item_gcn_embed</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">+</span> <span class="n">bu</span> <span class="o">+</span> <span class="n">bi</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">miu</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">pred</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">recon_loss</span><span class="p">,</span> <span class="n">kl_loss</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metrics-and-evaluation">
+<h2>Metrics and Evaluation<a class="headerlink" href="#metrics-and-evaluation" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">):</span>
+    <span class="n">label_lst</span><span class="p">,</span> <span class="n">pred_lst</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+    <span class="n">rmse</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">mae</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">batch_data</span> <span class="ow">in</span> <span class="n">test_dataloader</span><span class="p">:</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">user_self_cate</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">user_onehop_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">user_onehop_cate</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">item_self_cate</span><span class="p">,</span> <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">15</span><span class="p">:]</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">item_onehop_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+        <span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span> <span class="n">item_onehop_country</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span>
+            <span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">15</span><span class="p">:]</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+        <span class="n">prediction</span><span class="p">,</span> <span class="n">recon_loss</span><span class="p">,</span> <span class="n">kl_loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">user_self_cate</span><span class="p">,</span> <span class="n">user_onehop_id</span><span class="p">,</span> <span class="n">user_onehop_cate</span><span class="p">,</span> <span class="n">item_self_cate</span><span class="p">,</span>
+                           <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span><span class="p">,</span> <span class="n">item_onehop_id</span><span class="p">,</span>
+                           <span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span>
+                           <span class="n">item_onehop_country</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">mode</span><span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">prediction</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">prediction</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+        <span class="n">my_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">my_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">my_mae</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">prediction</span> <span class="o">-</span> <span class="n">label</span><span class="p">))</span>
+        <span class="c1"># my_rmse = torch.sqrt(torch.sum((prediction - label) ** 2) / FLAGS.batch_size)</span>
+        <span class="n">rmse</span><span class="o">+=</span><span class="n">my_rmse</span>
+        <span class="n">mse</span><span class="o">+=</span><span class="n">my_mse</span>
+        <span class="n">mae</span><span class="o">+=</span><span class="n">my_mae</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">label_lst</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">label</span><span class="p">]))</span>
+        <span class="n">pred_lst</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">list</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">prediction</span><span class="p">]))</span>
+
+    <span class="n">my_mse</span> <span class="o">=</span> <span class="n">mse</span><span class="o">/</span><span class="n">count</span>
+    <span class="n">my_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rmse</span><span class="o">/</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">my_mae</span> <span class="o">=</span> <span class="n">mae</span><span class="o">/</span><span class="n">count</span>
+    <span class="k">return</span> <span class="n">my_rmse</span><span class="p">,</span> <span class="n">my_mse</span><span class="p">,</span> <span class="n">my_mae</span><span class="p">,</span> <span class="n">label_lst</span><span class="p">,</span> <span class="n">pred_lst</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1">#item cold start</span>
+    <span class="n">f_info</span> <span class="o">=</span> <span class="s1">&#39;ml100k/uiinfo.pkl&#39;</span>
+    <span class="n">f_neighbor</span> <span class="o">=</span> <span class="s1">&#39;ml100k/neighbor_aspect_extension_2_zscore_ics_uuii_0.20.pkl&#39;</span>
+    <span class="n">f_train</span> <span class="o">=</span> <span class="s1">&#39;ml100k/ics_train.dat&#39;</span>
+    <span class="n">f_test</span> <span class="o">=</span> <span class="s1">&#39;ml100k/ics_val.dat&#39;</span>
+    <span class="n">f_model</span> <span class="o">=</span> <span class="s1">&#39;ml100k/agnn_ics_&#39;</span>
+    <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;ics&#39;</span>
+
+    <span class="sd">&quot;&quot;&quot;# user cold start</span>
+<span class="sd">    f_info = &#39;ml100k/uiinfo.pkl&#39;</span>
+<span class="sd">    f_neighbor = &#39;ml100k/neighbor_aspect_extension_2_zscore_ucs_uuii.pkl&#39;</span>
+<span class="sd">    f_train = &#39;ml100k/ucs_train.dat&#39;</span>
+<span class="sd">    f_test = &#39;ml100k/ucs_val.dat&#39;</span>
+<span class="sd">    f_model = &#39;ml100k/agnn_ucs_&#39;</span>
+<span class="sd">    mode = &#39;ucs&#39;&quot;&quot;&quot;</span>
+
+    <span class="sd">&quot;&quot;&quot;# warm start</span>
+<span class="sd">    f_info = &#39;ml100k/uiinfo.pkl&#39;</span>
+<span class="sd">    f_neighbor = &#39;ml100k/neighbor_aspect_extension_2_zscore_warm_uuii.pkl&#39;</span>
+<span class="sd">    f_train = &#39;ml100k/warm_train.dat&#39;</span>
+<span class="sd">    f_test = &#39;ml100k/warm_val.dat&#39;</span>
+<span class="sd">    f_model = &#39;ml100k/agnn_warm_&#39;</span>
+<span class="sd">    mode = &#39;warm&#39;&quot;&quot;&quot;</span>
+
+
+    <span class="n">FLAGS</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="p">{})</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Parameters:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">FLAGS</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_neighbor</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">neighbor_dict</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">user_nei_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;user_nei_dict&#39;</span><span class="p">]</span>
+    <span class="n">item_nei_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;item_nei_dict&#39;</span><span class="p">]</span>
+    <span class="n">director_num</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;director_num&#39;</span><span class="p">]</span>
+    <span class="n">writer_num</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;writer_num&#39;</span><span class="p">]</span>
+    <span class="n">star_num</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;star_num&#39;</span><span class="p">]</span>
+    <span class="n">country_num</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;country_num&#39;</span><span class="p">]</span>
+
+    <span class="n">item_director_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;item_director_dict&#39;</span><span class="p">]</span>    <span class="c1">#dict[i]=[x,x,x]</span>
+    <span class="n">item_writer_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;item_writer_dict&#39;</span><span class="p">]</span>        <span class="c1">#dict[i]=[x,x,x]</span>
+    <span class="n">item_star_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;item_star_dict&#39;</span><span class="p">]</span>            <span class="c1">#dict[i]=[x,x,x]</span>
+    <span class="n">item_country_dict</span> <span class="o">=</span> <span class="n">neighbor_dict</span><span class="p">[</span><span class="s1">&#39;item_country_dict&#39;</span><span class="p">]</span>      <span class="c1">#dict[i]=[x,x,x,x,x,x,x,x]</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">f_info</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">item_info</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">user_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;user_num&#39;</span><span class="p">]</span>
+    <span class="n">item_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;item_num&#39;</span><span class="p">]</span>
+    <span class="n">gender_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;gender_num&#39;</span><span class="p">]</span>
+    <span class="n">age_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;age_num&#39;</span><span class="p">]</span>
+    <span class="n">occupation_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;occupation_num&#39;</span><span class="p">]</span>
+    <span class="n">genre_num</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;genre_num&#39;</span><span class="p">]</span>
+    <span class="n">user_feature_dict</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;user_feature_dict&#39;</span><span class="p">]</span>  <span class="c1">#gender, age, occupation    dict[u]=[x,x,x]</span>
+    <span class="n">item_feature_dict</span> <span class="o">=</span> <span class="n">item_info</span><span class="p">[</span><span class="s1">&#39;item_feature_dict&#39;</span><span class="p">]</span>  <span class="c1">#genre                      dict[i]=[x,x,x,x,x,x]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;user_num </span><span class="si">{}</span><span class="s2">, item_num </span><span class="si">{}</span><span class="s2">, gender_num </span><span class="si">{}</span><span class="s2">, age_num </span><span class="si">{}</span><span class="s2">, occupation_num </span><span class="si">{}</span><span class="s2">, genre_num </span><span class="si">{}</span><span class="s2">, director_num </span><span class="si">{}</span><span class="s2">, writer_num </span><span class="si">{}</span><span class="s2">, star_num </span><span class="si">{}</span><span class="s2">, country_num </span><span class="si">{}</span><span class="s2">, mode </span><span class="si">{}</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user_num</span><span class="p">,</span> <span class="n">item_num</span><span class="p">,</span> <span class="n">gender_num</span><span class="p">,</span> <span class="n">age_num</span><span class="p">,</span> <span class="n">occupation_num</span><span class="p">,</span> <span class="n">genre_num</span><span class="p">,</span> <span class="n">director_num</span><span class="p">,</span> <span class="n">writer_num</span><span class="p">,</span> <span class="n">star_num</span><span class="p">,</span> <span class="n">country_num</span><span class="p">,</span> <span class="n">mode</span><span class="p">))</span>
+
+    <span class="n">train_steps</span><span class="p">,</span> <span class="n">train_list</span> <span class="o">=</span> <span class="n">get_data_list</span><span class="p">(</span><span class="n">f_train</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+    <span class="n">test_steps</span><span class="p">,</span> <span class="n">test_list</span> <span class="o">=</span> <span class="n">get_data_list</span><span class="p">(</span><span class="n">f_test</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">AGNN</span><span class="p">(</span><span class="n">user_num</span><span class="p">,</span> <span class="n">item_num</span><span class="p">,</span> <span class="n">gender_num</span><span class="p">,</span> <span class="n">age_num</span><span class="p">,</span> <span class="n">occupation_num</span><span class="p">,</span> <span class="n">genre_num</span><span class="p">,</span> <span class="n">director_num</span><span class="p">,</span> <span class="n">writer_num</span><span class="p">,</span> <span class="n">star_num</span><span class="p">,</span> <span class="n">country_num</span><span class="p">,</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">embed_size</span><span class="p">,</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">attention_size</span><span class="p">,</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">dropout</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+    <span class="n">loss_function</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">MSELoss</span><span class="p">(</span><span class="n">size_average</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">requires_grad</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()),</span> <span class="n">lr</span><span class="o">=</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">SummaryWriter</span><span class="p">()</span>  <span class="c1"># For visualization</span>
+    <span class="c1">#f_loss_curve = open(&#39;tmp_loss_curve.txt&#39;, &#39;w&#39;)</span>
+    <span class="n">best_rmse</span> <span class="o">=</span> <span class="mi">5</span>
+
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="c1">#tmp_main_loss, tmp_vae_loss = [], []</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>  <span class="c1"># Enable dropout (if have).</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">train_dataloader</span> <span class="o">=</span> <span class="n">get_batch_instances</span><span class="p">(</span><span class="n">train_list</span><span class="p">,</span> <span class="n">user_feature_dict</span><span class="p">,</span> <span class="n">item_feature_dict</span><span class="p">,</span> <span class="n">item_director_dict</span><span class="p">,</span> <span class="n">item_writer_dict</span><span class="p">,</span> <span class="n">item_star_dict</span><span class="p">,</span> <span class="n">item_country_dict</span><span class="p">,</span>  <span class="n">batch_size</span><span class="o">=</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">user_nei_dict</span><span class="o">=</span><span class="n">user_nei_dict</span><span class="p">,</span> <span class="n">item_nei_dict</span><span class="o">=</span><span class="n">item_nei_dict</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">batch_data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">train_dataloader</span><span class="p">):</span> <span class="c1">#u, i, l, u_self_cate, u_onehop_id, u_onehop_rating, u_onehop_cate, i_self_cate, i_onehop_id, i_onehop_cate</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">FloatTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">user_self_cate</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">user_onehop_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">user_onehop_cate</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">item_self_cate</span><span class="p">,</span> <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">6</span><span class="p">])[:,</span> <span class="mi">15</span><span class="p">:]</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">item_onehop_id</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+            <span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span> <span class="n">item_onehop_country</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">9</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">12</span><span class="p">:</span><span class="mi">15</span><span class="p">]</span><span class="o">.</span><span class="n">cuda</span><span class="p">(),</span> <span class="n">torch</span><span class="o">.</span><span class="n">LongTensor</span><span class="p">(</span><span class="n">batch_data</span><span class="p">[</span><span class="mi">8</span><span class="p">])[:,</span> <span class="p">:,</span> <span class="mi">15</span><span class="p">:]</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+
+            <span class="n">model</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+            <span class="n">prediction</span><span class="p">,</span> <span class="n">recon_loss</span><span class="p">,</span> <span class="n">kl_loss</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">user_self_cate</span><span class="p">,</span> <span class="n">user_onehop_id</span><span class="p">,</span> <span class="n">user_onehop_cate</span><span class="p">,</span> <span class="n">item_self_cate</span><span class="p">,</span> <span class="n">item_self_director</span><span class="p">,</span> <span class="n">item_self_writer</span><span class="p">,</span> <span class="n">item_self_star</span><span class="p">,</span> <span class="n">item_self_country</span><span class="p">,</span> <span class="n">item_onehop_id</span><span class="p">,</span> <span class="n">item_onehop_cate</span><span class="p">,</span> <span class="n">item_onehop_director</span><span class="p">,</span> <span class="n">item_onehop_writer</span><span class="p">,</span> <span class="n">item_onehop_star</span><span class="p">,</span> <span class="n">item_onehop_country</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+
+            <span class="n">label</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+            <span class="n">main_loss</span> <span class="o">=</span> <span class="n">loss_function</span><span class="p">(</span><span class="n">prediction</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">main_loss</span> <span class="o">+</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">vae_lambda</span> <span class="o">*</span> <span class="p">(</span><span class="n">recon_loss</span> <span class="o">+</span> <span class="n">kl_loss</span><span class="p">)</span>
+
+            <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+            <span class="c1"># nn.utils.clip_grad_norm(model.parameters(), FLAGS.clip_norm)</span>
+            <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">add_scalar</span><span class="p">(</span><span class="s1">&#39;data/loss&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">tmploss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">loss</span> <span class="o">/</span> <span class="n">FLAGS</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="mi">50</span> <span class="o">*</span> <span class="s1">&#39;#&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;epoch: &#39;</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span><span class="p">,</span> <span class="n">tmploss</span><span class="o">.</span><span class="n">detach</span><span class="p">())</span>
+
+        <span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;time = &#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span>
+        <span class="n">test_dataloader</span> <span class="o">=</span> <span class="n">get_batch_instances</span><span class="p">(</span><span class="n">test_list</span><span class="p">,</span> <span class="n">user_feature_dict</span><span class="p">,</span> <span class="n">item_feature_dict</span><span class="p">,</span> <span class="n">item_director_dict</span><span class="p">,</span> <span class="n">item_writer_dict</span><span class="p">,</span> <span class="n">item_star_dict</span><span class="p">,</span> <span class="n">item_country_dict</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">FLAGS</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">user_nei_dict</span><span class="o">=</span><span class="n">user_nei_dict</span><span class="p">,</span> <span class="n">item_nei_dict</span><span class="o">=</span><span class="n">item_nei_dict</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">rmse</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">mae</span><span class="p">,</span> <span class="n">label_lst</span><span class="p">,</span> <span class="n">pred_lst</span> <span class="o">=</span> <span class="n">metrics</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_dataloader</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test rmse,mse,mae: &#39;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">,</span><span class="n">mse</span><span class="p">,</span><span class="n">mae</span><span class="p">)</span>
+
+        <span class="sd">&quot;&quot;&quot;if (rmse &lt; best_rmse):</span>
+<span class="sd">            best_rmse = rmse</span>
+<span class="sd">            f_name = f_model + str(best_rmse)[:7] + &#39;.dat&#39; #f_model + str(best_rmse)[:7] + &#39;.dat&#39;</span>
+<span class="sd">            #torch.save(model, f_name)</span>
+<span class="sd">            f = open(f_name, &#39;w&#39;)</span>
+<span class="sd">            res_dict = {}</span>
+<span class="sd">            res_dict[&#39;label&#39;] = label_lst</span>
+<span class="sd">            res_dict[&#39;pred&#39;] = pred_lst</span>
+<span class="sd">            json.dump(res_dict, f)</span>
+<span class="sd">            f.close()</span>
+<span class="sd">            print(&#39;save result ok&#39;)&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parameters:
+{&#39;lr&#39;: 0.0005, &#39;dropout&#39;: 0.5, &#39;batch_size&#39;: 128, &#39;gpu&#39;: &#39;0&#39;, &#39;epochs&#39;: 20, &#39;clip_norm&#39;: 5.0, &#39;embed_size&#39;: 30, &#39;attention_size&#39;: 50, &#39;item_layer1_nei_num&#39;: 10, &#39;user_layer1_nei_num&#39;: 10, &#39;vae_lambda&#39;: 1}
+user_num 944, item_num 1683, gender_num 2, age_num 7, occupation_num 21, genre_num 19, director_num 1112, writer_num 2016, star_num 2568, country_num 128, mode ics 
+##################################################
+epoch:  0       tensor(0.5626, device=&#39;cuda:0&#39;)
+time =  47.153045654296875
+test rmse,mse,mae:  1.0325273649289848 1.066112759327193 0.8309432697873491
+##################################################
+epoch:  1       tensor(0.5689, device=&#39;cuda:0&#39;)
+time =  43.06915545463562
+test rmse,mse,mae:  1.0266010076226462 1.0539096288518324 0.824870026105042
+##################################################
+epoch:  2       tensor(0.6943, device=&#39;cuda:0&#39;)
+time =  42.44387221336365
+test rmse,mse,mae:  1.0571549817251507 1.1175766553863038 0.8638132363016552
+##################################################
+epoch:  3       tensor(0.5527, device=&#39;cuda:0&#39;)
+time =  42.13542699813843
+test rmse,mse,mae:  1.0517702752306248 1.1062207118587042 0.8609723428611776
+##################################################
+epoch:  4       tensor(0.5443, device=&#39;cuda:0&#39;)
+time =  43.24214553833008
+test rmse,mse,mae:  1.0358337215744027 1.0729514987506772 0.8453118500108566
+##################################################
+epoch:  5       tensor(0.4815, device=&#39;cuda:0&#39;)
+time =  42.43221974372864
+test rmse,mse,mae:  1.0231939566804946 1.0469258729874857 0.8253297993686741
+##################################################
+epoch:  6       tensor(0.4968, device=&#39;cuda:0&#39;)
+time =  42.93929886817932
+test rmse,mse,mae:  1.0359929845205296 1.0732814639757542 0.8411421427834342
+##################################################
+epoch:  7       tensor(0.4895, device=&#39;cuda:0&#39;)
+time =  42.229517459869385
+test rmse,mse,mae:  1.0532774718633056 1.1093934327347565 0.8607855100322045
+##################################################
+epoch:  8       tensor(0.5074, device=&#39;cuda:0&#39;)
+time =  42.55834674835205
+test rmse,mse,mae:  1.0247800932391622 1.050174239499266 0.824709580819818
+##################################################
+epoch:  9       tensor(0.4578, device=&#39;cuda:0&#39;)
+time =  41.558250427246094
+test rmse,mse,mae:  1.0922955741421183 1.19310962129046 0.8990770569855391
+##################################################
+epoch:  10       tensor(0.5202, device=&#39;cuda:0&#39;)
+time =  42.752477407455444
+test rmse,mse,mae:  1.0405772957327133 1.0828011083944065 0.8449710432355982
+##################################################
+epoch:  11       tensor(0.5196, device=&#39;cuda:0&#39;)
+time =  41.88001823425293
+test rmse,mse,mae:  1.0647690947606663 1.1337332251574486 0.8694145861863434
+##################################################
+epoch:  12       tensor(0.5833, device=&#39;cuda:0&#39;)
+time =  41.569355964660645
+test rmse,mse,mae:  1.0307747052978313 1.0624964930818313 0.832099199058856
+##################################################
+epoch:  13       tensor(0.5642, device=&#39;cuda:0&#39;)
+time =  41.10500383377075
+test rmse,mse,mae:  1.0283506332487717 1.05750502490315 0.8281871831344915
+##################################################
+epoch:  14       tensor(0.5756, device=&#39;cuda:0&#39;)
+time =  41.294716119766235
+test rmse,mse,mae:  1.05585361314044 1.1148268523817215 0.8628918800500965
+##################################################
+epoch:  15       tensor(0.5247, device=&#39;cuda:0&#39;)
+time =  41.94802975654602
+test rmse,mse,mae:  1.0287578659232348 1.0583427466989286 0.831378873784134
+##################################################
+epoch:  16       tensor(0.5186, device=&#39;cuda:0&#39;)
+time =  41.139464139938354
+test rmse,mse,mae:  1.0345978113820935 1.070392631316618 0.8337778758005447
+##################################################
+epoch:  17       tensor(0.4468, device=&#39;cuda:0&#39;)
+time =  42.24388003349304
+test rmse,mse,mae:  1.027209256353785 1.0551588563388956 0.8190214309314482
+##################################################
+epoch:  18       tensor(0.4668, device=&#39;cuda:0&#39;)
+time =  41.94647932052612
+test rmse,mse,mae:  1.0637774120911032 1.1316223824752447 0.8678730945240749
+##################################################
+epoch:  19       tensor(0.4666, device=&#39;cuda:0&#39;)
+time =  41.875648021698
+test rmse,mse,mae:  1.063158955390531 1.1303069644270851 0.8644698513033106
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>END</strong></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/coldstart-recsys",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">TaNP Cold-start Recommender on LastFM dataset</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">DaRE Cross-domain recommender on Amazon Reviews dataset</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

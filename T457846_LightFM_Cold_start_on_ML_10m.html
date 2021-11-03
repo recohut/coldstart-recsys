@@ -1,0 +1,1544 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LightFM Cold-start on ML-10m &#8212; coldstart-recsys</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="EMCDR on MovieLens-Netflix dataset" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html" />
+    <link rel="prev" title="Attribute to Feature Mappings for Cold-Start Recommendations" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">coldstart-recsys</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L281872_Cold_Start_Recommendations.html">
+   Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html">
+   Attribute to Feature Mappings for Cold-Start Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   LightFM Cold-start on ML-10m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html">
+   EMCDR on MovieLens-Netflix dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html">
+   HERS Cold-start Recommendations on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T316836_Collective_Matrix_Factorization_on_ML_1m.html">
+   Collective Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T490340_Double_domain_recommendations_on_ML_1m.html">
+   Double domain recommendations on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html">
+   DropoutNet Cold-start Recommendation on CiteULike dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T714933_MetaTL_for_Cold_start_users_on_Amazon_Electronics_dataset.html">
+   MetaTL for Cold-start users on Amazon Electronics dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html">
+   TaNP Cold-start Recommender on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T290734_AGGN_Cold_start_Recommendation_on_ML_100k.html">
+   AGGN Cold-start Recommendation on ML-100k
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html">
+   DaRE Cross-domain recommender on Amazon Reviews dataset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T457846_LightFM_Cold_start_on_ML_10m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/coldstart-recsys/main?urlpath=tree/docs/T457846_LightFM_Cold_start_on_ML_10m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/coldstart-recsys/blob/main/docs/T457846_LightFM_Cold_start_on_ML_10m.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installations">
+     Installations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datasets">
+     Datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#imports">
+     Imports
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#utils">
+   Utils
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cf-model">
+   CF Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lsi-up-model">
+   LSI-UP Model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#main">
+   Main
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citations">
+   Citations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lightfm-cold-start-on-ml-10m">
+<h1>LightFM Cold-start on ML-10m<a class="headerlink" href="#lightfm-cold-start-on-ml-10m" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installations">
+<h3>Installations<a class="headerlink" href="#installations" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install scikit-learn==0.19.2
+!pip install lightfm
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="datasets">
+<h3>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!wget -q --show-progress http://files.grouplens.org/datasets/movielens/ml-10m.zip
+!wget -q --show-progress http://files.grouplens.org/datasets/tag-genome/tag-genome.zip
+!unzip ml-10m.zip
+!unzip tag-genome.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ml-10m.zip          100%[===================&gt;]  62.53M  41.5MB/s    in 1.5s    
+tag-genome.zip      100%[===================&gt;]  41.49M  36.6MB/s    in 1.1s    
+Archive:  ml-10m.zip
+   creating: ml-10M100K/
+  inflating: ml-10M100K/allbut.pl    
+  inflating: ml-10M100K/movies.dat   
+  inflating: ml-10M100K/ratings.dat  
+  inflating: ml-10M100K/README.html  
+  inflating: ml-10M100K/split_ratings.sh  
+  inflating: ml-10M100K/tags.dat     
+Archive:  tag-genome.zip
+   creating: tag-genome/
+  inflating: tag-genome/README.htm   
+  inflating: tag-genome/movies.dat   
+  inflating: tag-genome/tags.dat     
+  inflating: tag-genome/tag_relevance.dat  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imports">
+<h3>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">array</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging.handlers</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
+
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pformat</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">lightfm</span> <span class="kn">import</span> <span class="n">LightFM</span>
+
+<span class="c1"># from sklearn.model_selection import ShuffleSplit</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rc</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">(</span><span class="s1">&#39;Set1&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2021-10-31 11:10:00] DEBUG [matplotlib.pyplot:225] Loaded backend module://ipykernel.pylab.backend_inline version unknown.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SEPARATOR</span> <span class="o">=</span> <span class="s1">&#39;::&#39;</span>
+<span class="n">DATA_DIR</span> <span class="o">=</span> <span class="s1">&#39;ml-10M100K&#39;</span>
+<span class="n">GENOME_DIR</span> <span class="o">=</span> <span class="s1">&#39;tag-genome&#39;</span>
+<span class="n">DIMS_RANGE</span> <span class="o">=</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FONTSIZE</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;legend.fontsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FONTSIZE</span>
+
+<span class="n">DASHES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">]</span>
+<span class="n">MARKERS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">]</span>
+
+<span class="n">KEYS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;LSI-LR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LSI-UP&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LightFM (tags)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LightFM (tags + ids)&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;LightFM (tags + about)&#39;</span><span class="p">)</span>
+
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;#e41a1c&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;#377eb8&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;#4daf4a&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;#984ea3&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;#ff7f00&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="utils">
+<h2>Utils<a class="headerlink" href="#utils" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dim_sensitivity_plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">show_legend</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;text&#39;</span><span class="p">,</span> <span class="n">usetex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;serif&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$d$&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;ROC AUC&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">set_cmap</span><span class="p">(</span><span class="s1">&#39;Set2&#39;</span><span class="p">)</span>
+
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">KEYS</span><span class="p">):</span>
+        <span class="n">line_data</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">line_data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="n">line</span><span class="p">,</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">line_data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">MARKERS</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                         <span class="n">markersize</span><span class="o">=</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">FONTSIZE</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">COLORS</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+
+
+    <span class="k">if</span> <span class="n">show_legend</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">lines</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="n">basex</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">x</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">FONTSIZE</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">StratifiedSplit</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Class responsible for producing train-test splits.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+                 <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cold_start</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_seed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Options:</span>
+<span class="sd">        - test_size: the fraction of the dataset to be used as the test set.</span>
+<span class="sd">        - cold_start: if True, test_size of items will be randomly selected to</span>
+<span class="sd">                      be in the test set and removed from the training set. When</span>
+<span class="sd">                      False, test_size of all training pairs are moved to the</span>
+<span class="sd">                      test set.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span> <span class="o">=</span> <span class="n">user_ids</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span> <span class="o">=</span> <span class="n">item_ids</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">no_interactions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">test_size</span> <span class="o">=</span> <span class="n">test_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cold_start</span> <span class="o">=</span> <span class="n">cold_start</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">shuffle_split</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_interactions</span><span class="p">,</span>
+                                          <span class="n">n_iter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span>
+                                          <span class="n">test_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">test_size</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_cold_start_iterations</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Performs the cold-start splits.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">):</span>
+            <span class="n">unique_item_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">)</span>
+            <span class="n">no_in_test</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">test_size</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_item_ids</span><span class="p">))</span>
+
+            <span class="n">item_ids_in_test</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">unique_item_ids</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">no_in_test</span><span class="p">))</span>
+
+            <span class="n">test_indices</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+            <span class="n">train_indices</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">item_id</span> <span class="ow">in</span> <span class="n">item_ids_in_test</span><span class="p">:</span>
+                    <span class="n">test_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">train_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+            <span class="n">train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">train_indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+            <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">test_indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+            <span class="c1"># Shuffle data.</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cold_start</span><span class="p">:</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cold_start_iterations</span><span class="p">()</span>           
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">splits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shuffle_split</span>
+
+        <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="ow">in</span> <span class="n">splits</span><span class="p">:</span>
+
+            <span class="c1"># Make sure that all the users in test</span>
+            <span class="c1"># are represented in train.</span>
+            <span class="n">user_ids_in_train</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">item_ids_in_train</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">[</span><span class="n">train</span><span class="p">]:</span>
+                <span class="n">user_ids_in_train</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">for</span> <span class="n">iid</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">[</span><span class="n">train</span><span class="p">]:</span>
+                <span class="n">item_ids_in_train</span><span class="p">[</span><span class="n">iid</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cold_start</span><span class="p">:</span>
+                <span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">in</span> <span class="n">user_ids_in_train</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># For the non-cold start scenario, make sure that both users</span>
+                <span class="c1"># and items are represented in the train set.</span>
+                <span class="n">test</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">test</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">in</span> <span class="n">user_ids_in_train</span>
+                                            <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="ow">in</span> <span class="n">item_ids_in_train</span><span class="p">)]</span>
+
+            <span class="n">test</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+
+            <span class="k">yield</span> <span class="n">train</span><span class="p">,</span> <span class="n">test</span>
+
+
+<span class="k">def</span> <span class="nf">stratified_roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">user_indices</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute ROC AUC for each user individually, then average.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">aucs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">y_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
+    <span class="n">yhat_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">uid</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">user_indices</span><span class="p">):</span>
+        <span class="n">y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">yhat_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">yhat</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">y_dict</span><span class="p">:</span>
+
+        <span class="n">user_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="n">user_yhat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">yhat_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_y</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_yhat</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">user_y</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">user_y</span><span class="p">,</span> <span class="n">user_yhat</span><span class="p">))</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> users in stratified ROC AUC evaluation.&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">aucs</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">aucs</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">build_user_feature_matrix</span><span class="p">(</span><span class="n">user_ids</span><span class="p">):</span>
+
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">),</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">user_ids</span><span class="p">)))</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fit_model</span><span class="p">(</span><span class="n">interactions</span><span class="p">,</span> <span class="n">item_features_matrix</span><span class="p">,</span>
+              <span class="n">n_iter</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">modelfnc</span><span class="p">,</span> <span class="n">test_size</span><span class="p">,</span>
+              <span class="n">cold_start</span><span class="p">,</span> <span class="n">user_features_matrix</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fits the model provided by modelfnc.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">kf</span> <span class="o">=</span> <span class="n">StratifiedSplit</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">,</span> <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">,</span>
+                         <span class="n">n_iter</span><span class="o">=</span><span class="n">n_iter</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span> <span class="n">cold_start</span><span class="o">=</span><span class="n">cold_start</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Interaction density across all data: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                 <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_ids</span><span class="p">)</span>
+                                                   <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">item_ids</span><span class="p">))))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Training model&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Store ROC AUC scores for all iterations.</span>
+    <span class="n">aucs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Iterate over train-test splits.</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kf</span><span class="p">):</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Split no </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> examples in training set, </span><span class="si">%s</span><span class="s1"> in test set. Interaction density: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_ids</span><span class="p">)</span>
+                                                                <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">item_ids</span><span class="p">)))</span>
+
+        <span class="c1"># For every split, get a new model instance.</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">modelfnc</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">CFModel</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Evaluating a CF model&#39;</span><span class="p">)</span>
+            <span class="n">test_auc</span><span class="p">,</span> <span class="n">train_auc</span> <span class="o">=</span> <span class="n">evaluate_cf_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span>
+                                                    <span class="n">item_features_matrix</span><span class="p">,</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;CF model test AUC </span><span class="si">%s</span><span class="s1">, train AUC </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">test_auc</span><span class="p">,</span> <span class="n">train_auc</span><span class="p">)</span>
+            <span class="n">aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_auc</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">LsiUpModel</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Evaluating a LSI-UP model&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Prepare data.</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">interactions</span><span class="o">.</span><span class="n">data</span>
+            <span class="n">no_users</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">no_items</span> <span class="o">=</span> <span class="n">item_features_matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+            <span class="n">train_user_ids</span> <span class="o">=</span> <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">]</span>
+            <span class="n">train_item_ids</span> <span class="o">=</span> <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">]</span>
+
+            <span class="n">user_features</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                           <span class="p">(</span><span class="n">train_user_ids</span><span class="p">,</span> <span class="n">train_item_ids</span><span class="p">)),</span>
+                                           <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">no_users</span><span class="p">,</span> <span class="n">no_items</span><span class="p">))</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+            <span class="n">user_feature_matrix</span> <span class="o">=</span> <span class="n">user_features</span> <span class="o">*</span> <span class="n">item_features_matrix</span>
+
+            <span class="c1"># Fit model.</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">user_feature_matrix</span><span class="p">,</span> <span class="n">item_features_matrix</span><span class="p">)</span>
+            
+            <span class="c1"># For larger datasets use incremental prediction. Slower, but</span>
+            <span class="c1"># fits in far less memory.</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">train</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">test</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">200000</span><span class="p">:</span>
+                <span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                  <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                  <span class="n">incremental</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                 <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                 <span class="n">incremental</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                  <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+                <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                 <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+
+            <span class="c1"># Compute mean ROC AUC scores on both test and train data.</span>
+            <span class="n">train_auc</span> <span class="o">=</span> <span class="n">stratified_roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                 <span class="n">train_predictions</span><span class="p">,</span>
+                                                 <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+            <span class="n">test_auc</span> <span class="o">=</span> <span class="n">stratified_roc_auc_score</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                <span class="n">test_predictions</span><span class="p">,</span>
+                                                <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Test AUC </span><span class="si">%s</span><span class="s1">, train AUC </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">test_auc</span><span class="p">,</span> <span class="n">train_auc</span><span class="p">)</span>
+
+            <span class="n">aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_auc</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># LightFM and MF models using the LightFM implementation.</span>
+            <span class="k">if</span> <span class="n">user_features_matrix</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">user_features</span> <span class="o">=</span> <span class="n">user_features_matrix</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">user_features</span> <span class="o">=</span> <span class="n">build_user_feature_matrix</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">)</span>
+
+            <span class="n">item_features</span> <span class="o">=</span> <span class="n">item_features_matrix</span>
+
+            <span class="n">previous_auc</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+            <span class="n">train_interactions</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                <span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                 <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">])))</span>
+
+            <span class="c1"># Run for a maximum of epochs epochs.</span>
+            <span class="c1"># Stop if the test score starts falling, take the best result.</span>
+            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">fit_partial</span><span class="p">(</span><span class="n">train_interactions</span><span class="p">,</span>
+                                  <span class="n">item_features</span><span class="o">=</span><span class="n">item_features</span><span class="p">,</span>
+                                  <span class="n">user_features</span><span class="o">=</span><span class="n">user_features</span><span class="p">,</span>
+                                  <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+                <span class="n">train_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                  <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                  <span class="n">user_features</span><span class="o">=</span><span class="n">user_features</span><span class="p">,</span>
+                                                  <span class="n">item_features</span><span class="o">=</span><span class="n">item_features</span><span class="p">,</span>
+                                                  <span class="n">num_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+                <span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                 <span class="n">interactions</span><span class="o">.</span><span class="n">item_id</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                 <span class="n">user_features</span><span class="o">=</span><span class="n">user_features</span><span class="p">,</span>
+                                                 <span class="n">item_features</span><span class="o">=</span><span class="n">item_features</span><span class="p">,</span>
+                                                 <span class="n">num_threads</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+                <span class="n">train_auc</span> <span class="o">=</span> <span class="n">stratified_roc_auc_score</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">train</span><span class="p">],</span>
+                                                     <span class="n">train_predictions</span><span class="p">,</span>
+                                                     <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">train</span><span class="p">])</span>
+                <span class="n">test_auc</span> <span class="o">=</span> <span class="n">stratified_roc_auc_score</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">test</span><span class="p">],</span>
+                                                    <span class="n">test_predictions</span><span class="p">,</span>
+                                                    <span class="n">interactions</span><span class="o">.</span><span class="n">user_id</span><span class="p">[</span><span class="n">test</span><span class="p">])</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Epoch </span><span class="si">%s</span><span class="s1">, test AUC </span><span class="si">%s</span><span class="s1">, train AUC </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">test_auc</span><span class="p">,</span> <span class="n">train_auc</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">previous_auc</span> <span class="o">&gt;</span> <span class="n">test_auc</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+                <span class="n">previous_auc</span> <span class="o">=</span> <span class="n">test_auc</span>
+
+            <span class="n">aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">previous_auc</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">model</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">aucs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s2">&quot;[</span><span class="si">%(asctime)s</span><span class="s2">] </span><span class="si">%(levelname)s</span><span class="s2"> [</span><span class="si">%(name)s</span><span class="s2">:</span><span class="si">%(lineno)s</span><span class="s2">] </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;datefmt&#39;</span><span class="p">:</span> <span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S&quot;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;simple&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.handlers.RotatingFileHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;model.log&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;maxBytes&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span>
+            <span class="s1">&#39;backupCount&#39;</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">LOGGING</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">IncrementalCOOMatrix</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="p">):</span>
+
+        <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">:</span>
+            <span class="n">type_flag</span> <span class="o">=</span> <span class="s1">&#39;i&#39;</span>
+        <span class="k">elif</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">:</span>
+            <span class="n">type_flag</span> <span class="o">=</span> <span class="s1">&#39;l&#39;</span>
+        <span class="k">elif</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">:</span>
+            <span class="n">type_flag</span> <span class="o">=</span> <span class="s1">&#39;f&#39;</span>
+        <span class="k">elif</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">:</span>
+            <span class="n">type_flag</span> <span class="o">=</span> <span class="s1">&#39;d&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;Dtype not supported.&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">dtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rows</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">type_flag</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tocoo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cols</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="ow">or</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span>
+                             <span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Features</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">feature_ids</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mat</span> <span class="o">=</span> <span class="n">IncrementalCOOMatrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_id</span><span class="p">):</span>
+
+        <span class="n">iid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">))</span>
+        
+    <span class="k">def</span> <span class="nf">add_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>
+
+        <span class="n">iid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">))</span>
+
+        <span class="n">feature_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feature_ids</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_ids</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="n">feature_id</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+
+        <span class="n">iid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span><span class="p">[</span><span class="n">iid</span><span class="p">]</span> <span class="o">=</span> <span class="n">title</span>
+
+    <span class="k">def</span> <span class="nf">set_shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">shape</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">feature_ids</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add_latent_representations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_representations</span><span class="p">):</span>
+
+        <span class="n">dim</span> <span class="o">=</span> <span class="n">latent_representations</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">lrepr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span><span class="p">),</span> <span class="n">dim</span><span class="p">),</span>
+                         <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">tocoo</span><span class="p">()</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()):</span>
+            <span class="n">lrepr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">latent_representations</span><span class="p">[</span><span class="n">row</span><span class="o">.</span><span class="n">indices</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">lrepr</span> <span class="o">=</span> <span class="n">lrepr</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">inverse_title_mapping</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">:</span> <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+    <span class="k">def</span> <span class="nf">most_similar_movie</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+
+        <span class="n">iid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inverse_title_mapping</span><span class="p">[</span><span class="n">title</span><span class="p">]</span>
+
+        <span class="n">vector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lrepr</span><span class="p">[</span><span class="n">iid</span><span class="p">]</span>
+
+        <span class="n">dst</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lrepr</span><span class="p">,</span> <span class="n">vector</span><span class="p">)</span>
+               <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lrepr</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vector</span><span class="p">))</span>
+        <span class="n">movie_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">dst</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="p">[(</span><span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">dst</span><span class="p">[</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">movie_ids</span><span class="p">[:</span><span class="n">number</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">title_mapping</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Interactions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span> <span class="o">=</span> <span class="n">item_ids</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_data</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">),</span>
+                                                          <span class="mi">0</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)})</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">iids_sample_pool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">item_ids</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_user_id</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_item_id</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">item_id</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+
+        <span class="n">iid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_ids</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+        <span class="n">user_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_ids</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_data</span><span class="p">[</span><span class="n">user_id</span><span class="p">][</span><span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iid</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">min_positives</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sampled_negatives_ratio</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">use_observed_negatives</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs the training data set from raw interaction data.</span>
+<span class="sd">        Parameters:</span>
+<span class="sd">        - min_positives: users with fewer than min_positives interactions are excluded</span>
+<span class="sd">                         from the training set</span>
+<span class="sd">        - sampled_negatives_ratio: a ratio of 3 means that at most three negative examples</span>
+<span class="sd">                         randomly sampled for the pids_sample_pool will be included.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">for</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">user_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+
+            <span class="n">positives</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[])</span>
+            <span class="n">raw_negatives</span> <span class="o">=</span> <span class="n">user_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[])</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">positives</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_positives</span><span class="p">:</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">use_observed_negatives</span><span class="p">:</span>
+                <span class="n">observed_negatives</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">raw_negatives</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">positives</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">observed_negatives</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">if</span> <span class="n">sampled_negatives_ratio</span><span class="p">:</span>
+                <span class="n">sampled_negatives</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iids_sample_pool</span><span class="p">,</span>
+                                                     <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">positives</span><span class="p">)</span> <span class="o">*</span> <span class="n">sampled_negatives_ratio</span><span class="p">)</span>
+                <span class="n">sampled_negatives</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sampled_negatives</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">positives</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">sampled_negatives</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">pids</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="n">positives</span><span class="p">,</span> <span class="n">observed_negatives</span><span class="p">,</span> <span class="n">sampled_negatives</span><span class="p">)):</span>
+                <span class="k">for</span> <span class="n">pid</span> <span class="ow">in</span> <span class="n">pids</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_user_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_item_id</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_user_id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_id</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_item_id</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_genome_tags</span><span class="p">(</span><span class="n">min_popularity</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+
+    <span class="n">tag_dict</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">GENOME_DIR</span><span class="p">,</span> <span class="s1">&#39;tags.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tagfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tagfile</span><span class="p">:</span>
+
+            <span class="n">tag_id</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">popularity</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">popularity</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_popularity</span><span class="p">:</span>
+                <span class="n">tag_dict</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">tag_id</span><span class="p">)]</span> <span class="o">=</span> <span class="n">tag</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">GENOME_DIR</span><span class="p">,</span> <span class="s1">&#39;tag_relevance.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tagfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tagfile</span><span class="p">:</span>
+
+            <span class="n">iid</span><span class="p">,</span> <span class="n">tag_id</span><span class="p">,</span> <span class="n">relevance</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">tag_id</span><span class="p">)</span> <span class="ow">in</span> <span class="n">tag_dict</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">iid</span><span class="p">,</span> <span class="n">tag_dict</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">tag_id</span><span class="p">)],</span> <span class="nb">float</span><span class="p">(</span><span class="n">relevance</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_process_raw_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">):</span>
+
+    <span class="n">tag</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;[^a-zA-Z]+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">tag</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_tags</span><span class="p">():</span>
+
+    <span class="n">tag_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">&#39;tags.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tagfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tagfile</span><span class="p">:</span>
+
+            <span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span>
+            <span class="n">processed_tag</span> <span class="o">=</span> <span class="n">_process_raw_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+            <span class="n">tag_dict</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">&#39;tags.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tagfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tagfile</span><span class="p">:</span>
+
+            <span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span>
+            <span class="n">processed_tag</span> <span class="o">=</span> <span class="n">_process_raw_tag</span><span class="p">(</span><span class="n">tag</span><span class="p">)</span>
+            <span class="n">tag_count</span> <span class="o">=</span> <span class="n">tag_dict</span><span class="p">[</span><span class="n">processed_tag</span><span class="p">]</span>
+
+            <span class="k">yield</span> <span class="n">iid</span><span class="p">,</span> <span class="n">processed_tag</span><span class="p">,</span> <span class="n">tag_count</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_movie_features</span><span class="p">(</span><span class="n">titles</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">genres</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">genome_tag_threshold</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">tag_popularity_threshold</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">Features</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">&#39;movies.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">moviefile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">moviefile</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">genre_list</span><span class="p">)</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span>
+            <span class="n">genres_list</span> <span class="o">=</span> <span class="n">genre_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span>
+
+            <span class="n">features</span><span class="o">.</span><span class="n">add_item</span><span class="p">(</span><span class="n">iid</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">genres</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">genre</span> <span class="ow">in</span> <span class="n">genres_list</span><span class="p">:</span>
+                    <span class="n">features</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="s1">&#39;genre:&#39;</span> <span class="o">+</span> <span class="n">genre</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="n">titles</span><span class="p">:</span>
+                <span class="n">features</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="s1">&#39;title:&#39;</span> <span class="o">+</span> <span class="n">title</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+            <span class="n">features</span><span class="o">.</span><span class="n">add_title</span><span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">iid</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">relevance</span> <span class="ow">in</span> <span class="n">read_genome_tags</span><span class="p">():</span>
+        <span class="c1"># Do not include any tags for movies not in the 10M dataset</span>
+        <span class="k">if</span> <span class="n">relevance</span> <span class="o">&gt;=</span> <span class="n">genome_tag_threshold</span> <span class="ow">and</span> <span class="n">iid</span> <span class="ow">in</span> <span class="n">features</span><span class="o">.</span><span class="n">item_ids</span><span class="p">:</span>
+            <span class="n">features</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">iid</span><span class="p">,</span> <span class="s1">&#39;genome:&#39;</span> <span class="o">+</span> <span class="n">tag</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+    <span class="c1"># Tags applied by users</span>
+    <span class="c1">## for iid, tag, count in read_tags():</span>
+    <span class="c1">##     if count &gt;= tag_popularity_threshold and iid in features.item_ids:</span>
+    <span class="c1">##         features.add_feature(iid, &#39;tag:&#39; + tag)</span>
+
+    <span class="n">features</span><span class="o">.</span><span class="n">set_shape</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">features</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_interaction_data</span><span class="p">(</span><span class="n">item_id_mapping</span><span class="p">,</span> <span class="n">positive_threshold</span><span class="o">=</span><span class="mf">4.0</span><span class="p">):</span>
+
+    <span class="n">interactions</span> <span class="o">=</span> <span class="n">Interactions</span><span class="p">(</span><span class="n">item_id_mapping</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_DIR</span><span class="p">,</span> <span class="s1">&#39;ratings.dat&#39;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ratingfile</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">ratingfile</span><span class="p">:</span>
+
+            <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">rating</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">SEPARATOR</span><span class="p">)</span>
+
+            <span class="n">value</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">positive_threshold</span> <span class="k">else</span> <span class="mf">0.0</span>
+
+            <span class="n">interactions</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">interactions</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cf-model">
+<h2>CF Model<a class="headerlink" href="#cf-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CFModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The LSI-LR model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">64</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_latent_features</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">fit_svd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mat</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit the feature latent factors.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+    <span class="k">def</span> <span class="nf">fit_latent_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Project items into the latent space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_latent_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">fit_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit a logistic regression model for a single user.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_latent_features</span><span class="p">[</span><span class="n">item_ids</span><span class="p">],</span> <span class="n">y</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">model</span>
+
+    <span class="k">def</span> <span class="nf">predict_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">item_ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict positive interaction probability for user represented by model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">item_latent_features</span><span class="p">[</span><span class="n">item_ids</span><span class="p">])</span>
+
+
+
+<span class="k">def</span> <span class="nf">evaluate_cf_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">feature_matrix</span><span class="p">,</span> <span class="n">train_user_ids</span><span class="p">,</span> <span class="n">train_item_ids</span><span class="p">,</span> <span class="n">train_data</span><span class="p">,</span>
+                      <span class="n">test_user_ids</span><span class="p">,</span> <span class="n">test_item_ids</span><span class="p">,</span> <span class="n">test_data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    LSI-LR model: perform LSI (via truncated SVD on the item-feature matrix), then computer user models</span>
+<span class="sd">    by fitting a logistic regression model to items represented as mixtures of LSI topics.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">train_aucs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">test_aucs</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">train_y_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
+    <span class="n">train_iid_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">))</span>
+
+    <span class="n">test_y_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">))</span>
+    <span class="n">test_iid_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Gather training data in user-sized chunks</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">train_user_ids</span><span class="p">,</span> <span class="n">train_item_ids</span><span class="p">,</span> <span class="n">train_data</span><span class="p">)):</span>
+        <span class="n">train_y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">train_iid_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iid</span><span class="p">)</span>
+
+    <span class="c1"># Gather test data in user-sized chunks</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="n">iid</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">test_user_ids</span><span class="p">,</span> <span class="n">test_item_ids</span><span class="p">,</span> <span class="n">test_data</span><span class="p">)):</span>
+        <span class="n">test_y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">test_iid_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iid</span><span class="p">)</span>
+
+    <span class="c1"># Only use the items in the training set for LSI</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit_svd</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_item_ids</span><span class="p">)])</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit_latent_features</span><span class="p">(</span><span class="n">feature_matrix</span><span class="p">)</span>
+
+    <span class="c1"># Fit models and generate predictions</span>
+    <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">train_y_dict</span><span class="p">:</span>
+        <span class="n">train_iids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">train_iid_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">train_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">train_y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="n">test_iids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">test_iid_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+        <span class="n">test_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">test_y_dict</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">test_y</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_y</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">user_model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_user</span><span class="p">(</span><span class="n">train_iids</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+            <span class="n">train_yhat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_user</span><span class="p">(</span><span class="n">user_model</span><span class="p">,</span> <span class="n">train_iids</span><span class="p">)</span>
+            <span class="n">test_yhat</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_user</span><span class="p">(</span><span class="n">user_model</span><span class="p">,</span> <span class="n">test_iids</span><span class="p">)</span>
+            
+            <span class="n">train_aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">train_y</span><span class="p">,</span> <span class="n">train_yhat</span><span class="p">))</span>
+            <span class="n">test_aucs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_yhat</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">test_aucs</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_aucs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lsi-up-model">
+<h2>LSI-UP Model<a class="headerlink" href="#lsi-up-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">LsiUpModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The LSI-UP model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">64</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="n">dim</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_factors</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_factors</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_feature_matrix</span><span class="p">,</span> <span class="n">product_feature_matrix</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fit latent factors to the user-feature matrix through truncated SVD,</span>
+<span class="sd">        then get item representations by projecting onto the latent feature</span>
+<span class="sd">        space.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">nrm</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">normalize</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">svd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">nrm</span><span class="p">(</span><span class="n">user_feature_matrix</span><span class="p">))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">user_factors</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">nrm</span><span class="p">(</span><span class="n">user_feature_matrix</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item_factors</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">nrm</span><span class="p">(</span><span class="n">product_feature_matrix</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_ids</span><span class="p">,</span> <span class="n">product_ids</span><span class="p">,</span> <span class="n">incremental</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Predict scores.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">incremental</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_factors</span><span class="p">[</span><span class="n">user_ids</span><span class="p">],</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">item_factors</span><span class="p">[</span><span class="n">product_ids</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+            
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)):</span>
+                <span class="n">uid</span> <span class="o">=</span> <span class="n">user_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+                <span class="n">pid</span> <span class="o">=</span> <span class="n">product_ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user_factors</span><span class="p">[</span><span class="n">uid</span><span class="p">],</span>
+                                     <span class="bp">self</span><span class="o">.</span><span class="n">item_factors</span><span class="p">[</span><span class="n">pid</span><span class="p">]))</span>
+
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="main">
+<h2>Main<a class="headerlink" href="#main" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">titles</span><span class="p">,</span> <span class="n">genres</span><span class="p">,</span>
+              <span class="n">genome_tag_threshold</span><span class="p">,</span>
+              <span class="n">positive_threshold</span><span class="p">):</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Reading features&#39;</span><span class="p">)</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">read_movie_features</span><span class="p">(</span><span class="n">titles</span><span class="o">=</span><span class="n">titles</span><span class="p">,</span> <span class="n">genres</span><span class="o">=</span><span class="n">genres</span><span class="p">,</span> <span class="n">genome_tag_threshold</span><span class="o">=</span><span class="n">genome_tag_threshold</span><span class="p">)</span>
+    <span class="n">item_features_matrix</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">mat</span><span class="o">.</span><span class="n">tocoo</span><span class="p">()</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Reading interactions&#39;</span><span class="p">)</span>
+    <span class="n">interactions</span> <span class="o">=</span> <span class="n">read_interaction_data</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">item_ids</span><span class="p">,</span>
+                                         <span class="n">positive_threshold</span><span class="o">=</span><span class="n">positive_threshold</span><span class="p">)</span>
+    <span class="n">interactions</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">min_positives</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sampled_negatives_ratio</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">use_observed_negatives</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> users, </span><span class="si">%s</span><span class="s1"> items, </span><span class="si">%s</span><span class="s1"> interactions, </span><span class="si">%s</span><span class="s1"> item features in the dataset&#39;</span><span class="p">,</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">user_ids</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">item_ids</span><span class="p">),</span>
+                <span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">feature_ids</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">item_features_matrix</span><span class="p">,</span> <span class="n">interactions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">features</span><span class="p">,</span>
+        <span class="n">item_features_matrix</span><span class="p">,</span>
+        <span class="n">interactions</span><span class="p">,</span>
+        <span class="n">cf_model</span><span class="p">,</span>
+        <span class="n">lsiup_model</span><span class="p">,</span>
+        <span class="n">n_iter</span><span class="p">,</span>
+        <span class="n">test_size</span><span class="p">,</span>
+        <span class="n">cold_start</span><span class="p">,</span>
+        <span class="n">learning_rate</span><span class="p">,</span>
+        <span class="n">no_components</span><span class="p">,</span>
+        <span class="n">a_alpha</span><span class="p">,</span>
+        <span class="n">b_alpha</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="p">):</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Fitting the model with </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">no_interactions</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">interactions</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">cf_model</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Fitting the CF model&#39;</span><span class="p">)</span>
+        <span class="n">modelfnc</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">CFModel</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">no_components</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">lsiup_model</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Fitting the LSI-UP model&#39;</span><span class="p">)</span>
+        <span class="n">modelfnc</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LsiUpModel</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="n">no_components</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">modelfnc</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">LightFM</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">,</span>
+                                    <span class="n">no_components</span><span class="o">=</span><span class="n">no_components</span><span class="p">,</span>
+                                    <span class="n">item_alpha</span><span class="o">=</span><span class="n">a_alpha</span><span class="p">,</span>
+                                    <span class="n">user_alpha</span><span class="o">=</span><span class="n">b_alpha</span><span class="p">)</span>
+
+    <span class="n">model</span><span class="p">,</span> <span class="n">auc</span> <span class="o">=</span> <span class="n">fit_model</span><span class="p">(</span><span class="n">interactions</span><span class="o">=</span><span class="n">interactions</span><span class="p">,</span>
+                           <span class="n">item_features_matrix</span><span class="o">=</span><span class="n">item_features_matrix</span><span class="p">,</span> 
+                           <span class="n">n_iter</span><span class="o">=</span><span class="n">n_iter</span><span class="p">,</span>
+                           <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span>
+                           <span class="n">modelfnc</span><span class="o">=</span><span class="n">modelfnc</span><span class="p">,</span>
+                           <span class="n">test_size</span><span class="o">=</span><span class="n">test_size</span><span class="p">,</span>
+                           <span class="n">cold_start</span><span class="o">=</span><span class="n">cold_start</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Average AUC: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">auc</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">cf_model</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">lsiup_model</span><span class="p">:</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">add_item_feature_dictionary</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">feature_ids</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">features</span><span class="o">.</span><span class="n">add_latent_representations</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">item_features</span><span class="p">)</span>
+
+        <span class="n">titles</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Lord of the Rings: The Two Towers, The (2002)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Toy Story (1995)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Terminator, The (1984)&#39;</span><span class="p">,</span>
+                  <span class="s1">&#39;Europa Europa (Hitlerjunge Salomon) (1990)&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">title</span> <span class="ow">in</span> <span class="n">titles</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Most similar movies to </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span>
+                        <span class="n">features</span><span class="o">.</span><span class="n">most_similar_movie</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+
+            <span class="c1"># Can only get similar tags if we have tag features</span>
+        <span class="n">test_features</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;genome:art house&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;genome:dystopia&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;genome:bond&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">test_feature</span> <span class="ow">in</span> <span class="n">test_features</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Features most similar to </span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span>
+                             <span class="n">test_feature</span><span class="p">,</span>
+                             <span class="n">model</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">test_feature</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">auc</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Args</span><span class="p">:</span>
+    <span class="n">ids</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">tags</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">split</span> <span class="o">=</span> <span class="mf">0.2</span>
+    <span class="n">cold</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">lsi</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">dim</span> <span class="o">=</span> <span class="p">(</span><span class="mi">64</span><span class="p">,)</span>
+    <span class="n">niter</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">plot</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Running the MovieLens experiment.&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Configuration: </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">pformat</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+    <span class="c1"># A large tag threshold excludes all tags.</span>
+    <span class="n">tag_threshold</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">tags</span> <span class="k">else</span> <span class="mf">100.0</span>
+    <span class="n">features</span><span class="p">,</span> <span class="n">item_features_matrix</span><span class="p">,</span> <span class="n">interactions</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="n">titles</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">ids</span><span class="p">,</span>
+                                                             <span class="n">genres</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                                             <span class="n">genome_tag_threshold</span><span class="o">=</span><span class="n">tag_threshold</span><span class="p">,</span>
+                                                             <span class="n">positive_threshold</span><span class="o">=</span><span class="mf">4.0</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    
+    <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">dim</span><span class="p">:</span>
+        <span class="n">auc</span> <span class="o">=</span> <span class="n">run</span><span class="p">(</span><span class="n">features</span><span class="p">,</span>
+                  <span class="n">item_features_matrix</span><span class="p">,</span>
+                  <span class="n">interactions</span><span class="p">,</span>
+                  <span class="n">cf_model</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">lsi</span><span class="p">,</span>
+                  <span class="n">lsiup_model</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">up</span><span class="p">,</span>
+                  <span class="n">n_iter</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">niter</span><span class="p">,</span>
+                  <span class="n">test_size</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="p">,</span>
+                  <span class="n">cold_start</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">cold</span><span class="p">,</span>
+                  <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+                  <span class="n">no_components</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span>
+                  <span class="n">a_alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                  <span class="n">b_alpha</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                  <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+
+        <span class="n">results</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">dim</span><span class="p">)]</span> <span class="o">=</span> <span class="n">auc</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;AUC </span><span class="si">%s</span><span class="s1"> for configuration </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">auc</span><span class="p">,</span> <span class="n">pformat</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">results</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the CrossValidated experiment with 50-dimensional latent space, </span>
+<span class="c1"># using the LSI-LR model with both post tags and post ids</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">Args</span><span class="p">()</span>
+<span class="n">args</span><span class="o">.</span><span class="n">dim</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,)</span>
+<span class="n">args</span><span class="o">.</span><span class="n">lsi</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">args</span><span class="o">.</span><span class="n">tags</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">args</span><span class="o">.</span><span class="n">ids</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">args</span><span class="o">.</span><span class="n">split</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">main</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[2021-10-31 11:14:28] INFO [__main__:3] Running the MovieLens experiment.
+[2021-10-31 11:14:28] INFO [__main__:4] Configuration: &lt;__main__.Args object at 0x7efd8835eb10&gt;
+[2021-10-31 11:14:28] DEBUG [__main__:5] Reading features
+[2021-10-31 11:14:40] DEBUG [__main__:9] Reading interactions
+[2021-10-31 11:15:02] DEBUG [__main__:16] 69878 users, 10681 items, 9996948 interactions, 11689 item features in the dataset
+[2021-10-31 11:15:02] DEBUG [__main__:15] Fitting the model with {&#39;features&#39;: &lt;__main__.Features object at 0x7efd80753ed0&gt;, &#39;item_features_matrix&#39;: &lt;10681x11689 sparse matrix of type &#39;&lt;class &#39;numpy.int32&#39;&gt;&#39;
+	with 93434 stored elements in Compressed Sparse Row format&gt;, &#39;interactions&#39;: &lt;__main__.Interactions object at 0x7efd8835e290&gt;, &#39;cf_model&#39;: True, &#39;lsiup_model&#39;: False, &#39;n_iter&#39;: 5, &#39;test_size&#39;: 0.2, &#39;cold_start&#39;: False, &#39;epochs&#39;: 30, &#39;a_alpha&#39;: 0.0, &#39;b_alpha&#39;: 0.0, &#39;learning_rate&#39;: 0.05, &#39;no_components&#39;: 50}
+[2021-10-31 11:15:02] INFO [__main__:20] Fitting the CF model
+[2021-10-31 11:15:02] DEBUG [__main__:136] Interaction density across all data: 0.013394146711095253
+[2021-10-31 11:15:02] DEBUG [__main__:137] Training model
+[2021-10-31 11:15:12] DEBUG [__main__:145] Split no 0
+[2021-10-31 11:15:12] DEBUG [__main__:148] 7997558 examples in training set, 1999363 in test set. Interaction density: 0.010715316832946768
+[2021-10-31 11:15:12] DEBUG [__main__:154] Evaluating a CF model
+[2021-10-31 11:18:42] DEBUG [__main__:163] CF model test AUC 0.6856567219338295, train AUC 0.9436195928332399
+[2021-10-31 11:18:52] DEBUG [__main__:145] Split no 1
+[2021-10-31 11:18:52] DEBUG [__main__:148] 7997558 examples in training set, 1999342 in test set. Interaction density: 0.010715316832946768
+[2021-10-31 11:18:52] DEBUG [__main__:154] Evaluating a CF model
+[2021-10-31 11:22:21] DEBUG [__main__:163] CF model test AUC 0.6865419685612636, train AUC 0.9440696661353846
+[2021-10-31 11:22:30] DEBUG [__main__:145] Split no 2
+[2021-10-31 11:22:30] DEBUG [__main__:148] 7997558 examples in training set, 1999347 in test set. Interaction density: 0.010715316832946768
+[2021-10-31 11:22:30] DEBUG [__main__:154] Evaluating a CF model
+[2021-10-31 11:25:58] DEBUG [__main__:163] CF model test AUC 0.6861023147957814, train AUC 0.9440572387876923
+[2021-10-31 11:26:07] DEBUG [__main__:145] Split no 3
+[2021-10-31 11:26:07] DEBUG [__main__:148] 7997558 examples in training set, 1999368 in test set. Interaction density: 0.010715316832946768
+[2021-10-31 11:26:07] DEBUG [__main__:154] Evaluating a CF model
+[2021-10-31 11:29:36] DEBUG [__main__:163] CF model test AUC 0.6848108725497167, train AUC 0.944204423470421
+[2021-10-31 11:29:46] DEBUG [__main__:145] Split no 4
+[2021-10-31 11:29:46] DEBUG [__main__:148] 7997558 examples in training set, 1999363 in test set. Interaction density: 0.010715316832946768
+[2021-10-31 11:29:46] DEBUG [__main__:154] Evaluating a CF model
+[2021-10-31 11:33:18] DEBUG [__main__:163] CF model test AUC 0.6861188501319503, train AUC 0.9442085502709073
+[2021-10-31 11:33:18] DEBUG [__main__:38] Average AUC: 0.6858461455945083
+[2021-10-31 11:33:18] INFO [__main__:31] AUC 0.6858461455945083 for configuration &lt;__main__.Args object at 0x7efd8835eb10&gt;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&quot;50&quot;: 0.6858461455945083}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
+<p>Metadata Embeddings for User and Item Cold-start Recommendations. Maciej Kula. 2015. arXiv. <a class="reference external" href="https://arxiv.org/abs/1507.08439">https://arxiv.org/abs/1507.08439</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/coldstart-recsys",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Attribute to Feature Mappings for Cold-Start Recommendations</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">EMCDR on MovieLens-Netflix dataset</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

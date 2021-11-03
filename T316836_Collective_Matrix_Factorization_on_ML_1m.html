@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collective Matrix Factorization on ML-1m &#8212; coldstart-recsys</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Double domain recommendations on ML-1m" href="T490340_Double_domain_recommendations_on_ML_1m.html" />
+    <link rel="prev" title="HERS Cold-start Recommendations on LastFM dataset" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">coldstart-recsys</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L281872_Cold_Start_Recommendations.html">
+   Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html">
+   Attribute to Feature Mappings for Cold-Start Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T457846_LightFM_Cold_start_on_ML_10m.html">
+   LightFM Cold-start on ML-10m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html">
+   EMCDR on MovieLens-Netflix dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html">
+   HERS Cold-start Recommendations on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Collective Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T490340_Double_domain_recommendations_on_ML_1m.html">
+   Double domain recommendations on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html">
+   DropoutNet Cold-start Recommendation on CiteULike dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T714933_MetaTL_for_Cold_start_users_on_Amazon_Electronics_dataset.html">
+   MetaTL for Cold-start users on Amazon Electronics dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html">
+   TaNP Cold-start Recommender on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T290734_AGGN_Cold_start_Recommendation_on_ML_100k.html">
+   AGGN Cold-start Recommendation on ML-100k
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html">
+   DaRE Cross-domain recommender on Amazon Reviews dataset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T316836_Collective_Matrix_Factorization_on_ML_1m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/coldstart-recsys/main?urlpath=tree/docs/T316836_Collective_Matrix_Factorization_on_ML_1m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/coldstart-recsys/blob/main/docs/T316836_Collective_Matrix_Factorization_on_ML_1m.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmf-on-dummy-dataset-using-pycmf-library">
+   CMF on dummy dataset using PyCMF library
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cmf-on-ml-1m">
+   CMF on ML-1m
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citations">
+   Citations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="collective-matrix-factorization-on-ml-1m">
+<h1>Collective Matrix Factorization on ML-1m<a class="headerlink" href="#collective-matrix-factorization-on-ml-1m" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="cmf-on-dummy-dataset-using-pycmf-library">
+<h2>CMF on dummy dataset using PyCMF library<a class="headerlink" href="#cmf-on-dummy-dataset-using-pycmf-library" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install git+https://github.com/smn-ailab/PyCMF
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                                                                                          
+<span class="kn">import</span> <span class="nn">pycmf</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">));</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pycmf</span><span class="o">.</span><span class="n">CMF</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">U</span> <span class="o">@</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0015218365051785086
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">V</span> <span class="o">@</span> <span class="n">Z</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0007014936205661572
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cmf-on-ml-1m">
+<h2>CMF on ML-1m<a class="headerlink" href="#cmf-on-ml-1m" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/VincentLiu3/CMF.git
+%cd CMF
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">reduce</span>
+
+<span class="k">def</span> <span class="nf">logistic</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+	<span class="n">out_vec</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">vec</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">out_vec</span>
+
+<span class="k">def</span> <span class="nf">d_logistic</span><span class="p">(</span><span class="n">vec</span><span class="p">):</span>
+	<span class="n">log_vec</span> <span class="o">=</span> <span class="n">logistic</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span>
+	<span class="n">out_vec</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">log_vec</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">log_vec</span><span class="p">)</span>
+	<span class="k">return</span> <span class="n">out_vec</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def loss_for_one_row(Xi, U, V, reg):</span>
+<span class="sd">	Yi = numpy.dot(U, V.T)</span>
+<span class="sd">	loss = sum( pow( Xi-Yi, 2) ) + reg * numpy.linalg.norm(U) / 2</span>
+<span class="sd">	return loss</span>
+<span class="sd">def Armijo_line_search(U, one_step, Xi, V, reg):</span>
+<span class="sd">	prev_loss = </span>
+<span class="sd">	while True:</span>
+<span class="sd">		U -= one_step</span>
+<span class="sd">		loss = loss_for_one_row(Xi, U, V, reg)</span>
+<span class="sd">		if prev_loss</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="k">def</span> <span class="nf">newton_update</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Xts</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">learn_rate</span><span class="p">,</span> <span class="n">Ns</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+	<span class="n">nsize</span> <span class="o">=</span> <span class="n">Ns</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="c1"># size for entity t t, e.g. number of user for type 0 (user) </span>
+	<span class="n">U_t</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="c1"># random factor matrix for entity t</span>
+
+	<span class="n">A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span> <span class="c1"># place holders for hessian: q&#39;(Ui)</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># place holders for gradient: q(Ui)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsize</span><span class="p">):</span> <span class="c1"># randomly pick one instance in X</span>
+		<span class="n">A</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span>  <span class="c1"># for j = 1~number of relations</span>
+
+			<span class="k">if</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			
+			<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span> <span class="ow">or</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+				<span class="c1"># only need to update if type t is in relation j</span>
+				<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+					<span class="c1"># if type t = x-axis of relation j </span>
+					<span class="n">X</span> <span class="o">=</span> <span class="n">Xts</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># transpose X (n2, n1)</span>
+					<span class="n">U</span> <span class="o">=</span> <span class="n">U_t</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># (1 * k)</span>
+					<span class="n">V</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>  <span class="c1"># (n2 * k)</span>
+				
+					<span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="c1"># content of the matrix</span>
+					<span class="n">indptr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indptr</span> 
+					<span class="n">indices</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span> 
+
+					<span class="n">ind_i0</span><span class="p">,</span> <span class="n">ind_i1</span> <span class="o">=</span> <span class="p">(</span><span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span> 
+					<span class="c1"># Step 1: XiV</span>
+					<span class="k">if</span> <span class="n">ind_i0</span> <span class="o">==</span> <span class="n">ind_i1</span><span class="p">:</span>
+						<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;sparse&quot;</span><span class="p">:</span> <span class="c1"># sparse -&gt; no data on the i-th row of X -&gt; no need to update</span>
+							<span class="k">continue</span>
+						<span class="k">else</span><span class="p">:</span> <span class="c1"># dense/log_dense -&gt; 0 vector</span>
+						 	<span class="n">XiV</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">inds_i</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span> <span class="c1"># index to the non-zero elements on the i-th row of X</span>
+						<span class="n">data_i</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span> <span class="c1"># non-zero element on the i-th row of X (1 * x)</span>
+						<span class="n">XiV</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data_i</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:])</span> <span class="c1"># (1 * x) (x * k) -&gt; (1 * k)</span>
+	
+					<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;sparse&quot;</span><span class="p">:</span>
+						<span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># only need those column factors for non-zero element in the i-th row</span>
+						<span class="c1"># Step 2: UVt</span>
+						<span class="n">UiVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (1*k) (k*n2) -&gt; (1 * x)</span>
+						<span class="c1"># Step 3: UVtV</span>
+						<span class="n">UiVtV</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UiVt</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>  <span class="c1"># (1 * k)</span>
+						<span class="c1"># Step 4: VtDiV</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">UiVt</span><span class="p">),</span> <span class="n">V</span><span class="p">)</span>
+
+					<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">:</span>
+						<span class="n">UiVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (1 * n2)</span>
+						<span class="n">UiVtV</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">logistic</span><span class="p">(</span><span class="n">UiVt</span><span class="p">),</span> <span class="n">V</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">d_logistic</span><span class="p">(</span><span class="n">UiVt</span><span class="p">)),</span> <span class="n">V</span><span class="p">)</span>
+					
+					<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dense&#39;</span><span class="p">:</span>
+						<span class="n">UiVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (1 * n2)</span>
+						<span class="n">UiVtV</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UiVt</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>  <span class="c1"># (1 * k)</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">UiVt</span><span class="p">),</span> <span class="n">V</span><span class="p">)</span>
+
+					<span class="n">A</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">Hes</span>
+					<span class="n">b</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">UiVtV</span> <span class="o">-</span> <span class="n">XiV</span><span class="p">)</span>
+
+				<span class="k">elif</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+					<span class="c1"># if type t = x-axis of relation j </span>
+					<span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="c1"># (n1 * n2)</span>
+					<span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> <span class="c1"># (n1 * k)</span>
+					<span class="n">V</span> <span class="o">=</span> <span class="n">U_t</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># (1 * k)</span>
+
+					<span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="c1"># content of the matrix</span>
+					<span class="n">indptr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indptr</span>
+					<span class="n">indices</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span>
+
+					<span class="n">ind_i0</span><span class="p">,</span> <span class="n">ind_i1</span> <span class="o">=</span> <span class="p">(</span><span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+					<span class="k">if</span> <span class="n">ind_i0</span> <span class="o">==</span> <span class="n">ind_i1</span><span class="p">:</span> 
+						<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;sparse&quot;</span><span class="p">:</span> <span class="c1"># no data on the i-th column of X -&gt; no need to update</span>
+							<span class="k">continue</span>
+						<span class="k">else</span><span class="p">:</span>
+							<span class="n">XiU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+					<span class="k">else</span><span class="p">:</span>
+						<span class="n">inds_i</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span> 
+						<span class="n">data_i</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span> <span class="c1"># non-zero elements on the j-th column of X (1 * x)</span>
+						<span class="n">XiU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data_i</span><span class="p">,</span> <span class="n">U</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:])</span> <span class="c1"># (1 * k)</span>
+
+					<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;sparse&quot;</span><span class="p">:</span>
+						<span class="n">U</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:]</span> <span class="c1"># (x * k)</span>
+						<span class="n">UVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (x * k) (k * 1) -&gt; (x * 1)</span>
+						<span class="n">UVtU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UVt</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">UVt</span><span class="p">),</span> <span class="n">U</span><span class="p">)</span>
+
+					<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">:</span>
+						<span class="n">UVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (x * k) (k * 1) -&gt; (x * 1)</span>
+						<span class="n">UVtU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">logistic</span><span class="p">(</span><span class="n">UVt</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">d_logistic</span><span class="p">(</span><span class="n">UVt</span><span class="p">)),</span> <span class="n">U</span><span class="p">)</span>
+
+					<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dense&#39;</span><span class="p">:</span>
+						<span class="n">UVt</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># (x * k) (k * 1) -&gt; (x * 1)</span>
+						<span class="n">UVtU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UVt</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span> <span class="c1"># (1 * k)</span>
+						<span class="n">Hes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">UVt</span><span class="p">),</span> <span class="n">U</span><span class="p">)</span>
+
+					<span class="n">A</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">Hes</span>
+					<span class="n">b</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">UVtU</span> <span class="o">-</span> <span class="n">XiU</span><span class="p">)</span>
+			
+		<span class="k">if</span> <span class="n">numpy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+			<span class="k">continue</span>
+			
+		<span class="c1"># regularizer</span>
+		<span class="n">A</span> <span class="o">+=</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+		<span class="n">b</span> <span class="o">+=</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">U_t</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># the previous factor for i-th data</span>
+
+		<span class="n">d</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+		<span class="n">Us</span><span class="p">[</span><span class="n">t</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="n">learn_rate</span> <span class="o">*</span> <span class="n">d</span>  
+
+	<span class="c1"># return change</span>
+
+<span class="k">def</span> <span class="nf">old_newton_update</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Xts</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">learn_rate</span><span class="p">,</span> <span class="n">Ns</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">	code from http://ihome.ust.hk/~zluab/code/</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="k">assert</span><span class="p">(</span><span class="n">t</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Ns</span><span class="p">)</span> <span class="ow">and</span> <span class="n">t</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+	<span class="n">eyeK</span> <span class="o">=</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">)</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="n">Ns</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="c1"># number of instances for type t</span>
+	<span class="n">V</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="c1"># U</span>
+	<span class="n">A</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">K</span><span class="p">))</span> <span class="c1"># place holders for hessian</span>
+	<span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">K</span><span class="p">)</span> <span class="c1"># place holders for gradient</span>
+	<span class="n">UtUs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">),</span><span class="nb">object</span><span class="p">)</span>
+	<span class="c1"># change = 0</span>
+	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span>
+		<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dense&#39;</span><span class="p">:</span>
+			<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>		
+				<span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span> 
+			<span class="n">UtUs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">T</span><span class="p">,</span><span class="n">U</span><span class="p">)</span> <span class="c1"># UtUs = VtV</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+		<span class="n">A</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="n">b</span><span class="p">[:]</span> <span class="o">=</span> <span class="mi">0</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span>
+			<span class="k">if</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span> <span class="ow">or</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+				<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">t</span><span class="p">:</span>
+					<span class="n">X</span> <span class="o">=</span> <span class="n">Xts</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+					<span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span> <span class="c1"># V</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+					<span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+				<span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">data</span>
+				<span class="n">indptr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indptr</span>
+				<span class="n">indices</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span>
+				
+				<span class="n">ind_i0</span><span class="p">,</span> <span class="n">ind_i1</span> <span class="o">=</span> <span class="p">(</span><span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">indptr</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+				<span class="k">if</span> <span class="n">ind_i0</span> <span class="o">==</span> <span class="n">ind_i1</span><span class="p">:</span>
+					<span class="k">continue</span>
+				
+				<span class="n">inds_i</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span> 
+				<span class="n">data_i</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ind_i0</span><span class="p">:</span><span class="n">ind_i1</span><span class="p">]</span>
+				
+				<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;dense&quot;</span><span class="p">:</span> <span class="c1"># square loss, dense binary representation</span>
+					<span class="n">UtU</span> <span class="o">=</span> <span class="n">UtUs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+					<span class="n">Utemp</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:]</span>
+					<span class="n">A</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">UtU</span>
+					<span class="n">b</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UtU</span><span class="p">,</span><span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data_i</span><span class="p">,</span> <span class="n">Utemp</span><span class="p">))</span>
+				<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;log_dense&quot;</span><span class="p">:</span> <span class="c1"># logistic loss</span>
+					<span class="n">Xi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:])</span>
+					<span class="n">Yi</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">U</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+					<span class="n">Yi</span><span class="p">[</span><span class="n">inds_i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+					<span class="c1"># (sigma(yx)-1)</span>
+					<span class="n">Wi</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">Yi</span><span class="p">,</span> <span class="n">Xi</span><span class="p">)))</span> <span class="o">-</span> <span class="mi">1</span> 
+					<span class="n">Wi</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">Wi</span><span class="p">,</span> <span class="n">Yi</span><span class="p">)</span>
+					<span class="n">gv</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Wi</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+					<span class="c1"># compute sigmoid(x)</span>
+					<span class="n">Ai</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">Xi</span><span class="p">))</span>
+					<span class="n">Ai</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">Ai</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Ai</span><span class="p">)</span>
+					<span class="n">Ai</span> <span class="o">=</span> <span class="n">Ai</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">Ai</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+					<span class="n">AiU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">Ai</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+					<span class="n">Hv</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">AiU</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">U</span><span class="p">)</span>
+					<span class="n">A</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">Hv</span>
+					<span class="n">b</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">gv</span>
+					
+				<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;sparse&quot;</span><span class="p">:</span> <span class="c1"># square loss</span>
+					<span class="n">Utemp</span> <span class="o">=</span> <span class="n">U</span><span class="p">[</span><span class="n">inds_i</span><span class="p">,</span> <span class="p">:]</span>
+					<span class="n">UtU</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">Utemp</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Utemp</span><span class="p">)</span>
+					<span class="n">A</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">UtU</span>
+					<span class="n">b</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">UtU</span><span class="p">,</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span><span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">data_i</span><span class="p">,</span> <span class="n">Utemp</span><span class="p">))</span>
+					
+		<span class="n">A</span> <span class="o">+=</span> <span class="n">eyeK</span>
+		<span class="n">b</span> <span class="o">+=</span> <span class="n">reg</span><span class="o">*</span><span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+		<span class="n">d</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">),</span> <span class="n">b</span><span class="p">)</span>
+		<span class="n">vi</span> <span class="o">=</span> <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+		<span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="n">learn_rate</span><span class="o">*</span><span class="n">d</span>
+	<span class="c1"># return change</span>
+
+<span class="c1"># http://sebastianruder.com/optimizing-gradient-descent/</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+
+<span class="k">def</span> <span class="nf">read_dense_data</span><span class="p">(</span><span class="n">train_file</span><span class="p">,</span> <span class="n">test_file</span><span class="p">,</span> <span class="n">user_file</span><span class="p">,</span> <span class="n">item_file</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">):</span>
+    <span class="k">return</span> 
+
+<span class="k">def</span> <span class="nf">loadTripleData</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    laod triple data (row, column, value) to csc_matrix format</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">fData</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">fData</span> <span class="o">=</span> <span class="n">fData</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">fData</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">fData</span><span class="p">[</span><span class="mi">2</span><span class="p">],(</span><span class="n">fData</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">fData</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">fData</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">read_triple_data</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    read data from three column format (row, column, value)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span><span class="p">(</span> <span class="n">feature_mat_type</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;dense&#39;</span><span class="p">,</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">]</span> <span class="p">),</span> <span class="s1">&#39;Unrecognized link function&#39;</span>
+
+    <span class="c1"># need to make sure training &amp; testing data with the same shapes as user and item features</span>
+    <span class="n">num_user</span> <span class="o">=</span> <span class="n">num_item</span> <span class="o">=</span> <span class="mi">0</span>	
+    <span class="k">if</span> <span class="n">user</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">X_userFeat</span> <span class="o">=</span> <span class="n">loadTripleData</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">num_user</span> <span class="o">=</span> <span class="n">X_userFeat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">X_itemFeat</span> <span class="o">=</span> <span class="n">loadTripleData</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">num_item</span> <span class="o">=</span> <span class="n">X_itemFeat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">Dtrain</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">Dtest</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">num_user</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">Dtrain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">Dtest</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">num_user</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">num_item</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">Dtrain</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">Dtest</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">num_item</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">X_train</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">Dtrain</span><span class="p">[</span><span class="mi">2</span><span class="p">],(</span><span class="n">Dtrain</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Dtrain</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_user</span><span class="p">,</span> <span class="n">num_item</span><span class="p">))</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+    <span class="n">X_test</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_matrix</span><span class="p">((</span><span class="n">Dtest</span><span class="p">[</span><span class="mi">2</span><span class="p">],(</span><span class="n">Dtest</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Dtest</span><span class="p">[</span><span class="mi">1</span><span class="p">])),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_user</span><span class="p">,</span> <span class="n">num_item</span><span class="p">))</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()</span>
+    <span class="c1"># transform to csc format</span>
+    <span class="c1"># X_train = scipy.sparse.csc_matrix(X_train)</span>
+    <span class="c1"># X_test = scipy.sparse.csc_matrix(X_test)</span>
+
+    <span class="c1"># user or item features</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">Xs_trn</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_userFeat</span><span class="p">,</span> <span class="n">X_itemFeat</span><span class="p">]</span>
+        <span class="n">Xs_tst</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_test</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        
+        <span class="n">rc_schema</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
+        <span class="c1"># [row entity number, column entity number]</span>
+        <span class="c1"># 0=user, 1=item, 2=userFeat, 3=itemFeat</span>
+
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">]</span>
+        <span class="c1"># modes of each relation: sparse, dense or log_dense</span>
+        <span class="c1"># dense if Wij = 1 for all ij </span>
+        <span class="c1"># sparse if Wij = 1 if Xij&gt;0</span>
+        <span class="c1"># log if link function = logistic</span>
+
+    <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">Xs_trn</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_itemFeat</span><span class="p">]</span>
+        <span class="n">Xs_tst</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_test</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="n">rc_schema</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span> <span class="c1"># 0=user, 1=item, 2=itemFeat</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">user</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">Xs_trn</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_userFeat</span><span class="p">]</span>
+        <span class="n">Xs_tst</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_test</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="n">rc_schema</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span> <span class="c1"># 0=user, 1=item, 2=userFeat</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span> <span class="n">feature_mat_type</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">user</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;No user and item features.&#39;</span>
+        <span class="n">Xs_trn</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_train</span><span class="p">]</span>
+        <span class="n">Xs_tst</span> <span class="o">=</span> <span class="p">[</span><span class="n">X_test</span><span class="p">]</span>
+
+        <span class="n">rc_schema</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+        <span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sparse&#39;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">]</span> 
+
+<span class="k">def</span> <span class="nf">get_config</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    get neccessary configurations of the given relation</span>
+<span class="sd">    ---------------------</span>
+<span class="sd">    S = number of entity</span>
+<span class="sd">    Ns = number of instances for each entity</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span><span class="o">==</span><span class="nb">len</span><span class="p">(</span><span class="n">rc_schema</span><span class="p">)),</span> <span class="s2">&quot;rc_schema lenth must be the same as input data.&quot;</span>
+
+    <span class="n">S</span> <span class="o">=</span> <span class="n">rc_schema</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">Ns</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span>
+        <span class="n">ri</span> <span class="o">=</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">ci</span> <span class="o">=</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+        
+        <span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+        
+        <span class="k">if</span> <span class="n">Ns</span><span class="p">[</span><span class="n">ri</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Ns</span><span class="p">[</span><span class="n">ri</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span><span class="p">(</span><span class="n">Ns</span><span class="p">[</span><span class="n">ri</span><span class="p">]</span> <span class="o">==</span> <span class="n">m</span><span class="p">),</span> <span class="s2">&quot;rc_schema does not match data.&quot;</span>
+                            
+        <span class="k">if</span> <span class="n">Ns</span><span class="p">[</span><span class="n">ci</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">Ns</span><span class="p">[</span><span class="n">ci</span><span class="p">]</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span><span class="p">(</span><span class="n">Ns</span><span class="p">[</span><span class="n">ci</span><span class="p">]</span> <span class="o">==</span> <span class="n">n</span><span class="p">),</span> <span class="s2">&quot;rc_schema does not match data.&quot;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">S</span><span class="p">,</span> <span class="n">Ns</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">RMSE</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    X is prediction, Y is ground truth</span>
+<span class="sd">    Both X and Y should be scipy.sparse.csc_matrix</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">size</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indices</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indptr</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">indptr</span><span class="p">)</span> <span class="ow">and</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">Y</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">MAE</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">size</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indices</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">indices</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indptr</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">indptr</span><span class="p">)</span> <span class="ow">and</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">Y</span><span class="o">.</span><span class="n">data</span><span class="p">))</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span>
+
+<span class="k">def</span> <span class="nf">check_modes</span><span class="p">(</span><span class="n">modes</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">modes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;sparse&#39;</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;dense&#39;</span> <span class="ow">and</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Unrecognized mode: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">string2list</span><span class="p">(</span><span class="n">input_string</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">):</span>
+    <span class="n">string_list</span> <span class="o">=</span> <span class="n">input_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="p">)</span>
+    <span class="k">assert</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span><span class="n">string_list</span><span class="p">)</span> <span class="o">==</span> <span class="n">num</span> <span class="p">),</span> <span class="s1">&#39;argument alphas must be the same length as numbers of relations.&#39;</span>
+    <span class="k">return</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">string_list</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">save_result</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">rmse</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">user</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">cmf_type</span> <span class="o">=</span> <span class="s1">&#39;useritem&#39;</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">item</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">cmf_type</span> <span class="o">=</span> <span class="s1">&#39;item&#39;</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">user</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">cmf_type</span> <span class="o">=</span> <span class="s1">&#39;user&#39;</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">item</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">cmf_type</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">out</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+                <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;type,k,reg,lr,tol,alphas,RMSE</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+            <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{}</span><span class="s1">,</span><span class="si">{:.4f}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmf_type</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">reg</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">tol</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">alphas</span><span class="p">,</span> <span class="n">rmse</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">scipy.sparse</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="k">class</span> <span class="nc">Args</span><span class="p">:</span>
+    <span class="n">train</span> <span class="o">=</span> <span class="s1">&#39;data/ml-1m/train.txt&#39;</span> <span class="c1"># Training file</span>
+    <span class="n">test</span> <span class="o">=</span> <span class="s1">&#39;data/ml-1m/test.txt&#39;</span> <span class="c1"># Testing file</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="s1">&#39;data/ml-1m/user.txt&#39;</span> <span class="c1"># User features file</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="s1">&#39;data/ml-1m/item.txt&#39;</span> <span class="c1"># Item features file</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="s1">&#39;ml-1m.txt&#39;</span> <span class="c1"># File where fianl result will be saved</span>
+    <span class="n">alphas</span> <span class="o">=</span> <span class="s1">&#39;0.5-0.5-0.5&#39;</span> <span class="c1"># Alpha in [0, 1] weights the relative importance of relations</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="s1">&#39;log_dense&#39;</span> <span class="c1"># link function for feature relations (dense or log_dense)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="mi">8</span> <span class="c1"># Dimension of latent fectors</span>
+    <span class="n">reg</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># Regularization for latent facotrs</span>
+    <span class="n">lr</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="c1"># Initial learning rate for training</span>
+    <span class="nb">iter</span> <span class="o">=</span> <span class="mi">50</span> <span class="c1"># Max training iteration</span>
+    <span class="n">tol</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Tolerant for change in training loss</span>
+    <span class="n">verbose</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Verbose or not (1 for INFO, 0 for WARNING)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">Args</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">learn</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">Xstst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">learn_rate</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="p">):</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># schema match data</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">rc_schema</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">rc_schema</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span> <span class="c1"># should not have symmetric relations</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphas</span><span class="p">))</span>
+    <span class="k">assert</span><span class="p">(</span><span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">modes</span><span class="p">))</span>
+    <span class="n">check_modes</span><span class="p">(</span><span class="n">modes</span><span class="p">)</span> 
+
+    <span class="n">Xts</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Xts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="c1"># Transpose</span>
+            <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1"># no Transpose</span>
+        <span class="k">if</span> <span class="n">Xstst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Xstst</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">Xstst</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="p">[</span><span class="n">S</span><span class="p">,</span> <span class="n">Ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">Xs</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">)</span>
+
+    <span class="c1"># randomly initialize factor matrices with small values</span>
+    <span class="n">Us</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">S</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">S</span><span class="p">):</span>
+        <span class="n">Us</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">Ns</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">K</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">K</span><span class="p">)</span>  <span class="c1"># so initial prediction will be in [0, 5]</span>
+
+    <span class="n">Ys</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">)</span>
+    <span class="n">prev_loss</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">max_iter</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="c1"># training        </span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">S</span><span class="p">):</span> <span class="c1"># update factors for entity t</span>
+            <span class="n">newton_update</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Xts</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">K</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">learn_rate</span><span class="p">,</span> <span class="n">Ns</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+        
+        <span class="c1"># evaluation</span>
+        <span class="n">Ys</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">)</span>
+        <span class="n">training_loss</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">S</span><span class="p">)</span>
+        <span class="n">train_rmse</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">Xs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ys</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">change_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">training_loss</span><span class="o">-</span><span class="n">prev_loss</span><span class="p">)</span><span class="o">/</span><span class="n">prev_loss</span> <span class="o">*</span> <span class="mi">100</span>
+        <span class="n">prev_loss</span> <span class="o">=</span> <span class="n">training_loss</span>
+        
+        <span class="n">Ystst</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xstst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">)</span>
+        <span class="n">test_rmse</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">Xstst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ystst</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">toc</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Iter </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1">. Time: </span><span class="si">{:.1f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">toc</span> <span class="o">-</span> <span class="n">tic</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Training Loss: </span><span class="si">{:.1f}</span><span class="s1"> (change </span><span class="si">{:.2f}</span><span class="s1">%). Training RMSE: </span><span class="si">{:.2f}</span><span class="s1">. Testing RMSE: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">training_loss</span><span class="p">,</span> <span class="n">change_rate</span><span class="p">,</span> <span class="n">train_rmse</span><span class="p">,</span> <span class="n">test_rmse</span><span class="p">))</span>
+    
+        <span class="c1"># early stop</span>
+        <span class="k">if</span> <span class="n">tol</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">!=</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">change_rate</span> <span class="o">&gt;</span> <span class="o">-</span><span class="n">tol</span> <span class="p">:</span>
+            <span class="k">break</span>
+
+    <span class="k">return</span> <span class="n">Us</span>
+
+<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">Ys</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">reg</span><span class="p">,</span> <span class="n">num_entities</span><span class="p">):</span>
+	<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">	Calculate objective loss</span>
+<span class="sd">	See page 4: Generalizing to Arbitrary Schemas</span>
+<span class="sd">	&#39;&#39;&#39;</span>
+	<span class="k">assert</span><span class="p">(</span><span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span> <span class="ow">and</span> <span class="n">rc_schema</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+
+	<span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="n">num_relation</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)</span>
+	<span class="c1"># computing regularization for each latent factor</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_entities</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_relation</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="n">i</span> <span class="ow">or</span> <span class="n">rc_schema</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">i</span><span class="p">:</span>
+				<span class="n">res</span> <span class="o">+=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">Us</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flat</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="c1"># l2 norm</span>
+
+	<span class="c1"># computing loss for each relation</span>
+	<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_relation</span><span class="p">):</span>     
+		<span class="n">alpha_j</span> <span class="o">=</span> <span class="n">alphas</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">Ys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">alpha_j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="k">continue</span>
+
+		<span class="c1"># X = scipy.sparse.csc_matrix(Xs[j])</span>
+		<span class="c1"># Y = scipy.sparse.csc_matrix(Ys[j])</span>
+		<span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+		<span class="n">Y</span> <span class="o">=</span> <span class="n">Ys</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+		
+		<span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sparse&#39;</span><span class="p">:</span>
+			<span class="k">assert</span><span class="p">(</span> <span class="n">X</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">Y</span><span class="o">.</span><span class="n">size</span> <span class="p">)</span>
+			<span class="n">res</span> <span class="o">+=</span> <span class="n">alpha_j</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">data</span> <span class="o">-</span> <span class="n">Y</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+		<span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dense&#39;</span> <span class="ow">or</span> <span class="n">modes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">:</span>
+			<span class="k">assert</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="p">)</span>
+			<span class="n">res</span> <span class="o">+=</span> <span class="n">alpha_j</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span> <span class="o">-</span> <span class="n">Y</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="mi">2</span><span class="p">))</span>   
+
+	<span class="k">return</span> <span class="n">res</span>
+
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    see page 3: RELATIONAL SCHEMAS</span>
+<span class="sd">    return a list of csc_matrix</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">Ys</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xs</span><span class="p">)):</span> <span class="c1"># i = 1</span>
+        <span class="k">if</span> <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        	<span class="c1"># no need to predict Y</span>
+            <span class="n">Ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span> 
+            <span class="k">continue</span>
+        
+        <span class="n">X</span> <span class="o">=</span> <span class="n">Xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="n">Us</span><span class="p">[</span><span class="n">rc_schema</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
+
+        <span class="k">if</span> <span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;sparse&#39;</span><span class="p">:</span>
+            <span class="c1"># predict only for non-zero elements in X</span>
+            <span class="c1"># X = scipy.sparse.csc_matrix(X)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">indptr</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">indptr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+           
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="c1"># for each column in X</span>
+                <span class="n">inds_j</span> <span class="o">=</span> <span class="n">indices</span><span class="p">[</span><span class="n">indptr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span><span class="n">indptr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="c1"># indptr[j]:indptr[j+1] points to the data on j-th column of X</span>
+                <span class="k">if</span> <span class="n">inds_j</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="n">data</span><span class="p">[</span><span class="n">indptr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span><span class="n">indptr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">[</span><span class="n">inds_j</span><span class="p">,</span> <span class="p">:],</span> <span class="n">V</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="p">:])</span>
+
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">indptr</span><span class="p">),</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+            <span class="n">Ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;dense&#39;</span><span class="p">:</span>
+            <span class="c1"># predict for all elements in X</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+            <span class="n">Ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">modes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;log_dense&#39;</span><span class="p">:</span>
+            <span class="c1"># predict for all elements in X</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">logistic</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+            <span class="n">Ys</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Ys</span>
+
+<span class="k">def</span> <span class="nf">run_cmf</span><span class="p">(</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    run cmf</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+    <span class="n">Us</span> <span class="o">=</span> <span class="n">learn</span><span class="p">(</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">reg</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">iter</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">tol</span><span class="p">)</span>
+    <span class="n">Ys_tst</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">Us</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">)</span>
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">RMSE</span><span class="p">(</span><span class="n">Xs_tst</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ys_tst</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;RMSE: </span><span class="si">{:.4f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rmse</span><span class="p">))</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Total Time: </span><span class="si">{:.0f}</span><span class="s1"> s&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="p">)</span>
+    
+    <span class="n">save_result</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">rmse</span><span class="p">)</span>
+
+    <span class="k">return</span> 
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    
+	<span class="p">[</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">]</span> <span class="o">=</span> <span class="n">read_triple_data</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">train</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">test</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">item</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">link</span><span class="p">)</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;[</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+	<span class="k">else</span><span class="p">:</span>
+		<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;[</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+	
+	<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+	<span class="p">[</span><span class="n">S</span><span class="p">,</span> <span class="n">Ns</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">(</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">)</span>
+	<span class="n">alphas</span> <span class="o">=</span> <span class="n">string2list</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">alphas</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">modes</span><span class="p">))</span>
+
+	<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;------------------- CMF -------------------&#39;</span><span class="p">)</span>
+	<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Data: Number of instnace for each entity = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">Ns</span><span class="p">)))</span>
+	<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Data: Training size = </span><span class="si">{}</span><span class="s1">. Testing size = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Xs_trn</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+	<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Settings: k = </span><span class="si">{}</span><span class="s1">. reg = </span><span class="si">{}</span><span class="s1">. lr = </span><span class="si">{}</span><span class="s1">. alpha = </span><span class="si">{}</span><span class="s1">. modes = </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">k</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">reg</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">modes</span><span class="p">))</span>
+
+	<span class="n">run_cmf</span><span class="p">(</span><span class="n">Xs_trn</span><span class="p">,</span> <span class="n">Xs_tst</span><span class="p">,</span> <span class="n">rc_schema</span><span class="p">,</span> <span class="n">modes</span><span class="p">,</span> <span class="n">alphas</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[INFO] ------------------- CMF -------------------
+[INFO] Data: Number of instnace for each entity = [6040, 3883, 29, 99]
+[INFO] Data: Training size = 900188. Testing size = 100021
+[INFO] Settings: k = 8. reg = 0.1. lr = 0.1. alpha = [0.5, 0.5, 0.5]. modes = [&#39;sparse&#39;, &#39;log_dense&#39;, &#39;log_dense&#39;].
+[INFO] Iter 1/50. Time: 3.2
+[INFO] Training Loss: 2715840.2 (change -52.18%). Training RMSE: 2.42. Testing RMSE: 2.54
+[INFO] Iter 2/50. Time: 3.2
+[INFO] Training Loss: 2208268.6 (change -18.69%). Training RMSE: 2.18. Testing RMSE: 2.34
+[INFO] Iter 3/50. Time: 3.3
+[INFO] Training Loss: 1852405.4 (change -16.12%). Training RMSE: 1.99. Testing RMSE: 2.18
+[INFO] Iter 4/50. Time: 3.2
+[INFO] Training Loss: 1587352.4 (change -14.31%). Training RMSE: 1.85. Testing RMSE: 2.06
+[INFO] Iter 5/50. Time: 3.2
+[INFO] Training Loss: 1382534.2 (change -12.90%). Training RMSE: 1.73. Testing RMSE: 1.95
+[INFO] Iter 6/50. Time: 3.2
+[INFO] Training Loss: 1220199.3 (change -11.74%). Training RMSE: 1.62. Testing RMSE: 1.85
+[INFO] Iter 7/50. Time: 3.2
+[INFO] Training Loss: 1089097.6 (change -10.74%). Training RMSE: 1.53. Testing RMSE: 1.74
+[INFO] Iter 8/50. Time: 3.3
+[INFO] Training Loss: 981660.8 (change -9.86%). Training RMSE: 1.46. Testing RMSE: 1.65
+[INFO] Iter 9/50. Time: 3.3
+[INFO] Training Loss: 892572.5 (change -9.08%). Training RMSE: 1.39. Testing RMSE: 1.56
+[INFO] Iter 10/50. Time: 3.2
+[INFO] Training Loss: 817972.0 (change -8.36%). Training RMSE: 1.33. Testing RMSE: 1.49
+[INFO] Iter 11/50. Time: 3.2
+[INFO] Training Loss: 754982.0 (change -7.70%). Training RMSE: 1.28. Testing RMSE: 1.42
+[INFO] Iter 12/50. Time: 3.2
+[INFO] Training Loss: 701412.5 (change -7.10%). Training RMSE: 1.23. Testing RMSE: 1.37
+[INFO] Iter 13/50. Time: 3.2
+[INFO] Training Loss: 655567.3 (change -6.54%). Training RMSE: 1.19. Testing RMSE: 1.32
+[INFO] Iter 14/50. Time: 3.3
+[INFO] Training Loss: 616113.4 (change -6.02%). Training RMSE: 1.16. Testing RMSE: 1.28
+[INFO] Iter 15/50. Time: 3.2
+[INFO] Training Loss: 581989.5 (change -5.54%). Training RMSE: 1.12. Testing RMSE: 1.24
+[INFO] Iter 16/50. Time: 3.3
+[INFO] Training Loss: 552341.8 (change -5.09%). Training RMSE: 1.10. Testing RMSE: 1.21
+[INFO] Iter 17/50. Time: 3.2
+[INFO] Training Loss: 526477.4 (change -4.68%). Training RMSE: 1.07. Testing RMSE: 1.18
+[INFO] Iter 18/50. Time: 3.3
+[INFO] Training Loss: 503827.1 (change -4.30%). Training RMSE: 1.05. Testing RMSE: 1.15
+[INFO] Iter 19/50. Time: 3.2
+[INFO] Training Loss: 483922.0 (change -3.95%). Training RMSE: 1.03. Testing RMSE: 1.13
+[INFO] Iter 20/50. Time: 3.2
+[INFO] Training Loss: 466372.4 (change -3.63%). Training RMSE: 1.01. Testing RMSE: 1.11
+[INFO] Iter 21/50. Time: 3.3
+[INFO] Training Loss: 450852.3 (change -3.33%). Training RMSE: 0.99. Testing RMSE: 1.10
+[INFO] Iter 22/50. Time: 3.2
+[INFO] Training Loss: 437087.5 (change -3.05%). Training RMSE: 0.97. Testing RMSE: 1.08
+[INFO] Iter 23/50. Time: 3.2
+[INFO] Training Loss: 424846.6 (change -2.80%). Training RMSE: 0.96. Testing RMSE: 1.07
+[INFO] Iter 24/50. Time: 3.3
+[INFO] Training Loss: 413932.7 (change -2.57%). Training RMSE: 0.95. Testing RMSE: 1.06
+[INFO] Iter 25/50. Time: 3.2
+[INFO] Training Loss: 404178.2 (change -2.36%). Training RMSE: 0.94. Testing RMSE: 1.05
+[INFO] Iter 26/50. Time: 3.3
+[INFO] Training Loss: 395439.5 (change -2.16%). Training RMSE: 0.93. Testing RMSE: 1.04
+[INFO] Iter 27/50. Time: 3.2
+[INFO] Training Loss: 387593.1 (change -1.98%). Training RMSE: 0.92. Testing RMSE: 1.03
+[INFO] Iter 28/50. Time: 3.3
+[INFO] Training Loss: 380532.8 (change -1.82%). Training RMSE: 0.91. Testing RMSE: 1.03
+[INFO] Iter 29/50. Time: 3.2
+[INFO] Training Loss: 374166.4 (change -1.67%). Training RMSE: 0.90. Testing RMSE: 1.02
+[INFO] Iter 30/50. Time: 3.2
+[INFO] Training Loss: 368414.1 (change -1.54%). Training RMSE: 0.89. Testing RMSE: 1.02
+[INFO] Iter 31/50. Time: 3.3
+[INFO] Training Loss: 363206.5 (change -1.41%). Training RMSE: 0.89. Testing RMSE: 1.01
+[INFO] Iter 32/50. Time: 3.3
+[INFO] Training Loss: 358482.9 (change -1.30%). Training RMSE: 0.88. Testing RMSE: 1.01
+[INFO] Iter 33/50. Time: 3.3
+[INFO] Training Loss: 354190.2 (change -1.20%). Training RMSE: 0.88. Testing RMSE: 1.01
+[INFO] Iter 34/50. Time: 3.3
+[INFO] Training Loss: 350282.1 (change -1.10%). Training RMSE: 0.87. Testing RMSE: 1.00
+[INFO] Iter 35/50. Time: 3.3
+[INFO] Training Loss: 346717.7 (change -1.02%). Training RMSE: 0.87. Testing RMSE: 1.00
+[INFO] Iter 36/50. Time: 3.3
+[INFO] Training Loss: 343460.9 (change -0.94%). Training RMSE: 0.86. Testing RMSE: 1.00
+[INFO] Iter 37/50. Time: 3.2
+[INFO] Training Loss: 340480.1 (change -0.87%). Training RMSE: 0.86. Testing RMSE: 1.00
+[INFO] Iter 38/50. Time: 3.2
+[INFO] Training Loss: 337747.3 (change -0.80%). Training RMSE: 0.85. Testing RMSE: 0.99
+[INFO] Iter 39/50. Time: 3.2
+[INFO] Training Loss: 335237.5 (change -0.74%). Training RMSE: 0.85. Testing RMSE: 0.99
+[INFO] Iter 40/50. Time: 3.3
+[INFO] Training Loss: 332928.7 (change -0.69%). Training RMSE: 0.85. Testing RMSE: 0.99
+[INFO] Iter 41/50. Time: 3.3
+[INFO] Training Loss: 330801.4 (change -0.64%). Training RMSE: 0.85. Testing RMSE: 0.99
+[INFO] Iter 42/50. Time: 3.3
+[INFO] Training Loss: 328838.0 (change -0.59%). Training RMSE: 0.84. Testing RMSE: 0.99
+[INFO] Iter 43/50. Time: 3.3
+[INFO] Training Loss: 327023.1 (change -0.55%). Training RMSE: 0.84. Testing RMSE: 0.99
+[INFO] Iter 44/50. Time: 3.2
+[INFO] Training Loss: 325342.7 (change -0.51%). Training RMSE: 0.84. Testing RMSE: 0.99
+[INFO] Iter 45/50. Time: 3.3
+[INFO] Training Loss: 323784.5 (change -0.48%). Training RMSE: 0.84. Testing RMSE: 0.99
+[INFO] Iter 46/50. Time: 3.3
+[INFO] Training Loss: 322337.2 (change -0.45%). Training RMSE: 0.83. Testing RMSE: 0.98
+[INFO] Iter 47/50. Time: 3.2
+[INFO] Training Loss: 320991.0 (change -0.42%). Training RMSE: 0.83. Testing RMSE: 0.98
+[INFO] Iter 48/50. Time: 3.3
+[INFO] Training Loss: 319736.9 (change -0.39%). Training RMSE: 0.83. Testing RMSE: 0.98
+[INFO] Iter 49/50. Time: 3.2
+[INFO] Training Loss: 318566.7 (change -0.37%). Training RMSE: 0.83. Testing RMSE: 0.98
+[INFO] Iter 50/50. Time: 3.3
+[INFO] Training Loss: 317473.4 (change -0.34%). Training RMSE: 0.83. Testing RMSE: 0.98
+[INFO] RMSE: 0.9826
+[INFO] Total Time: 163 s
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
+<p>Relational Learning via Collective Matrix Factorization. Singh et. al.. 2008. KDD. <a class="reference external" href="http://www.cs.cmu.edu/~ggordon/singh-gordon-kdd-factorization.pdf">http://www.cs.cmu.edu/~ggordon/singh-gordon-kdd-factorization.pdf</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/coldstart-recsys",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">HERS Cold-start Recommendations on LastFM dataset</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T490340_Double_domain_recommendations_on_ML_1m.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Double domain recommendations on ML-1m</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,1690 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Double domain recommendations on ML-1m &#8212; coldstart-recsys</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DropoutNet Cold-start Recommendation on CiteULike dataset" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html" />
+    <link rel="prev" title="Collective Matrix Factorization on ML-1m" href="T316836_Collective_Matrix_Factorization_on_ML_1m.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">coldstart-recsys</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="L281872_Cold_Start_Recommendations.html">
+   Cold-Start Recommendations
+  </a>
+ </li>
+</ul>
+<p class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations.html">
+   Attribute to Feature Mappings for Cold-Start Recommendations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T457846_LightFM_Cold_start_on_ML_10m.html">
+   LightFM Cold-start on ML-10m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T459379_EMCDR_on_MovieLens_Netflix_dataset.html">
+   EMCDR on MovieLens-Netflix dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T229879_HERS_Cold_start_Recommendations_on_LastFM_dataset.html">
+   HERS Cold-start Recommendations on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T316836_Collective_Matrix_Factorization_on_ML_1m.html">
+   Collective Matrix Factorization on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Double domain recommendations on ML-1m
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html">
+   DropoutNet Cold-start Recommendation on CiteULike dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T714933_MetaTL_for_Cold_start_users_on_Amazon_Electronics_dataset.html">
+   MetaTL for Cold-start users on Amazon Electronics dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T722684_TaNP_Cold_start_Recommender_on_LastFM_dataset.html">
+   TaNP Cold-start Recommender on LastFM dataset
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T290734_AGGN_Cold_start_Recommendation_on_ML_100k.html">
+   AGGN Cold-start Recommendation on ML-100k
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="T519611_DaRE_Cross_domain_recommender_on_Amazon_Reviews_dataset.html">
+   DaRE Cross-domain recommender on Amazon Reviews dataset
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/T490340_Double_domain_recommendations_on_ML_1m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/sparsh-ai/coldstart-recsys/main?urlpath=tree/docs/T490340_Double_domain_recommendations_on_ML_1m.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/sparsh-ai/coldstart-recsys/blob/main/docs/T490340_Double_domain_recommendations_on_ML_1m.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-architecture">
+     Model Architecture
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-procedure">
+     Training Procedure
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#simple-recommendations">
+   Simple recommendations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#double-domain-recommendations">
+   Double-domain recommendations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citations">
+   Citations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="double-domain-recommendations-on-ml-1m">
+<h1>Double domain recommendations on ML-1m<a class="headerlink" href="#double-domain-recommendations-on-ml-1m" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we are training DCDCSR model on MovieLens 1m dataset. Data has been divided into four parts D1,D2,D3 and D4. D1 and D2 have users common. D1 and D3 have items common. D1 and D4 have no user and no item in common. We test the model on the testing part of the dataset i.e., testing set from 10% dataset of D1 and calculated the MAE, RMSD, Precision and Recall values. Same is repeated with every dataset. Case 1 :- cross domain recommendation D1 is Target Domain and D4 is Source Domain. Case 2 :- cross domain recommendation D2 is Target Domain and D3 is Source Domain. Case 3 :- cross domain recommendation D3 is Target Domain and D2 is Source Domain. Case 4 :- cross domain recommendation D4 is Target Domain and D1 is Source Domain.</p>
+<div class="section" id="model-architecture">
+<h3>Model Architecture<a class="headerlink" href="#model-architecture" title="Permalink to this headline">¶</a></h3>
+<p><center><img src='_images/T490340_1.png'></center></p></div>
+<div class="section" id="training-procedure">
+<h3>Training Procedure<a class="headerlink" href="#training-procedure" title="Permalink to this headline">¶</a></h3>
+<p><center><img src='_images/T490340_2.png'></center></p></div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/Worm4047/crossDomainRecommenderSystem.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;crossDomainRecommenderSystem&#39;...
+remote: Enumerating objects: 79, done.
+remote: Total 79 (delta 0), reused 0 (delta 0), pack-reused 79
+Unpacking objects: 100% (79/79), done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="n">crossDomainRecommenderSystem</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/crossDomainRecommenderSystem
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="simple-recommendations">
+<h2>Simple recommendations<a class="headerlink" href="#simple-recommendations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">sim_distance</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person1</span><span class="p">,</span><span class="n">person2</span><span class="p">):</span>
+    <span class="n">si</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">]:</span> 
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">]:</span> <span class="n">si</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+    <span class="n">sum_of_squares</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">-</span><span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">][</span><span class="n">item</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> 
+                        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">]</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">]])</span>
+
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sum_of_squares</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">sim_pearson</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">):</span>
+    <span class="n">si</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">]:</span> 
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">]:</span> <span class="n">si</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="c1"># Sum calculations</span>
+    <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span>
+
+    <span class="c1"># Sums of all the preferences</span>
+    <span class="n">sum1</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+    <span class="n">sum2</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+
+    <span class="c1"># Sums of the squares</span>
+    <span class="n">sum1Sq</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+    <span class="n">sum2Sq</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>	
+
+    <span class="c1"># Sum of the products</span>
+    <span class="n">pSum</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">]</span><span class="o">*</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+
+    <span class="c1"># Calculate r (Pearson score)</span>
+    <span class="n">num</span><span class="o">=</span><span class="n">pSum</span><span class="o">-</span><span class="p">(</span><span class="n">sum1</span><span class="o">*</span><span class="n">sum2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">den</span><span class="o">=</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sum1Sq</span><span class="o">-</span><span class="nb">pow</span><span class="p">(</span><span class="n">sum1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">sum2Sq</span><span class="o">-</span><span class="nb">pow</span><span class="p">(</span><span class="n">sum2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">den</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">r</span><span class="o">=</span><span class="n">num</span><span class="o">/</span><span class="n">den</span>
+
+    <span class="k">return</span> <span class="n">r</span>
+
+
+<span class="c1"># Returns the best matches for person from the prefs dictionary. </span>
+<span class="c1"># Number of results and similarity function are optional params.</span>
+<span class="k">def</span> <span class="nf">topMatches</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">similarity</span><span class="o">=</span><span class="n">sim_pearson</span><span class="p">):</span>
+        <span class="n">scores</span><span class="o">=</span><span class="p">[(</span><span class="n">similarity</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">other</span><span class="p">),</span><span class="n">other</span><span class="p">)</span> 
+                        <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">prefs</span> <span class="k">if</span> <span class="n">other</span><span class="o">!=</span><span class="n">person</span><span class="p">]</span>
+        <span class="n">scores</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="n">scores</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
+
+<span class="c1"># Gets recommendations for a person by using a weighted average</span>
+<span class="c1"># of every other user&#39;s rankings</span>
+<span class="k">def</span> <span class="nf">getRecommendations</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">similarity</span><span class="o">=</span><span class="n">sim_pearson</span><span class="p">):</span>
+    <span class="n">totals</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">simSums</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">:</span>
+        <span class="c1"># don&#39;t compare me to myself</span>
+        <span class="k">if</span> <span class="n">other</span><span class="o">==</span><span class="n">person</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="n">sim</span><span class="o">=</span><span class="n">similarity</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">other</span><span class="p">)</span>
+
+        <span class="c1"># ignore scores of zero or lower</span>
+        <span class="k">if</span> <span class="n">sim</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">other</span><span class="p">]:</span>
+            
+            <span class="c1"># only score movies I haven&#39;t seen yet</span>
+            <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="ow">or</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Similarity * Score</span>
+                <span class="n">totals</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">totals</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">+=</span><span class="n">prefs</span><span class="p">[</span><span class="n">other</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">*</span><span class="n">sim</span>
+                <span class="c1"># Sum of similarities</span>
+                <span class="n">simSums</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">simSums</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">+=</span><span class="n">sim</span>
+
+    <span class="c1"># Create the normalized list</span>
+    <span class="n">rankings</span><span class="o">=</span><span class="p">[(</span><span class="n">total</span><span class="o">/</span><span class="n">simSums</span><span class="p">[</span><span class="n">item</span><span class="p">],</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span><span class="p">,</span><span class="n">total</span> <span class="ow">in</span> <span class="n">totals</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+    <span class="c1"># Return the sorted list</span>
+    <span class="n">rankings</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="n">rankings</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">rankings</span>
+
+
+<span class="k">def</span> <span class="nf">transformPrefs</span><span class="p">(</span><span class="n">prefs</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">person</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person</span><span class="p">]:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item</span><span class="p">,{})</span>
+        
+        <span class="c1"># Flip item and person</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">item</span><span class="p">][</span><span class="n">person</span><span class="p">]</span><span class="o">=</span><span class="n">prefs</span><span class="p">[</span><span class="n">person</span><span class="p">][</span><span class="n">item</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">calculateSimilarItems</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># Create a dictionary of items showing which other items they</span>
+    <span class="c1"># are most similar to.</span>
+    <span class="n">result</span><span class="o">=</span><span class="p">{}</span>
+    <span class="c1"># Invert the preference matrix to be item-centric</span>
+    <span class="n">itemPrefs</span><span class="o">=</span><span class="n">transformPrefs</span><span class="p">(</span><span class="n">prefs</span><span class="p">)</span>
+    <span class="n">c</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">itemPrefs</span><span class="p">:</span>
+        <span class="c1"># Status updates for large datasets</span>
+        <span class="n">c</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">c</span><span class="o">%</span><span class="mi">100</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> / </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">itemPrefs</span><span class="p">)))</span>
+        <span class="c1"># Find the most similar items to this one</span>
+        <span class="n">scores</span><span class="o">=</span><span class="n">topMatches</span><span class="p">(</span><span class="n">itemPrefs</span><span class="p">,</span><span class="n">item</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">similarity</span><span class="o">=</span><span class="n">sim_distance</span><span class="p">)</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="n">scores</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">getRecommendedItems</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">itemMatch</span><span class="p">,</span><span class="n">user</span><span class="p">):</span>
+    <span class="n">userRatings</span><span class="o">=</span><span class="n">prefs</span><span class="p">[</span><span class="n">user</span><span class="p">]</span>
+    <span class="n">scores</span><span class="o">=</span><span class="p">{}</span>
+    <span class="n">totalSim</span><span class="o">=</span><span class="p">{}</span>
+    <span class="c1"># Loop over items rated by this user</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="n">rating</span><span class="p">)</span> <span class="ow">in</span> <span class="n">userRatings</span><span class="o">.</span><span class="n">items</span><span class="p">(</span> <span class="p">):</span>
+
+        <span class="c1"># Loop over items similar to this one</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">similarity</span><span class="p">,</span><span class="n">item2</span><span class="p">)</span> <span class="ow">in</span> <span class="n">itemMatch</span><span class="p">[</span><span class="n">item</span><span class="p">]:</span>
+
+            <span class="c1"># Ignore if this user has already rated this item</span>
+            <span class="k">if</span> <span class="n">item2</span> <span class="ow">in</span> <span class="n">userRatings</span><span class="p">:</span> <span class="k">continue</span>
+            <span class="c1"># Weighted sum of rating times similarity</span>
+            <span class="n">scores</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">scores</span><span class="p">[</span><span class="n">item2</span><span class="p">]</span><span class="o">+=</span><span class="n">similarity</span><span class="o">*</span><span class="n">rating</span>
+            <span class="c1"># Sum of all the similarities</span>
+            <span class="n">totalSim</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item2</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">totalSim</span><span class="p">[</span><span class="n">item2</span><span class="p">]</span><span class="o">+=</span><span class="n">similarity</span>
+
+    <span class="c1"># Divide each total score by total weighting to get an average</span>
+    <span class="n">rankings</span><span class="o">=</span><span class="p">[(</span><span class="n">score</span><span class="o">/</span><span class="n">totalSim</span><span class="p">[</span><span class="n">item</span><span class="p">],</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span><span class="p">,</span><span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="o">.</span><span class="n">items</span><span class="p">(</span> <span class="p">)]</span>
+
+    <span class="c1"># Return the rankings from highest to lowest</span>
+    <span class="n">rankings</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span> <span class="p">)</span>
+    <span class="n">rankings</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span> <span class="p">)</span>
+    <span class="k">return</span> <span class="n">rankings</span>
+
+
+<span class="k">def</span> <span class="nf">loadMovieLens</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;movielens&#39;</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;/u1.base&#39;</span><span class="p">):</span>
+    <span class="c1"># Get movie titles</span>
+    <span class="n">movies</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;/u.item&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">):</span>
+        <span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">title</span><span class="p">)</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">movies</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">=</span><span class="n">title</span>
+
+    <span class="c1"># Load data</span>
+    <span class="n">prefs</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">):</span>
+        <span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">movieid</span><span class="p">,</span><span class="n">rating</span><span class="p">,</span><span class="n">ts</span><span class="p">)</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">prefs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">user</span><span class="p">,{})</span>
+        <span class="n">prefs</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="n">movieid</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">prefs</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">trainPrefs</span> <span class="o">=</span> <span class="n">loadMovieLens</span><span class="p">()</span>
+    <span class="n">testPrefs</span> <span class="o">=</span> <span class="n">loadMovieLens</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;/u1.test&#39;</span><span class="p">)</span>
+    <span class="n">movies</span><span class="o">=</span><span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;movielens/u.item&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">):</span>
+        <span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">title</span><span class="p">)</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">movies</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">=</span><span class="n">title</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">testPrefs</span><span class="p">:</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">getRecommendations</span><span class="p">(</span><span class="n">trainPrefs</span><span class="p">,</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">count</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="n">preds</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="n">rating</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="n">pred</span><span class="p">:</span>
+            <span class="n">preds</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="n">rating</span>
+            <span class="c1"># print(movies[item],rating,item)</span>
+        <span class="n">accuracies</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">testPrefs</span><span class="p">[</span><span class="n">user</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span><span class="k">continue</span> 
+            <span class="n">actualRating</span> <span class="o">=</span> <span class="n">testPrefs</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="n">movie</span><span class="p">]</span>
+            <span class="n">predcitedRating</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">movie</span><span class="p">]</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">fabs</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">predcitedRating</span><span class="p">)</span> <span class="o">-</span> <span class="n">fabs</span><span class="p">(</span><span class="n">actualRating</span><span class="p">))</span>
+            <span class="c1"># print(predcitedRating,actualRating,diff)</span>
+            <span class="n">accu</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">diff</span><span class="p">)</span><span class="o">/</span><span class="n">actualRating</span>
+            <span class="k">if</span> <span class="n">accu</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">accu</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">accuracies</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">accuracies</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>79.24292127362807
+87.93479303981941
+75.80961193124574
+77.8640632822975
+76.56256923376974
+78.05246040052124
+78.19357343520991
+81.13604068897467
+82.26781258070697
+87.34195067949857
+79.91200870698799
+82.33292876950038
+74.91055413077252
+82.47050838332606
+70.36418973654769
+79.56924386852161
+70.06096018208072
+82.54765533265174
+86.16115379810184
+61.402091303279896
+74.29525866837294
+77.43795288652258
+78.53617559609039
+84.07707243773565
+83.87027342334234
+81.29841478761122
+75.16255625046323
+81.93612533003622
+82.3030263233203
+77.599541842924
+76.0172517761654
+81.30200636053584
+88.2794180153652
+73.41566820212797
+76.43439609741209
+62.22666268033935
+81.81228812713917
+67.40551694521065
+81.27439063057882
+73.8401045804389
+82.43483676518201
+77.4490840352222
+82.05600364094401
+80.84286023516452
+81.40923574121854
+72.96913711111404
+83.95842685723139
+79.34709717966854
+68.46162508791912
+65.89825421429686
+90.59991854329544
+82.60698558853309
+79.07418800988738
+77.43232254022591
+79.78923642779793
+80.42694643711489
+82.25401473909386
+79.65837455113234
+77.94812457749556
+87.06506269587186
+63.098011754451164
+78.66978363527886
+80.8689409881904
+80.26205399794775
+83.98893401592316
+75.43819888726449
+77.03734181503017
+81.75662964087981
+79.6078607391564
+86.47769742310273
+76.67069070294811
+86.3853714377867
+81.45569902678051
+82.30862443015438
+77.1513247817373
+76.9066227339366
+75.87932387726468
+69.27938653822991
+80.6285396655574
+77.15705263592051
+64.82231463412919
+79.87226820777839
+79.54994482513418
+85.6298664997915
+81.31895830653971
+76.91457217854257
+80.75061561947818
+66.44696739097
+76.74136693844744
+81.3439492083751
+77.9650167012251
+82.58677909391827
+82.64493275973608
+82.81488405204999
+76.37367767138096
+81.9375935774442
+82.80435188709802
+76.56874022916853
+79.70035201814567
+77.70344501103816
+72.86232972635064
+69.74142198881339
+85.45966165016272
+67.62895321721993
+78.72886480167473
+86.27013327852357
+73.30651585108677
+79.5170950325197
+77.96842232964254
+75.86383992201507
+75.93499143408545
+85.56612110863627
+66.81980484139348
+70.6546831616505
+73.55572875898953
+69.28092577611135
+81.68489320343825
+79.24602204655396
+79.1063633096562
+77.37919188649543
+74.83174480661432
+76.95763174541969
+75.82127602902204
+74.41070791093466
+81.83239780723613
+78.88838876220112
+67.81741723236662
+81.29781231300755
+52.838165644628496
+77.6888194964719
+82.60281616627819
+87.41367561201778
+82.91473137399696
+74.0236676783194
+82.25747494388847
+87.79944032092476
+75.36619218802943
+88.00170761071307
+87.52887873490013
+79.21511581193343
+79.02607640003535
+77.84295760926422
+74.16072332762008
+81.42098110815584
+74.01848512648603
+81.32847158148996
+80.11132599106804
+75.44574453439238
+55.941686424391165
+84.40643333964223
+80.99196460615043
+76.00740544870843
+69.59585553703424
+82.66775136776086
+70.61603608983054
+76.44985644303087
+75.12222855694381
+83.0389287864656
+75.15553684670391
+80.59775925490807
+51.69486713735334
+83.42040364604141
+85.92396566252584
+71.33087177955869
+77.62120924340475
+67.8074576404145
+75.2806048473951
+74.69945487425207
+85.51222719712887
+78.03904242120385
+84.94054310690653
+72.99528013630588
+76.56788524001001
+70.62922012939464
+72.83513602554528
+78.80360176725112
+81.582453022818
+83.48784908731581
+73.62727917550232
+78.76632650877256
+52.40690892417892
+75.68489292038196
+71.57138734814833
+84.3971043769998
+87.21054726673486
+78.1923682858269
+82.1397255108409
+76.62184887545837
+79.63785591087097
+83.78001483720496
+79.0783873102585
+75.52748298909641
+81.50067085869271
+72.21762491952133
+80.56171743742583
+76.17098392554574
+76.5329914715255
+80.44526109864361
+73.24380468468267
+76.91161078595832
+66.40357940658134
+75.60021901851218
+81.03641507313115
+72.09452732887968
+75.55418919574919
+74.62675976007958
+80.06907747953915
+79.6581991250593
+71.75306263418287
+83.45736950362716
+75.76228026028343
+89.54700312317509
+79.59094712782826
+80.96141346232264
+79.97069147060661
+82.34772618235813
+78.13627804464717
+82.55375799314614
+84.2734181790334
+83.0745219991551
+81.12696336059379
+76.20156825081116
+79.85676210644999
+81.16878267843745
+76.53752923187328
+84.97475327533924
+79.23554473503445
+81.78581559000506
+75.35383157445834
+78.00410626005711
+77.36379922063091
+79.34728220862334
+82.90924442468756
+72.81380095472765
+85.40465339553937
+68.61100487691021
+85.02245115019458
+83.67486699217815
+78.31115314666707
+76.44496470766133
+72.41716530998715
+81.22157959232035
+81.70754798166575
+77.13247609623633
+78.99808740098518
+72.60147010311336
+82.29946380579011
+81.58876345708691
+83.80527657369679
+78.05083919640043
+78.74025036838151
+86.93964478774492
+80.98504531503302
+79.35092104663276
+77.4104022837158
+77.16121888208366
+80.67698775832235
+72.65821288127137
+82.18280359462585
+68.1175625097966
+74.8052934016271
+74.67647115323138
+79.40356259017358
+77.76605862301183
+73.49124986140583
+80.4787143742413
+85.03975784243549
+78.11702641516055
+75.0054903977325
+71.2269668919261
+80.15692561526238
+85.08120148949409
+82.55236180752333
+79.5349125483214
+79.20917751915314
+83.54519305704312
+85.21512365334587
+78.93620562849783
+76.54348523378476
+73.14451432571553
+69.16663119779726
+80.91393864062636
+80.11951383664056
+87.25346304738645
+78.78281579020748
+76.29689632808098
+77.84716035681906
+81.37625079105102
+76.25310703918167
+77.29130924012806
+76.4114869426758
+84.5858676319393
+74.42384845784687
+83.72057500253838
+79.77491916351266
+78.15974395078982
+79.13666142167357
+81.85379978513694
+81.17021388693037
+75.3409386910658
+80.40966065129376
+58.807488946606526
+78.90152161628244
+83.12888617532775
+76.93861944745628
+83.5588043584382
+79.49360630873845
+82.20213905858652
+76.68524946056957
+79.23592901019782
+83.69901759280194
+80.54471399015665
+80.87555291490335
+75.08791258924958
+84.50714969638803
+80.88683613449713
+81.41736492676206
+78.57467044574291
+84.73650809744774
+83.07188206899089
+81.30742224557962
+77.43343831121918
+78.90832506252612
+72.82690641171212
+77.45575940592524
+76.77058060777348
+77.48216072951458
+83.36297520958506
+83.32392014710678
+79.00406314482967
+77.71826148392704
+77.41307587828337
+78.77325633056425
+80.94256746473833
+87.08861458702164
+77.89525010855782
+82.06003965449653
+82.26425608173766
+82.11625096451183
+86.33722930843696
+67.4988277296474
+76.5156996127417
+81.1871544016855
+81.37961414300388
+82.18546513766863
+81.35491404513459
+72.70811013997476
+79.38062753642723
+71.6977130521563
+82.4251747203175
+80.95210085541412
+87.11400458569256
+70.87292969927739
+80.9788855076427
+84.17312098935948
+70.15209076267787
+76.67641103920138
+69.79609545250572
+86.02790312677203
+83.45560706800545
+83.46048644208699
+69.5788913813468
+71.24106959112429
+80.64513070955468
+70.02307149871834
+62.582576892525
+79.97586604663773
+67.84421941026257
+83.83473195712534
+79.64049471701574
+84.64480389972665
+71.08998348665942
+79.64374920403947
+76.85363731705253
+79.5731663902325
+87.1725438665898
+82.74824254947599
+83.87247194430624
+81.73484991449253
+79.03893890059004
+80.40714140474604
+68.19041348177022
+77.49491179203696
+81.00345782076671
+72.44265002930908
+81.8580749782649
+78.89303757207843
+77.93722619391323
+82.1554765251585
+77.162603849583
+77.34086252037248
+75.67841158572284
+79.1579450727892
+79.70863127723487
+83.47807036093779
+85.78954929973712
+76.469824779074
+81.17992306004848
+72.18184968113908
+89.31453148076756
+75.80125877914558
+88.5342284796501
+84.28503249141683
+67.5185897262517
+74.32862225866282
+80.0516558004875
+81.07857432008694
+75.70345741141186
+71.6452179847024
+64.71777788555764
+82.21472398485353
+87.26835570723844
+84.78875795216581
+73.86397442415806
+83.64962004889165
+80.26348795249642
+78.7019607341868
+63.050016477303814
+86.40514483101155
+81.4855929349091
+87.38858393610836
+78.28886755062045
+84.4906177161964
+78.75383488326774
+75.50368592285052
+90.13136941651025
+70.64637533131871
+77.30244623721184
+83.19559035627903
+91.8682211555504
+87.59775295295753
+84.9436104047242
+85.44083036082067
+89.88017376941868
+80.17920580420088
+78.27368329240568
+81.61150986134432
+73.45805639116337
+82.51890684178667
+68.3619963375122
+79.65612858722815
+79.01773181516994
+61.782500185024844
+85.44671009126395
+83.24456871303744
+78.44458728604853
+83.36249963499283
+81.64640671857376
+53.89496733843021
+57.456969259176994
+87.30137009890444
+72.95586002026695
+87.48622178520795
+82.33108833747015
+86.29973996944426
+94.67486587992732
+98.15656002912702
+66.66562973142538
+60.74172851158062
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="double-domain-recommendations">
+<h2>Double-domain recommendations<a class="headerlink" href="#double-domain-recommendations" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">sim_distance</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person1</span><span class="p">,</span><span class="n">person2</span><span class="p">):</span>
+  <span class="n">si</span><span class="o">=</span><span class="p">{}</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">]:</span> 
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">]:</span> <span class="n">si</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+  <span class="n">sum_of_squares</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">-</span><span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">][</span><span class="n">item</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person1</span><span class="p">]</span> <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">person2</span><span class="p">]])</span>
+  <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">sum_of_squares</span><span class="p">)</span>
+
+  
+<span class="k">def</span> <span class="nf">sim_pearson</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">):</span>
+  <span class="n">si</span><span class="o">=</span><span class="p">{}</span>
+  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">]:</span> 
+    <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">]:</span> <span class="n">si</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+
+  <span class="c1"># Sum calculations</span>
+  <span class="n">n</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">si</span><span class="p">)</span>
+  
+  <span class="c1"># Sums of all the preferences</span>
+  <span class="n">sum1</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+  <span class="n">sum2</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+  
+  <span class="c1"># Sums of the squares</span>
+  <span class="n">sum1Sq</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+  <span class="n">sum2Sq</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="nb">pow</span><span class="p">(</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>	
+  
+  <span class="c1"># Sum of the products</span>
+  <span class="n">pSum</span><span class="o">=</span><span class="nb">sum</span><span class="p">([</span><span class="n">prefs</span><span class="p">[</span><span class="n">p1</span><span class="p">][</span><span class="n">it</span><span class="p">]</span><span class="o">*</span><span class="n">prefs</span><span class="p">[</span><span class="n">p2</span><span class="p">][</span><span class="n">it</span><span class="p">]</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">si</span><span class="p">])</span>
+  
+  <span class="c1"># Calculate r (Pearson score)</span>
+  <span class="n">num</span><span class="o">=</span><span class="n">pSum</span><span class="o">-</span><span class="p">(</span><span class="n">sum1</span><span class="o">*</span><span class="n">sum2</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+  <span class="n">den</span><span class="o">=</span><span class="n">sqrt</span><span class="p">((</span><span class="n">sum1Sq</span><span class="o">-</span><span class="nb">pow</span><span class="p">(</span><span class="n">sum1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">sum2Sq</span><span class="o">-</span><span class="nb">pow</span><span class="p">(</span><span class="n">sum2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">n</span><span class="p">))</span>
+  <span class="k">if</span> <span class="n">den</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="mi">0</span>
+
+  <span class="n">r</span><span class="o">=</span><span class="n">num</span><span class="o">/</span><span class="n">den</span>
+
+  <span class="k">return</span> <span class="n">r</span>
+
+
+<span class="c1"># Returns the best matches for person from the prefs dictionary. </span>
+<span class="c1"># Number of results and similarity function are optional params.</span>
+<span class="k">def</span> <span class="nf">topMatches</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">similarity</span><span class="o">=</span><span class="n">sim_pearson</span><span class="p">):</span>
+  <span class="n">scores</span><span class="o">=</span><span class="p">[(</span><span class="n">similarity</span><span class="p">(</span><span class="n">prefs</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">other</span><span class="p">),</span><span class="n">other</span><span class="p">)</span> 
+                  <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">prefs</span> <span class="k">if</span> <span class="n">other</span><span class="o">!=</span><span class="n">person</span><span class="p">]</span>
+  <span class="n">scores</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+  <span class="n">scores</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">]</span>
+
+
+<span class="c1"># Gets recommendations for a person by using a weighted average</span>
+<span class="c1"># of every other user&#39;s rankings</span>
+<span class="k">def</span> <span class="nf">getRecommendations</span><span class="p">(</span><span class="n">domain1</span><span class="p">,</span><span class="n">domain2</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">similarity</span><span class="o">=</span><span class="n">sim_pearson</span><span class="p">):</span>
+  <span class="n">totals</span><span class="o">=</span><span class="p">{}</span>
+  <span class="n">simSums</span><span class="o">=</span><span class="p">{}</span>
+  <span class="k">for</span> <span class="n">other</span> <span class="ow">in</span> <span class="n">domain2</span><span class="p">:</span>
+    <span class="c1"># don&#39;t compare me to myself</span>
+    <span class="k">if</span> <span class="n">other</span><span class="o">==</span><span class="n">person</span><span class="p">:</span> <span class="k">continue</span>
+    <span class="n">sim</span><span class="o">=</span><span class="n">similarity</span><span class="p">(</span><span class="n">domain2</span><span class="p">,</span><span class="n">person</span><span class="p">,</span><span class="n">other</span><span class="p">)</span>
+
+    <span class="c1"># ignore scores of zero or lower</span>
+    <span class="k">if</span> <span class="n">sim</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">:</span> <span class="k">continue</span>
+    <span class="c1"># print other,sim</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">domain1</span><span class="p">[</span><span class="n">other</span><span class="p">]:</span>
+	    
+      <span class="c1"># only score movies I haven&#39;t seen yet</span>
+      <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">domain1</span><span class="p">[</span><span class="n">person</span><span class="p">]</span> <span class="ow">or</span> <span class="n">domain1</span><span class="p">[</span><span class="n">person</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+        <span class="c1"># Similarity * Score</span>
+        <span class="n">totals</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">totals</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">+=</span><span class="n">domain1</span><span class="p">[</span><span class="n">other</span><span class="p">][</span><span class="n">item</span><span class="p">]</span><span class="o">*</span><span class="n">sim</span>
+        <span class="c1"># Sum of similarities</span>
+        <span class="n">simSums</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">simSums</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">+=</span><span class="n">sim</span>
+
+  <span class="c1"># Create the normalized list</span>
+  <span class="n">rankings</span><span class="o">=</span><span class="p">[(</span><span class="n">total</span><span class="o">/</span><span class="n">simSums</span><span class="p">[</span><span class="n">item</span><span class="p">],</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span><span class="p">,</span><span class="n">total</span> <span class="ow">in</span> <span class="n">totals</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+
+  <span class="c1"># Return the sorted list</span>
+  <span class="n">rankings</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+  <span class="n">rankings</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+  <span class="k">return</span> <span class="n">rankings</span>
+
+
+<span class="k">def</span> <span class="nf">loadMovieLens</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;movielens&#39;</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="s1">&#39;/u1.base&#39;</span><span class="p">):</span>
+  <span class="c1"># Get movie titles</span>
+  <span class="n">movies</span><span class="o">=</span><span class="p">{}</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;/u.item&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">):</span>
+    <span class="p">(</span><span class="nb">id</span><span class="p">,</span><span class="n">title</span><span class="p">)</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">movies</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span><span class="o">=</span><span class="n">title</span>
+  
+  <span class="c1"># Load data</span>
+  <span class="n">prefs</span><span class="o">=</span><span class="p">{}</span>
+  <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="n">file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">user</span><span class="p">,</span><span class="n">movieid</span><span class="p">,</span><span class="n">rating</span><span class="p">,</span><span class="n">ts</span><span class="p">)</span><span class="o">=</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">prefs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">user</span><span class="p">,{})</span>
+    <span class="n">prefs</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="n">movieid</span><span class="p">]</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">prefs</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+
+    <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;movielens/u.data&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="p">[</span><span class="n">row</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+    <span class="n">fDomainDict</span><span class="p">,</span><span class="n">sDomainDict</span><span class="o">=</span><span class="p">{},{}</span>
+    <span class="n">fDomainDict</span><span class="o">=</span><span class="n">loadMovieLens</span><span class="p">(</span><span class="s1">&#39;movielens&#39;</span><span class="p">,</span><span class="s1">&#39;/u1.base&#39;</span><span class="p">)</span>
+    <span class="n">sDomainDict</span><span class="o">=</span><span class="n">loadMovieLens</span><span class="p">(</span><span class="s1">&#39;movielens&#39;</span><span class="p">,</span><span class="s1">&#39;/u2.base&#39;</span><span class="p">)</span>
+    <span class="n">fDomainTest</span> <span class="o">=</span><span class="n">loadMovieLens</span><span class="p">(</span><span class="s1">&#39;movielens&#39;</span><span class="p">,</span><span class="s1">&#39;/u1.test&#39;</span><span class="p">)</span>
+
+    <span class="n">sumAccuracy</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">lenCount</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">fDomainTest</span><span class="p">:</span>
+        <span class="n">pred</span> <span class="o">=</span> <span class="n">getRecommendations</span><span class="p">(</span><span class="n">fDomainDict</span><span class="p">,</span><span class="n">sDomainDict</span><span class="p">,</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">count</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="n">preds</span><span class="o">=</span><span class="p">{}</span>
+        <span class="k">for</span> <span class="n">rating</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="n">pred</span><span class="p">:</span>
+            <span class="n">preds</span><span class="p">[</span><span class="n">item</span><span class="p">]</span><span class="o">=</span><span class="n">rating</span>
+            <span class="c1"># print(movies[item],rating,item)</span>
+        <span class="n">accuracies</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">fDomainTest</span><span class="p">[</span><span class="n">user</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">movie</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">:</span><span class="k">continue</span> 
+            <span class="n">actualRating</span> <span class="o">=</span> <span class="n">fDomainTest</span><span class="p">[</span><span class="n">user</span><span class="p">][</span><span class="n">movie</span><span class="p">]</span>
+            <span class="n">predcitedRating</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="n">movie</span><span class="p">]</span>
+            <span class="n">accu</span> <span class="o">=</span> <span class="n">fabs</span><span class="p">((</span><span class="n">predcitedRating</span> <span class="o">-</span> <span class="n">actualRating</span><span class="p">)</span><span class="o">/</span><span class="n">actualRating</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">accu</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">accuracies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">accu</span><span class="p">)</span>
+        <span class="n">lenCount</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="nb">print</span><span class="p">((</span><span class="nb">sum</span><span class="p">(</span><span class="n">accuracies</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">accuracies</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span>
+        <span class="n">sumAccuracy</span><span class="o">+=</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">accuracies</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">accuracies</span><span class="p">))</span><span class="o">*</span><span class="mi">100</span>
+        
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Average Accuracy&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sumAccuracy</span><span class="p">)</span><span class="o">/</span><span class="n">lenCount</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78.24458597531506
+88.72733991801918
+74.95084077484837
+78.07399138163689
+78.33014107962788
+79.37675348022614
+78.16251325662003
+80.61837594957294
+83.27084079284761
+88.20977500645698
+82.01889065118986
+83.9474574689836
+75.9191819559501
+84.16207820451268
+72.51444430410291
+79.87563986794397
+74.58287423991234
+84.03080793731756
+82.0726031809847
+66.1935783088158
+75.04043838849766
+75.81956475714028
+81.09323822210993
+84.8137538788754
+87.69639052666197
+82.65709505265816
+83.32672887963535
+84.33751301478816
+86.89653169865294
+81.7428314527821
+82.18927200064815
+87.03495023540914
+88.64489145800378
+79.1915150582124
+75.28049685820244
+80.19683014300965
+84.68910045981767
+65.7860993956031
+86.22655908813755
+79.36955779517363
+86.45272893856121
+80.13292208729263
+83.6397888730046
+81.70979636168832
+84.53468384734644
+84.14168996785631
+89.82850502678284
+82.16464240366996
+70.24732219787117
+74.03423604766205
+92.100430389486
+87.06309009254586
+83.95274443284171
+79.20398611773642
+76.17186131332959
+82.0360042814422
+84.53991635781784
+81.05921322908478
+79.08161262492844
+88.47383452888037
+70.33647540542282
+78.42720800518427
+82.64852370906448
+81.99956235249006
+87.11980546312884
+79.39500197421752
+79.26329220593753
+83.3475407003137
+83.71018043411163
+88.4053919035635
+82.48592975294144
+86.93168379095314
+84.09383252234349
+88.69250469896046
+78.43478896865507
+81.67558542300219
+78.43561495228502
+80.0987979499805
+81.15425760668069
+76.97986042612672
+69.61187939372506
+80.06490461488221
+81.32118071746464
+86.9825187013124
+82.89597609319502
+86.89421840835853
+82.56842871855666
+73.07515810257989
+79.29203266697985
+83.19119577968803
+80.99197289411532
+83.07908373179494
+84.64166495992407
+83.72824766602474
+77.72986505514035
+81.45938497227561
+84.0030414458336
+76.4128091146237
+79.80821213051976
+82.70906678520602
+74.94705391599179
+70.80623087664269
+90.32429327476315
+72.05222397329439
+84.78815579602355
+88.85342954741841
+81.54900831500727
+83.55205802117709
+79.15511366819479
+79.05143166080504
+84.37839924671917
+82.93863334702574
+74.00078081330528
+75.00119419487221
+76.77698391460432
+72.7101551959938
+82.42234392581003
+79.56636166376954
+79.31461398845985
+83.69414000198033
+78.12682521263088
+82.5266797500919
+77.71483312048412
+79.76137424845086
+82.8155706386483
+81.99190397014402
+71.46406224177387
+83.4232043107464
+54.100892022960466
+77.28573870569906
+82.149832847738
+88.02728267714036
+86.15079895676195
+78.16010309080549
+84.77236373912244
+87.62927344049707
+73.74761799190459
+87.58020550058814
+90.73581103600513
+87.64313304816007
+78.21130755303642
+76.05967582659241
+79.3506177686078
+83.37542199767854
+76.96304536644921
+84.25069595775862
+83.69083177209215
+77.21107704642422
+65.51666071681852
+80.06049412811971
+81.26382826428447
+76.84114720148357
+57.79042985302556
+85.64331924395941
+75.5174660901236
+81.2416558648415
+80.18371568851497
+84.05491427648091
+77.65695412272345
+83.17607565493395
+51.001883324723096
+86.66296360622336
+87.70600274593812
+74.82426225837443
+82.53454635058942
+72.22064644704199
+81.74801783859866
+78.15412069112317
+88.58808629460128
+85.39664902345133
+88.51370393645176
+79.3719953474331
+76.65381907273765
+71.69907964695633
+79.22796886303261
+81.92227436077076
+83.81456650160744
+85.26078029192422
+82.08308972320862
+81.58899134225847
+55.02797283253593
+81.53143246965014
+76.81237858311411
+85.06451683650111
+90.53037384418886
+79.2018670620644
+84.88475789324177
+78.39011866945239
+79.93821551481741
+85.96423685251433
+87.87919445549984
+80.5888453709366
+82.78164997698721
+73.58009006608273
+82.54866958688598
+82.24630059326547
+78.86842854911713
+81.16378095970875
+68.54671580106222
+77.60188498021421
+68.81405518952978
+64.57132554958862
+87.04404895922599
+76.77166268877723
+86.39738396595624
+77.76237269049456
+80.26404527728678
+84.70807994527115
+70.49345984696875
+84.61115757163198
+76.56222908777092
+87.17290655059853
+81.45836770960196
+85.049716344018
+82.24906811070181
+83.80102440028746
+75.71010225865028
+83.94633462256692
+83.36573967471188
+80.48695006930454
+81.91340862911784
+76.95916433589515
+78.82797710393045
+81.47030918540474
+81.7038623938767
+87.85254026763593
+82.81604400189323
+84.73705445384977
+73.31189884287764
+78.93688571961846
+86.73994242615028
+83.29010411667463
+85.35616367628148
+74.08064466237221
+87.33984900864446
+73.35929972705678
+87.89620905037391
+86.34253285300251
+79.3383203916041
+82.13685175550877
+78.8648465731467
+83.52466977398898
+81.71339313780082
+78.36485957395178
+78.05320316018732
+74.6251673054487
+87.69946911090358
+82.71080872519586
+85.00384859930037
+80.21393487792675
+81.95572204109166
+84.75594681343308
+83.74941626844911
+79.89814986730137
+80.73116635870322
+77.75171533005248
+85.17311986276155
+71.82900991152685
+85.98500540891443
+78.2261874195672
+72.04993613794252
+78.02215684838629
+81.76814730370856
+79.28592145900863
+77.34883974751789
+83.89288507292629
+85.35293037559768
+79.3346258486371
+75.42843707789322
+73.74122439722103
+81.00030323810913
+87.32722091415944
+91.239816003912
+81.78339267196021
+82.69632281698318
+84.05105798324416
+86.88592028850822
+86.8124878032729
+76.86399370788253
+75.28762394364132
+80.1983892799516
+77.05401679486874
+84.02094545429246
+92.00150318546028
+84.91341445047004
+77.73202772582131
+80.45311715169252
+82.22626958939613
+81.62008842581902
+78.89161434356336
+76.71234618147493
+86.88758763384817
+75.22549138094962
+85.05055721757225
+79.11889858093296
+78.6315833429202
+81.06588926148642
+84.44141776910837
+82.66694164909171
+78.88898153878968
+81.58033884936187
+57.61817592654545
+80.22059802669563
+86.89188683022881
+77.54719388209344
+88.01821953725816
+80.90832111960647
+82.921041754652
+75.36956113225101
+84.41525478091899
+84.43848441850498
+81.4916782224522
+81.24383127480309
+76.33063789439856
+86.31598392668944
+82.60378306732224
+88.7656591774373
+82.11404262537961
+83.84894970045949
+83.16440535311845
+82.8304767735926
+81.35263825694697
+81.6690162281309
+74.94649105481203
+79.73904400672731
+76.6908055673421
+78.6546981604428
+85.20624534013747
+85.30913396114047
+78.39487112837199
+80.04534288169778
+76.8694663839575
+83.7386410018484
+82.9239125753264
+86.53404175203774
+78.64831913706773
+81.66934559034674
+84.20163736251727
+83.72866327853731
+89.33870103847319
+80.33696539662026
+78.3966066529746
+81.81690080337101
+83.4716156634482
+84.06266450486326
+83.02162869513924
+73.50873453896482
+82.98381464199446
+72.00414778044158
+84.46729148542906
+80.36603636051413
+91.29740641578138
+75.79192977124865
+82.42605430111344
+80.78569990253041
+75.7287013890147
+78.19666863727018
+78.85912251136935
+88.01975862768288
+88.30902870750428
+84.87639052575541
+80.31463256190932
+73.06327940989296
+82.12506033905564
+76.46248863351302
+71.5757584724607
+76.54631901099968
+72.92482148743505
+81.89958235461837
+79.79794810750255
+86.57190626827193
+72.50322804543354
+81.45016934868282
+80.22927174054676
+85.75946976003945
+89.95120991937505
+84.02949710420273
+85.07804007753529
+83.59797400547211
+78.96458299689805
+82.03300964444647
+67.27939193397265
+78.34334922928917
+78.09443082446589
+71.9761762087233
+86.97125910185186
+78.44416387825174
+77.88395144573808
+83.19724698839588
+79.54994985955398
+80.09461174195492
+78.06226569001726
+79.72100558422042
+81.40806797247106
+84.732083707577
+86.48982570804525
+74.43681133304861
+82.84830615470887
+72.30388376011425
+89.34277736810368
+74.60824908398924
+88.14122563862027
+81.1421889245827
+74.68854627185424
+70.98066675345001
+81.0889011818525
+82.1535656809764
+84.63924265580131
+69.21851431853099
+79.11522944262418
+84.51329735561389
+91.36334356310675
+87.5315358989705
+80.39811433581697
+90.64444359512677
+81.94074078993486
+79.00315749095901
+72.4750295187253
+89.57633596599811
+90.63212213892349
+91.11867128704533
+82.83927178884575
+87.18150562545037
+80.85525387528443
+73.35127555268625
+86.70692426010869
+78.22015160000448
+79.6492705097572
+84.14735635150726
+92.2570012270075
+91.740205104407
+86.1671615909777
+91.10122778280467
+84.50731701849898
+80.71095404214947
+80.64312339887194
+80.9493671643382
+78.45177882116572
+85.72215226433319
+76.29127340349964
+81.04045806497206
+86.43972702866982
+59.96958529627069
+76.88646146344652
+85.28417246715604
+94.83187112790856
+85.81297437220022
+82.15136087183043
+74.35598640134089
+52.57778436829729
+88.40832448721034
+65.96129388063672
+89.18250582286208
+81.2029857547158
+86.50993971345667
+95.01178273716474
+93.23184908832425
+71.54117626105727
+67.27011469571069
+Average Accuracy
+80.85736319248059
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
+<p>A Deep Framework for Cross-Domain and Cross-System Recommendations. Feng Zhu, Yan Wang, Chaochao Chen, Guanfeng Liu, Mehmet Orgun, Jia Wu. 2018. IJCAI. <a class="reference external" href="https://www.ijcai.org/proceedings/2018/0516.pdf">https://www.ijcai.org/proceedings/2018/0516.pdf</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "sparsh-ai/coldstart-recsys",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="T316836_Collective_Matrix_Factorization_on_ML_1m.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Collective Matrix Factorization on ML-1m</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="T951866_DropoutNet_Cold_start_Recommendation_on_CiteULike_dataset.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">DropoutNet Cold-start Recommendation on CiteULike dataset</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Sparsh A.<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
