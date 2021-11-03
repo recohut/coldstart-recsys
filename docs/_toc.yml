@@ -1,0 +1,6 @@
+format: jb-book
+root: L281872_Cold_Start_Recommendations
+parts:
+- caption: Tutorials
+  chapters:
+  - file: T847725_Attribute_to_Feature_Mappings_for_Cold_Start_Recommendations
